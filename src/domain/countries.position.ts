@@ -2,6 +2,12 @@ import { Country } from "./countries";
 
 export const countries: Country[] = [
   {
+    code: "kommune_301",
+    latitude: 11.12304,
+    longitude: 59.58487,
+    name: "Oslo",
+  },
+  {
     code: "AD",
     latitude: 42.546245,
     longitude: 1.601554,
