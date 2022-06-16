@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpMzQ3LjgwfDY2MC4yMHwwLjAwfDEwMDguMDA='>
+    <rect x='347.80' y='0.00' width='312.41' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzQ3LjgwfDY2MC4yMHwwLjAwfDEwMDguMDA=)'>
+<path d='M 364.55 45.82 L 403.48 108.30 L 410.06 124.16 L 445.22 192.07 L 498.85 281.59 L 517.01 303.94 L 523.06 306.62 L 525.53 320.28 L 601.10 391.33 L 606.37 400.52 L 597.45 438.65 L 589.13 618.82 L 615.83 680.23 L 640.37 753.79 L 639.15 763.98 L 646.00 800.24 L 638.00 808.48 L 641.65 831.63 L 633.58 840.54 L 633.62 849.77 L 627.62 859.01 L 628.10 869.55 L 606.10 876.86 L 608.99 892.37 L 606.67 897.46 L 609.95 925.62 L 606.82 938.26 L 601.23 937.27 L 588.26 949.51 L 579.37 944.60 L 573.67 959.33 L 559.74 954.41 L 550.74 962.18 L 548.54 956.19 L 537.88 951.06 L 543.75 934.63 L 518.66 926.77 L 510.34 918.40 L 480.35 916.52 L 464.85 930.43 L 441.58 936.78 L 406.51 950.51 L 373.84 882.56 L 362.00 865.83 L 405.52 859.68 L 420.37 845.10 L 433.51 852.96 L 430.51 869.19 L 441.76 868.05 L 437.96 859.55 L 446.95 854.04 L 444.79 845.38 L 450.96 838.69 L 461.23 838.83 L 459.48 820.52 L 454.32 816.86 L 456.84 807.54 L 475.75 794.27 L 475.08 788.67 L 486.90 773.99 L 491.87 756.01 L 482.67 738.43 L 478.68 720.93 L 472.60 720.84 L 467.89 711.94 L 461.27 713.88 L 458.46 558.86 L 486.70 487.16 L 490.43 459.93 L 479.05 434.72 L 411.65 308.72 L 393.00 206.23 L 364.55 45.82 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

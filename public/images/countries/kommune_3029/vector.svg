@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpMjQ3Ljg5fDc2MC4xMXwwLjAwfDEwMDguMDA='>
+    <rect x='247.89' y='0.00' width='512.22' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMjQ3Ljg5fDc2MC4xMXwwLjAwfDEwMDguMDA=)'>
+<path d='M 438.39 111.50 L 497.44 45.82 L 489.67 114.22 L 578.07 87.54 L 616.47 181.78 L 636.27 197.39 L 654.25 164.43 L 669.04 180.31 L 674.55 215.97 L 694.50 197.81 L 731.76 254.19 L 721.56 378.81 L 736.83 418.28 L 707.16 442.86 L 708.44 495.95 L 692.76 620.59 L 710.96 670.25 L 663.10 739.83 L 686.00 779.09 L 677.35 804.26 L 711.73 845.16 L 717.60 912.83 L 708.73 946.88 L 633.14 962.18 L 568.98 935.95 L 504.80 932.62 L 387.85 947.37 L 369.25 960.63 L 362.06 958.74 L 319.74 831.51 L 290.76 783.39 L 271.17 709.61 L 281.49 669.02 L 272.95 596.06 L 311.18 334.34 L 353.87 220.11 L 417.97 157.28 L 403.89 140.02 L 438.39 111.50 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

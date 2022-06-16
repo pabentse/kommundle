@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpMjYxLjI5fDc0Ni43MXwwLjAwfDEwMDguMDA='>
+    <rect x='261.29' y='0.00' width='485.42' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMjYxLjI5fDc0Ni43MXwwLjAwfDEwMDguMDA=)'>
+<path d='M 312.50 912.70 L 283.36 848.26 L 286.24 722.58 L 321.64 631.54 L 330.37 576.44 L 364.44 520.79 L 359.90 474.30 L 386.39 431.52 L 397.25 370.89 L 427.44 334.94 L 447.68 277.85 L 486.41 203.24 L 503.67 86.50 L 519.93 69.35 L 571.17 135.29 L 586.67 194.13 L 601.13 182.50 L 624.15 246.04 L 636.46 369.91 L 658.75 460.85 L 655.55 535.32 L 670.86 600.39 L 669.89 633.91 L 645.06 645.95 L 639.24 671.49 L 610.81 675.83 L 594.01 660.59 L 561.84 680.96 L 518.51 692.87 L 480.71 734.14 L 452.69 781.92 L 434.95 866.49 L 465.06 900.19 L 458.25 947.79 L 430.93 939.50 L 402.49 962.18 L 362.40 934.54 L 312.50 912.70 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+<path d='M 724.64 67.95 L 696.68 86.38 L 682.74 59.54 L 715.55 45.82 L 724.64 67.95 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

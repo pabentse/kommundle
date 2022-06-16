@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpNzAuNDB8OTM3LjYwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='70.40' y='0.00' width='867.20' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNzAuNDB8OTM3LjYwfDAuMDB8MTAwOC4wMA==)'>
+<path d='M 898.18 75.11 L 837.52 176.27 L 778.02 277.27 L 745.79 334.34 L 707.75 405.10 L 656.30 502.59 L 656.30 502.59 L 538.88 534.76 L 510.50 546.40 L 478.71 558.21 L 424.62 582.13 L 405.67 585.42 L 316.45 640.39 L 321.35 682.44 L 301.59 702.98 L 289.96 726.15 L 273.88 772.79 L 249.42 839.25 L 236.00 845.20 L 233.69 854.50 L 221.16 871.81 L 214.77 883.50 L 195.29 904.97 L 141.38 962.18 L 160.03 759.58 L 137.67 729.21 L 112.68 608.09 L 109.82 603.35 L 131.70 597.18 L 142.24 597.67 L 177.53 602.08 L 196.73 606.04 L 191.48 557.16 L 301.54 352.61 L 340.97 227.20 L 347.65 212.16 L 347.75 184.28 L 416.14 148.39 L 444.14 121.84 L 460.54 116.59 L 469.79 104.31 L 471.03 94.69 L 490.73 90.40 L 520.53 84.23 L 563.93 87.06 L 596.76 76.05 L 656.52 75.43 L 667.08 63.70 L 705.90 59.85 L 737.55 70.72 L 764.98 61.16 L 799.10 45.82 L 805.92 48.73 L 815.78 57.59 L 853.12 57.08 L 857.47 67.95 L 868.63 67.99 L 880.21 80.67 L 892.46 71.38 L 898.18 75.11 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

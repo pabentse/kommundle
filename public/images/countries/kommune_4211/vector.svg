@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpOS40MHw5OTguNjB8MC4wMHwxMDA4LjAw'>
+    <rect x='9.40' y='0.00' width='989.20' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpOS40MHw5OTguNjB8MC4wMHwxMDA4LjAw)'>
+<path d='M 218.51 66.29 L 293.40 73.52 L 356.63 75.95 L 435.78 74.21 L 549.46 45.82 L 561.99 67.87 L 562.61 98.80 L 578.08 109.95 L 587.13 155.98 L 631.40 287.34 L 710.01 372.18 L 753.33 395.52 L 816.55 441.71 L 837.50 448.11 L 890.58 477.19 L 936.47 566.89 L 952.13 637.13 L 953.64 696.64 L 914.77 717.06 L 879.95 757.93 L 869.28 752.14 L 837.35 809.86 L 812.67 827.10 L 745.25 856.07 L 727.76 827.21 L 698.95 857.30 L 660.46 931.76 L 638.88 962.18 L 604.13 958.41 L 602.36 929.14 L 589.32 874.81 L 532.50 814.87 L 562.71 761.80 L 545.34 747.56 L 487.47 715.59 L 444.60 675.71 L 443.75 662.84 L 405.35 629.91 L 383.28 620.02 L 348.94 615.35 L 321.19 601.30 L 267.56 602.52 L 264.88 586.80 L 216.03 578.82 L 187.21 531.45 L 132.64 558.83 L 109.27 546.43 L 143.97 479.55 L 167.85 451.59 L 178.55 406.51 L 211.43 367.17 L 175.17 346.18 L 137.51 310.41 L 69.20 268.39 L 54.36 247.01 L 69.86 224.06 L 193.87 138.92 L 214.51 106.38 L 218.51 66.29 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

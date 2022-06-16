@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpODguMjB8OTE5LjgwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='88.20' y='0.00' width='831.60' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpODguMjB8OTE5LjgwfDAuMDB8MTAwOC4wMA==)'>
+<path d='M 504.57 897.81 L 468.37 846.34 L 463.19 763.78 L 256.66 805.70 L 186.00 792.78 L 164.15 837.29 L 126.00 745.51 L 188.05 680.69 L 167.00 512.87 L 207.34 479.90 L 174.81 409.93 L 232.57 322.60 L 318.75 333.84 L 356.75 259.05 L 266.44 216.20 L 264.79 114.74 L 300.18 45.82 L 441.28 138.82 L 450.82 230.48 L 537.14 220.59 L 720.25 387.37 L 836.77 415.86 L 882.00 570.61 L 800.55 625.12 L 763.37 700.18 L 846.54 797.15 L 879.00 934.76 L 779.19 933.63 L 726.69 962.18 L 586.00 894.98 L 570.19 858.97 L 504.57 897.81 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

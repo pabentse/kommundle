@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpMTg1LjA4fDgyMi45MnwwLjAwfDEwMDguMDA='>
+    <rect x='185.08' y='0.00' width='637.84' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMTg1LjA4fDgyMi45MnwwLjAwfDEwMDguMDA=)'>
+<path d='M 623.27 505.13 L 672.44 505.32 L 642.92 539.89 L 620.34 625.09 L 587.70 653.11 L 641.27 700.33 L 672.64 775.31 L 664.54 813.23 L 615.13 748.05 L 599.21 710.69 L 580.89 737.67 L 593.04 777.81 L 614.81 776.16 L 605.07 828.84 L 615.35 855.45 L 596.48 901.93 L 584.40 811.22 L 545.48 751.16 L 555.30 733.83 L 538.91 684.27 L 503.39 669.48 L 519.40 706.82 L 490.04 697.57 L 458.52 735.16 L 475.54 814.80 L 448.08 812.61 L 415.22 755.14 L 380.01 748.14 L 317.21 801.14 L 313.78 874.25 L 340.43 892.57 L 322.54 908.94 L 315.44 962.18 L 251.77 941.04 L 255.10 902.19 L 214.07 865.02 L 232.93 840.38 L 237.48 793.45 L 293.98 756.85 L 323.67 757.76 L 368.12 717.77 L 373.51 676.38 L 400.27 656.25 L 437.56 595.26 L 525.00 533.93 L 594.84 502.43 L 623.27 505.13 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+<path d='M 793.93 52.73 L 778.81 67.00 L 777.31 170.59 L 762.99 183.28 L 705.51 144.32 L 742.37 108.08 L 768.45 45.82 L 793.93 52.73 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>

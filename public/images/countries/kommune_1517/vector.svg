@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='1008.00pt' height='1008.00pt' viewBox='0 0 1008.00 1008.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA=='>
+    <rect x='0.00' y='0.00' width='1008.00' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+<defs>
+  <clipPath id='cpMTU5LjkwfDg0OC4xMHwwLjAwfDEwMDguMDA='>
+    <rect x='159.90' y='0.00' width='688.21' height='1008.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMTU5LjkwfDg0OC4xMHwwLjAwfDEwMDguMDA=)'>
+<path d='M 356.19 49.15 L 391.35 45.82 L 462.09 73.04 L 489.03 63.09 L 503.92 121.97 L 507.76 197.34 L 555.60 276.49 L 581.56 300.14 L 588.71 338.64 L 571.02 380.58 L 590.38 410.66 L 702.82 449.54 L 721.05 490.54 L 668.46 543.93 L 757.83 495.59 L 778.69 509.98 L 806.48 495.05 L 816.82 515.82 L 770.34 564.50 L 740.88 569.80 L 705.06 595.73 L 676.45 638.70 L 608.65 687.96 L 585.40 724.20 L 491.88 797.60 L 462.02 832.68 L 396.61 864.16 L 344.02 925.77 L 335.44 962.18 L 302.07 955.59 L 298.98 909.77 L 360.63 861.88 L 332.43 781.98 L 306.57 771.86 L 287.66 726.24 L 210.52 661.87 L 240.89 616.53 L 191.18 471.58 L 200.29 311.32 L 246.61 288.02 L 294.70 302.92 L 356.01 257.86 L 302.88 187.29 L 354.00 87.50 L 356.19 49.15 Z' style='fill-rule: evenodd; fill: #000000; stroke-width: 1.07; stroke: #595959; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHwxMDA4LjAwfDAuMDB8MTAwOC4wMA==)'>
+</g>
+</svg>
