@@ -17,6 +17,7 @@ const forcedCountries: Record<string, string> = {
   "2022-03-22": "MC",
   "2022-03-23": "PR",
   "2022-03-24": "MX",
+  "2022-06-22": "NO",
 };
 
 const noRepeatStartDate = DateTime.fromFormat("2022-05-01", "yyyy-MM-dd");
