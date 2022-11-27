@@ -4,7 +4,7 @@ export const countries = [
     latitude: 64.2694574828099,
     longitude: 10.6609468284909,
     name: "Osen",
-  {
+  },
   {
     code: "municip5022",
     latitude: 62.8095286432537,
