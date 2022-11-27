@@ -12,7 +12,6 @@ import { CountryCode } from "../domain/countries.position";
 import { Guess, loadAllGuesses, saveGuesses } from "../domain/guess";
 
 const forcedCountries: Record<string, CountryCode> = {
-  "2022-11-27": "municip0301",
 };
 
 const noRepeatStartDate = DateTime.fromFormat("2022-05-01", "yyyy-MM-dd");
