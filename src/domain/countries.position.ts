@@ -71,7 +71,6 @@ export const countries = [
        longitude: 6.19338069023621,
        name: "Etne",
   },
-export const countries = [
 {
        code: "municip3054",
        latitude: 60.2438387509904,
