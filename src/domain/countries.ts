@@ -15,7 +15,6 @@ export const countryCodesWithImage = [
 ];
 
 export const countries = [
- export const countries = [
   {
     code: "municip5020",
     latitude: 64.2694574828099,
