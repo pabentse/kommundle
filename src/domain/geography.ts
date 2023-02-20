@@ -2,8 +2,8 @@ const MAX_DISTANCE_ON_EARTH = 20_000_000;
 
 export type Direction =
 | "S"
-| "W"
-| "NNE"
+| "V"
+| "NNØ"
 | "NE"
 | "ENE"
 | "E"
