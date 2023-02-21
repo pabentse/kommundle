@@ -4,17 +4,17 @@
 
 export const countryCodesWithImage = [
   "municip0301",
-  "municip1101",
-  "municip1103",
-  "municip1106",
-  "municip1108",
-  "municip1111",
-  "municip1112",
-  "municip1114",
-  "municip1119",
-  "municip5020",
-  "municip5022",
-  "municip5021",
+//  "municip1101",
+//  "municip1103",
+//  "municip1106",
+//  "municip1108",
+//  "municip1111",
+//  "municip1112",
+//  "municip1114",
+//  "municip1119",
+//  "municip5020",
+//  "municip5022",
+//  "municip5021",
 ];
 
 export const countries = [
