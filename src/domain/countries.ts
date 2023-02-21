@@ -1,9 +1,6 @@
 // Source:
 // Countries with long/lat => https://developers.google.com/public-data/docs/canonical/countries_csv
 // Countries images => https://github.com/djaiss/mapsicon
-
-export const countryCodesWithImage = [
-  "municip0301",
 //  "municip1101",
 //  "municip1103",
 //  "municip1106",
@@ -15,6 +12,9 @@ export const countryCodesWithImage = [
 //  "municip5020",
 //  "municip5022",
 //  "municip5021",
+
+export const countryCodesWithImage = [
+  "municip0301",
 ];
 
 export const countries = [
