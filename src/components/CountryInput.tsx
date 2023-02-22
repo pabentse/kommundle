@@ -33,7 +33,7 @@ export function CountryInput({
       }}
       inputProps={{
         className: "w-full",
-        placeholder: "Country, territory...",
+        placeholder: "Kommune",
         value: currentGuess,
         onChange: (_e, { newValue }) => setCurrentGuess(newValue),
       }}

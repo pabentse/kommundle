@@ -41,10 +41,10 @@ export function Share({guesses, dayString}: ShareProps) {
   return (
     <CopyToClipboard
       text={shareText}
-      onCopy={() => toast("Copied results to clipboard")}
+      onCopy={() => toast("Kopierte resultatene til utklippstavlen")}
     >
       <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
-        Share
+        Del 
       </button>
     </CopyToClipboard>
   );
