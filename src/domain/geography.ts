@@ -1,4 +1,4 @@
-const MAX_DISTANCE_ON_EARTH = 1800;
+const MAX_DISTANCE_ON_EARTH = 1_800_000;
 
 export type Direction =
 | "S"
