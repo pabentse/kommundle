@@ -32,7 +32,7 @@ function App() {
               ❔
             </button>
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-              Kommun<span className="text-green-600">l</span>dle
+              Kommund<span className="text-green-600">l</span>e
             </h1>
           </header>
           <Game />
