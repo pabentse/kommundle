@@ -16,7 +16,7 @@ export function Infos({ isOpen, close }: InfosProps) {
       <div className="w-full max-w-lg bg-white text-sm overflow-auto px-2">
         <header className="border-b-2 border-gray-200 mb-3 flex">
           <h2 className="text-2xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-            How to play
+            Spillemåte
           </h2>
           <button type="button" onClick={close}>
             ✖️
@@ -24,16 +24,15 @@ export function Infos({ isOpen, close }: InfosProps) {
         </header>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <div>
-            Guess the{" "}
+         Gjett{" "}
             <span className="font-bold">
-              WOR<span className="text-green-600">L</span>DLE
+              KOMMUND<span className="text-green-600">L</span>EN
             </span>{" "}
-            in 6 guesses.
+            på seks gjetninger.
           </div>
-          <div>Each guess must be a valid country, territory, ...</div>
+          <div>Hver gjetning må være en norsk kommune.</div>
           <div>
-            After each guess, you will have the distance, the direction and the
-            proximity from your guess and the target country.
+            Etter hver gjetning får du vite hvor langt unna du er og hvilken retning den korrekte kommunen ligger relativ til den du har gjetta. 
           </div>
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -91,8 +90,7 @@ export function Infos({ isOpen, close }: InfosProps) {
           </div>
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-          A new WOR<span className="text-green-600">L</span>DLE will be
-          available every day!
+          Det kommer en ny KOMMUND<span className="text-green-600">L</span>E hver dag.
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <span className="font-bold">
