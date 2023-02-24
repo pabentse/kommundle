@@ -124,14 +124,14 @@ export function Infos({ isOpen, close }: InfosProps) {
             >
               Øyvind Solheim
             </a>
-            og
+             og 
             <a
               className="underline"
               href="https://twitter.com/sandrabruce"
               target="_blank"
               rel="noopener noreferrer"
             >
-            Sandra Bruce
+            Sandra Bruce.
             </a>
           </div>
           <div>
