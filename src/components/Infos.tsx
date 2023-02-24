@@ -36,7 +36,7 @@ export function Infos({ isOpen, close }: InfosProps) {
           </div>
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-          <div className="font-bold">Examples</div>
+          <div className="font-bold">Eksempel</div>
           <div>
             <Guesses
               rowCount={1}
@@ -49,10 +49,8 @@ export function Infos({ isOpen, close }: InfosProps) {
               ]}
             />
             <div className="my-2">
-              Your guess <span className="uppercase font-bold">Chile</span> is
-              13557km away from the target country, the target country is in the
-              North-East direction and you have a only 32% of proximity because
-              it's quite far away!
+              Din gjetning <span className="uppercase font-bold">Tydal</span> er 
+              127km unna riktig kommune, den riktige kommunen ligger vestover.
             </div>
           </div>
           <div>
@@ -60,9 +58,9 @@ export function Infos({ isOpen, close }: InfosProps) {
               rowCount={1}
               guesses={[
                 {
-                  name: "Finland",
-                  direction: "SE",
-                  distance: 3_206_000,
+                  name: "Tydal",
+                  direction: "W",
+                  distance: 127_000,
                 },
               ]}
             />
