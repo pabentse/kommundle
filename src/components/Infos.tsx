@@ -24,13 +24,7 @@ export function Infos({ isOpen, close }: InfosProps) {
         </header>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <div>
-         Gjett{" "}
-            <span className="font-bold">
-              KOMMUND<span className="text-green-600">L</span>EN
-            </span>{" "}
-            på seks gjetninger.
-          </div>
-          <div>Hver gjetning må være en norsk kommune.</div>
+         Gjett riktig kommune på seks forsøk. Hver gjetning må være en norsk kommune.</div>
           <div>
             Etter hver gjetning får du vite hvor langt unna du er og hvilken retning den korrekte kommunen ligger relativ til den du har gjetta. 
           </div>
@@ -118,7 +112,8 @@ export function Infos({ isOpen, close }: InfosProps) {
             <span className="font-bold">
             KOMMUND<span className="text-green-600">L</span>E
           </span> er laget av {" "}
-            <a
+            <a 
+              rel=me
               className="underline"
               href="https://nerdculture.de/@Oyvindbs"
               target="_blank"
