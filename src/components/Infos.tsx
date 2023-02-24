@@ -42,15 +42,15 @@ export function Infos({ isOpen, close }: InfosProps) {
               rowCount={1}
               guesses={[
                 {
-                  name: "Chile",
-                  direction: "NE",
-                  distance: 13_557_000,
+                  name: "Vadsø",
+                  direction: "SW",
+                  distance: 1_195_000,
                 },
               ]}
             />
             <div className="my-2">
-              Din gjetning <span className="uppercase font-bold">Tydal</span> er 
-              127km unna riktig kommune, den riktige kommunen ligger vestover.
+              Din første gjetning <span className="uppercase font-bold">Vadsø</span> er 
+              1195km unna riktig kommune, den riktige kommunen ligger sørvestover.
             </div>
           </div>
           <div>
@@ -65,9 +65,8 @@ export function Infos({ isOpen, close }: InfosProps) {
               ]}
             />
             <div className="my-2">
-              Your second guess{" "}
-              <span className="uppercase font-bold">Finland</span> is getting
-              closer! 3206km away, South-East direction and 84%!
+                            Din andre gjetning <span className="uppercase font-bold">Tydal</span> er nærmere og 
+              127km unna riktig kommune, den riktige kommunen ligger vestover.
             </div>
           </div>
           <div>
@@ -75,14 +74,14 @@ export function Infos({ isOpen, close }: InfosProps) {
               rowCount={1}
               guesses={[
                 {
-                  name: "Lebanon",
+                  name: "Rindal",
                   direction: "N",
                   distance: 0,
                 },
               ]}
             />
             <div className="my-2">
-              Next guess, <span className="uppercase font-bold">Lebanon</span>,
+              Din tredje gjetning guess, <span className="uppercase font-bold">Rindal</span>,
               it's the country to guess! Congrats! 🎉
             </div>
           </div>
