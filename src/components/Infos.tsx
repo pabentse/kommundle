@@ -140,7 +140,7 @@ export function Infos({ isOpen, close }: InfosProps) {
               Lyst til å kjøpe oss en kaffe? ☕
             </a>
           </div>
-          Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi er veldig takknemlige for dette dugnadsarbeidet og for det offentliges vektlegging av tilgjengeliggjøring av data. Kommunevåpnene er hentet fra 
+          Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi er veldig takknemlige for dette dugnadsarbeidet og for det offentliges vektlegging av tilgjengeliggjøring av data. Kommunevåpnene er hentet fra {" "}
           <a
               className="underline"
               href="https://no.m.wikipedia.org/wiki/Kommunev%C3%A5pen_i_Norge"
@@ -149,7 +149,7 @@ export function Infos({ isOpen, close }: InfosProps) {
             >
             Wikipedia.{" "}
             </a>
-            Norske kommuners geografiske plassering er beregnet ved hjelp av kartene sol er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
+            Norske kommuners geografiske plassering er beregnet ved hjelp av kartene som er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
              <a 
              className="underline"
               href="https://docs.sykdomspulsen.no/splmaps/articles/splmaps.html"
