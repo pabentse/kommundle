@@ -141,7 +141,7 @@ export function Infos({ isOpen, close }: InfosProps) {
             </a>
           </div>
             <div className="font-bold">Data</div>
-          Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi er veldig takknemlige for dette dugnadsarbeidet og for det offentliges vektlegging av tilgjengeliggjøring av data. Kommunevåpnene er hentet fra {" "}
+          Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi er veldig takknemlige for dette dugnadsarbeidet og for det offentliges tilgjengeliggjøring av data. Kommunevåpnene er hentet fra {" "}
           <a
               className="underline"
               href="https://no.m.wikipedia.org/wiki/Kommunev%C3%A5pen_i_Norge"
