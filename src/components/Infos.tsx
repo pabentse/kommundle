@@ -113,11 +113,10 @@ export function Infos({ isOpen, close }: InfosProps) {
             KOMMUND<span className="text-green-600">L</span>E
           </span> er laget av {" "}
             <a 
-              rel=me
               className="underline"
               href="https://nerdculture.de/@Oyvindbs"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
             >
               Øyvind Solheim {" "}
             </a>
