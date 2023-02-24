@@ -66,7 +66,7 @@ export function Infos({ isOpen, close }: InfosProps) {
             />
             <div className="my-2">
                             Din andre gjetning <span className="uppercase font-bold">Tydal</span> er nærmere og 
-              127km unna riktig kommune, den riktige kommunen ligger vestover.
+              127km unna riktig kommune. Den riktige kommunen ligger vestover.
             </div>
           </div>
           <div>
@@ -81,8 +81,8 @@ export function Infos({ isOpen, close }: InfosProps) {
               ]}
             />
             <div className="my-2">
-              Din tredje gjetning guess, <span className="uppercase font-bold">Rindal</span>,
-              it's the country to guess! Congrats! 🎉
+              Din tredje gjetning, <span className="uppercase font-bold">Rindal</span>,
+              er riktig. Gratulerer! 🎉
             </div>
           </div>
         </div>
@@ -91,49 +91,57 @@ export function Infos({ isOpen, close }: InfosProps) {
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <span className="font-bold">
-            WOR<span className="text-green-600">L</span>DLE
+            KOMMUND<span className="text-green-600">L</span>E
           </span>{" "}
-          has been <span className="font-bold">heavily</span> inspired by{" "}
+          er inspirert av og baserer seg på kode fra {" "}
           <a
             className="underline"
-            href="https://www.powerlanguage.co.uk/wordle/"
+            href="https://worldle.teuteuf.fr"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Wordle
+            WORLDLE
           </a>{" "}
-          created by{" "}
+          laget og generøst delt av{" "}
           <a
             className="underline"
-            href="https://twitter.com/powerlanguish"
+            href="https://mastodon.social/@teuteuf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Josh Wardle (@powerlanguish)
+            @teuteuf@mastodon.social
           </a>
           .
         </div>
         <div className="space-y-3 text-justify pb-3">
           <div>
-            Made by{" "}
+            KOMMUNDLE er laget av {" "}
             <a
               className="underline"
-              href="https://twitter.com/teuteuf"
+              href="https://nerdculture.de/@Oyvindbs"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @teuteuf
+              Øyvind Solheim
+            </a>
+            og
+            <a
+              className="underline"
+              href="https://twitter.com/sandrabruce"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            Sandra Bruce
             </a>
           </div>
           <div>
-            Want to support?{" "}
             <a
               className="underline"
-              href="https://www.buymeacoffee.com/teuteuf"
+              href="https://www.buymeacoffee.com/oyvindbs"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Buy me a coffee! ☕
+              Lyst til å kjøpe oss en kaffe? ☕
             </a>
           </div>
         </div>
