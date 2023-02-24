@@ -115,7 +115,9 @@ export function Infos({ isOpen, close }: InfosProps) {
         </div>
         <div className="space-y-3 text-justify pb-3">
           <div>
-            KOMMUNDLE er laget av {" "}
+            <span className="font-bold">
+            KOMMUND<span className="text-green-600">L</span>E
+          </span> er laget av {" "}
             <a
               className="underline"
               href="https://nerdculture.de/@Oyvindbs"
