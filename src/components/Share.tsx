@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { computeProximityPercent } from "../domain/geography";
 import { Guess } from "../domain/guess";
 
-const START_DATE = DateTime.fromISO("2022-01-21");
+const START_DATE = DateTime.fromISO("2023-02-24");
 
 interface ShareProps {
   guesses: Guess[]
@@ -21,7 +21,7 @@ export function Share({guesses, dayString}: ShareProps) {
         "day"
       )
     );
-    const title = `Worldle #${dayCount} ${guessCount}/6`;
+    const title = `Kommundle #${dayCount} ${guessCount}/6`;
 
     const guessString = guesses
       .map((guess) => {
@@ -35,7 +35,7 @@ export function Share({guesses, dayString}: ShareProps) {
       })
       .join("\n");
 
-    return [title, guessString, "https://worldle.teuteuf.fr"].join("\n");
+    return [title, guessString, "https://kommundle.no"].join("\n");
   }, [dayString, guesses]);
   
   return (
