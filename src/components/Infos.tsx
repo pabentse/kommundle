@@ -122,7 +122,7 @@ export function Infos({ isOpen, close }: InfosProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Øyvind Solheim
+              Øyvind Solheim 
             </a>
              og 
             <a
@@ -131,7 +131,7 @@ export function Infos({ isOpen, close }: InfosProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-            Sandra Bruce.
+             Sandra Bruce.
             </a>
           </div>
           <div>
