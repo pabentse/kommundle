@@ -8,4 +8,4 @@ Kommunenes geografiske posisjon er beregnet basert på Folkehelseinstituttets r-
 
 Bildene av kommunevåpnene er hentet fra Wikipedias artikkel om [kommunevåpen](https://no.m.wikipedia.org/wiki/Kommunev%C3%A5pen_i_Norge). 
 
-Det er [Øyvind Solheim](https://github.com/oyvindbso) og [Sandra Bruce](https://twitter.com/Sandra Bruce) som har laget Kommundle.
+Det er [Øyvind Solheim](https://github.com/oyvindbso) og [Sandra Bruce](https://twitter.com/SandraBruce) som har laget Kommundle.
