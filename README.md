@@ -7,3 +7,5 @@ Kommundle er en fork av spillet [Wordle](https://worldle.teuteuf.fr/) som er lag
 Kommunenes geografiske posisjon er beregnet basert på Folkehelseinstituttets r-pakke [splmaps](https://docs.sykdomspulsen.no/splmaps/articles/splmaps.html). 
 
 Bildene av kommunevåpnene er hentet fra Wikipedias artikkel om [kommunevåpen](https://no.m.wikipedia.org/wiki/Kommunev%C3%A5pen_i_Norge). 
+
+Det er [Øyvind Solheim](https://github.com/oyvindbso) og [Sandra Bruce](https://twitter.com/Sandra Bruce) som har laget Kommundle.
