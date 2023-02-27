@@ -148,9 +148,9 @@ export function Infos({ isOpen, close }: InfosProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-            Wikipedia.{" "}
+            Wikipedia
             </a>
-            Norske kommuners geografiske plassering er beregnet ved hjelp av kartene som er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
+            . Norske kommuners geografiske plassering er beregnet ved hjelp av kartene som er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
              <a 
              className="underline"
               href="https://docs.sykdomspulsen.no/splmaps/articles/splmaps.html"
