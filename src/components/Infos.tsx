@@ -16,7 +16,7 @@ export function Infos({ isOpen, close }: InfosProps) {
       <div className="w-full max-w-lg bg-white text-sm overflow-auto px-2">
         <header className="border-b-2 border-gray-200 mb-3 flex">
           <h2 className="text-2xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-            How to play
+            Spillemåte
           </h2>
           <button type="button" onClick={close}>
             ✖️
@@ -24,36 +24,27 @@ export function Infos({ isOpen, close }: InfosProps) {
         </header>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <div>
-            Guess the{" "}
-            <span className="font-bold">
-              WOR<span className="text-green-600">L</span>DLE
-            </span>{" "}
-            in 6 guesses.
-          </div>
-          <div>Each guess must be a valid country, territory, ...</div>
+         Gjett riktig kommune på seks forsøk. Hver gjetning må være en norsk kommune.</div>
           <div>
-            After each guess, you will have the distance, the direction and the
-            proximity from your guess and the target country.
+            Etter hver gjetning får du vite hvor langt unna du er og hvilken retning den korrekte kommunen ligger relativ til den du har gjetta. 
           </div>
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-          <div className="font-bold">Examples</div>
+          <div className="font-bold">Eksempel</div>
           <div>
             <Guesses
               rowCount={1}
               guesses={[
                 {
-                  name: "Chile",
-                  direction: "NE",
-                  distance: 13_557_000,
+                  name: "Vadsø",
+                  direction: "SW",
+                  distance: 1_195_000,
                 },
               ]}
             />
             <div className="my-2">
-              Your guess <span className="uppercase font-bold">Chile</span> is
-              13557km away from the target country, the target country is in the
-              North-East direction and you have a only 32% of proximity because
-              it's quite far away!
+              Din første gjetning <span className="uppercase font-bold">Vadsø</span> er 
+              1195km unna riktig kommune, den riktige kommunen ligger sørvestover.
             </div>
           </div>
           <div>
@@ -61,16 +52,15 @@ export function Infos({ isOpen, close }: InfosProps) {
               rowCount={1}
               guesses={[
                 {
-                  name: "Finland",
-                  direction: "SE",
-                  distance: 3_206_000,
+                  name: "Tydal",
+                  direction: "W",
+                  distance: 127_000,
                 },
               ]}
             />
             <div className="my-2">
-              Your second guess{" "}
-              <span className="uppercase font-bold">Finland</span> is getting
-              closer! 3206km away, South-East direction and 84%!
+                            Din andre gjetning <span className="uppercase font-bold">Tydal</span> er nærmere og 
+              127km unna riktig kommune. Den riktige kommunen ligger vestover.
             </div>
           </div>
           <div>
@@ -78,69 +68,97 @@ export function Infos({ isOpen, close }: InfosProps) {
               rowCount={1}
               guesses={[
                 {
-                  name: "Lebanon",
+                  name: "Rindal",
                   direction: "N",
                   distance: 0,
                 },
               ]}
             />
             <div className="my-2">
-              Next guess, <span className="uppercase font-bold">Lebanon</span>,
-              it's the country to guess! Congrats! 🎉
+              Din tredje gjetning, <span className="uppercase font-bold">Rindal</span>,
+              er riktig. Gratulerer! 🎉
             </div>
           </div>
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-          A new WOR<span className="text-green-600">L</span>DLE will be
-          available every day!
+          Det kommer en ny KOMMUND<span className="text-green-600">L</span>E hver dag.
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <span className="font-bold">
-            WOR<span className="text-green-600">L</span>DLE
+            KOMMUND<span className="text-green-600">L</span>E
           </span>{" "}
-          has been <span className="font-bold">heavily</span> inspired by{" "}
+          er inspirert av og baserer seg på kode fra {" "}
           <a
             className="underline"
-            href="https://www.powerlanguage.co.uk/wordle/"
+            href="https://worldle.teuteuf.fr"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Wordle
+            WORLDLE
           </a>{" "}
-          created by{" "}
+          laget og generøst delt av{" "}
           <a
             className="underline"
-            href="https://twitter.com/powerlanguish"
+            href="https://mastodon.social/@teuteuf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Josh Wardle (@powerlanguish)
+            @teuteuf@mastodon.social
           </a>
           .
         </div>
         <div className="space-y-3 text-justify pb-3">
           <div>
-            Made by{" "}
+            <span className="font-bold">
+            KOMMUND<span className="text-green-600">L</span>E
+          </span> er laget av {" "}
+            <a 
+              className="underline"
+              href="https://nerdculture.de/@Oyvindbs"
+              target="_blank"
+              rel="me noopener noreferrer"
+            >
+              Øyvind Solheim {" "}
+            </a>
+             og {" "}
             <a
               className="underline"
-              href="https://twitter.com/teuteuf"
+              href="https://twitter.com/sandrabruce"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @teuteuf
+             Sandra Bruce.
             </a>
           </div>
           <div>
-            Want to support?{" "}
             <a
               className="underline"
-              href="https://www.buymeacoffee.com/teuteuf"
+              href="https://www.buymeacoffee.com/oyvindbs"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Buy me a coffee! ☕
+              Lyst til å kjøpe oss en kaffe? ☕
             </a>
           </div>
+            <div className="font-bold">Data</div>
+          Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi er veldig takknemlige for dette dugnadsarbeidet og for det offentliges tilgjengeliggjøring av data. Kommunevåpnene er hentet fra {" "}
+          <a
+              className="underline"
+              href="https://no.m.wikipedia.org/wiki/Kommunev%C3%A5pen_i_Norge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            Wikipedia.{" "}
+            </a>
+            Norske kommuners geografiske plassering er beregnet ved hjelp av kartene som er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
+             <a 
+             className="underline"
+              href="https://docs.sykdomspulsen.no/splmaps/articles/splmaps.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            splmaps.
+            </a>
         </div>
       </div>
     </Modal>

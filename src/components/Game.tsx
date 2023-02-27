@@ -38,7 +38,7 @@ export function Game() {
       );
 
       if (guessedCountry == null) {
-        toast.error("Unknown country!");
+        toast.error("Ukjent kommune!");
         return;
       }
 
@@ -52,7 +52,7 @@ export function Game() {
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        toast.success("Well done!");
+        toast.success("Godt gjort!");
       }
     },
     [addGuess, country, currentGuess]
@@ -89,7 +89,7 @@ export function Game() {
                 className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100"
                 type="submit"
               >
-                🌍 Guess
+                🌍 Gjett
               </button>
             </div>
           </form>
