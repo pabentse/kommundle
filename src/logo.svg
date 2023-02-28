@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1"
-	 id="svg2" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="400px" height="500px"
-	 viewBox="0 0 400 500" enable-background="new 0 0 400 500" xml:space="preserve">
-<path id="path8" fill="#32AC60" d="M199.939,499.636c-74.32-53.92-125.26-122.02-155.74-208.16
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+<path id="path8" fill="#32AC60" d="M305.939,645.636c-74.32-53.92-125.26-122.02-155.74-208.16
 	c-27.64-78.099-38.729-172.75-33.91-289.349l0.021-0.46h379.82l0.02,0.46c4.811,116.6-6.28,211.24-33.91,289.349
-	c-30.479,86.141-81.42,154.24-155.74,208.16l-0.279,0.201L199.939,499.636z"/>
-<path id="path10" d="M389.46,1.707c9.069,219.45-36.261,385.951-189.461,497.099C46.809,387.657,1.489,221.157,10.559,1.707h189.449
-	H389.46 M390.38,0.757h-0.92H200.009H10.559h-0.92l-0.04,0.92c-4.82,116.66,6.279,211.36,33.93,289.52
+	c-30.479,86.141-81.42,154.24-155.74,208.16l-0.279,0.201L305.939,645.636z"/>
+<path id="path10" d="M495.46,147.707c9.069,219.45-36.261,385.951-189.461,497.099c-153.189-111.148-198.51-277.649-189.439-497.099
+	h189.449H495.46 M496.38,146.757h-0.92H306.009H116.559h-0.92l-0.04,0.92c-4.82,116.66,6.279,211.36,33.93,289.52
 	c30.51,86.24,81.51,154.41,155.91,208.391l0.56,0.408l0.561-0.408c74.4-53.98,125.4-122.15,155.91-208.391
-	c27.649-78.16,38.75-172.86,33.93-289.52l-0.04-0.92l0,0H390.38z"/>
+	c27.649-78.16,38.75-172.86,33.93-289.52l-0.04-0.92l0,0H496.38z"/>
 </svg>
