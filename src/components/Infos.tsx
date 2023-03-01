@@ -26,7 +26,7 @@ export function Infos({ isOpen, close }: InfosProps) {
           <div>
          Gjett riktig kommune på seks forsøk. Hver gjetning må være en norsk kommune.</div>
           <div>
-            Etter hver gjetning får du vite hvor langt unna du er og hvilken retning den korrekte kommunen ligger relativ til den du har gjetta. 
+            Etter hver gjetning får du vite hvor langt unna du er og hvilken retning den korrekte kommunen ligger relativ til den du har gjetta. I tillegg får du en prosentandel som sier hvor nærme du er relativ til Norges lengde. Et lavt tall nær 0 % tilsier at du er nesten hele Norges lengde unna den riktige kommunen. Et tall nær 100 % betyr at det ikke er langt igjen til riktig kommune. Kommunenes plassering er det beregnede midtpunktet i kommunen. Nabokommuner kan dermed være en god del kilometer fra hverandre.
           </div>
         </div>
         <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -140,7 +140,7 @@ export function Infos({ isOpen, close }: InfosProps) {
               Lyst til å kjøpe oss en kaffe? ☕
             </a>
           </div>
-            <div className="font-bold">Data</div>
+            <div className="font-bold">DATA</div>
           Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi er veldig takknemlige for dette dugnadsarbeidet og for det offentliges tilgjengeliggjøring av data. Kommunevåpnene er hentet fra {" "}
           <a
               className="underline"
@@ -148,9 +148,9 @@ export function Infos({ isOpen, close }: InfosProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-            Wikipedia.{" "}
+            Wikipedia
             </a>
-            Norske kommuners geografiske plassering er beregnet ved hjelp av kartene som er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
+            . Norske kommuners geografiske plassering er beregnet ved hjelp av kartene som er tilgjengelige i Folkehelseinstituttets r-pakke {" "}
              <a 
              className="underline"
               href="https://docs.sykdomspulsen.no/splmaps/articles/splmaps.html"
