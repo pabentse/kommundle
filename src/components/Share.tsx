@@ -21,7 +21,7 @@ export function Share({guesses, dayString}: ShareProps) {
         "day"
       )
     );
-    const title = `Kommundle #${dayCount} ${guessCount}/6`;
+    const title = `#Kommundle #${dayCount} ${guessCount}/6`;
 
     const guessString = guesses
       .map((guess) => {
