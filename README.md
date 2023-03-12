@@ -1,6 +1,6 @@
 # Kommundle
 
-[Kommundle](www.kommundle.no) er et spill der man får et kommunevåpen og må gjette kommunen som har det kommunevåpenet. Man får vite hvor langt unna man er når man gjetter en kommune og man har seks forsøk. 
+[Kommundle](https://www.kommundle.no) er et spill der man får et kommunevåpen og må gjette kommunen som har det kommunevåpenet. Man får vite hvor langt unna man er når man gjetter en kommune og man har seks forsøk. 
 
 Kommundle er en fork av spillet [Wordle](https://worldle.teuteuf.fr/) som er laget av [@teuteuf@mastodon.social](https://mastodon.social/@teuteuf). 
 
