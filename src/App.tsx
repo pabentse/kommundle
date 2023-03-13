@@ -3,10 +3,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
 import { useState } from "react";
 import { Infos } from "./components/Infos";
+import { Stats } from "./components/Stats";
 
 function App() {
   const [infoOpen, setInfoOpen] = useState(false);
-
+  const [statsOpen, setStatsOpen] = useState(false);
   return (
     <>
       <ToastContainer
@@ -21,6 +22,11 @@ function App() {
         isOpen={infoOpen}
         close={() => setInfoOpen(false)}
       />
+      <Stats
+        isOpen={statsOpen}
+        close={() => setStatsOpen(false)}
+        distanceUnit={settingsData.distanceUnit}
+      />
       <div className="flex justify-center">
         <div className="w-full max-w-lg">
           <header className="border-b-2 border-gray-200 flex">
@@ -34,6 +40,13 @@ function App() {
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
               Kommund<span className="text-green-600">l</span>e
             </h1>
+            <button
+              className="ml-3 text-xl"
+              type="button"
+              onClick={() => setStatsOpen(true)}
+            >
+              📈
+            </button>
           </header>
           <Game />
         </div>
