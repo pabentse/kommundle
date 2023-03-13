@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import React, { useEffect, useState } from "react";
-import { getStatsData } from "../../domain/stats";
+import { getStatsData } from "../domain/stats";
 
 interface PanelProps {
   title: string;
