@@ -2607,7 +2607,6 @@ const frenchCountryNames: Record<string, string> = {
   municip4627: "A",
   municip4630: "A",
   municip4629: "A",
-  municip0301: "A",
   municip4624: "A",
   municip4623: "A",
   municip4626: "A",
