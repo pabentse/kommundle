@@ -35,7 +35,7 @@ const resources = {
       buyMeACoffee: "Buy me a ☕!",
     },
   },
-  fr: {
+  no: {
     translation: {
       placeholder: "Pays, territoires...",
       guess: "Deviner",
