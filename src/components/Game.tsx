@@ -82,7 +82,7 @@ export function Game({ settingsData }: GameProps) {
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        toast.success(t("welldone"), { delay: 2000 });
+        toast.success("Godt gjort!", { delay: 2000 });
       }
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
@@ -108,7 +108,7 @@ export function Game({ settingsData }: GameProps) {
           type="button"
           onClick={() => setHideImageMode(false)}
         >
-          {t("showCountry")}
+          {"Vis på kart"}
         </button>
       )}
       <div className="my-1">
@@ -133,7 +133,7 @@ export function Game({ settingsData }: GameProps) {
           type="button"
           onClick={() => setRotationMode(false)}
         >
-          {t("cancelRotation")}
+          {"Ikke rotér"}
         </button>
       )}
       <Guesses
@@ -161,7 +161,7 @@ export function Game({ settingsData }: GameProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t("showOnGoogleMaps")}
+              {"Vis på Google Maps"}
             </a>
           </>
         ) : (
@@ -176,7 +176,7 @@ export function Game({ settingsData }: GameProps) {
                 className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
                 type="submit"
               >
-                🌍 {t("guess")}
+                🌍 {"Gjett"}
               </button>
             </div>
           </form>
