@@ -1,7 +1,6 @@
 import { DateTime, Interval } from "luxon";
 import { useMemo } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import {
   computeProximityPercent,
