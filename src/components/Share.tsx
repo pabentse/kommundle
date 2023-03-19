@@ -65,7 +65,7 @@ export function Share({
       }}
     >
       <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
-        {"Del")}
+        {"Del"}
       </button>
     </CopyToClipboard>
   );
