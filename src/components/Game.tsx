@@ -62,7 +62,7 @@ export function Game({ settingsData }: GameProps) {
       const guessedCountry = countries.find(
         (country) =>
           sanitizeCountryName(
-            getCountryName(i18n.resolvedLanguage, country)
+            getCountryName(country)
           ) === sanitizeCountryName(currentGuess)
       );
 
@@ -154,9 +154,8 @@ export function Game({ settingsData }: GameProps) {
             <a
               className="underline w-full text-center block mt-4"
               href={`https://www.google.com/maps?q=${getCountryName(
-                i18n.resolvedLanguage,
                 country
-              )}&hl=${i18n.resolvedLanguage}`}
+              )}&hl=no}`}
               target="_blank"
               rel="noopener noreferrer"
             >
