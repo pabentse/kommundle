@@ -33,6 +33,7 @@ interface GameProps {
 }
 
 export function Game({ settingsData }: GameProps) {
+  const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
@@ -84,7 +85,7 @@ export function Game({ settingsData }: GameProps) {
         toast.success("Godt gjort!", { delay: 2000 });
       }
     },
-    [addGuess, country, currentGuess]
+    [addGuess, country, currentGuess, i18n.resolvedLanguage]
   );
 
   useEffect(() => {
@@ -97,7 +98,7 @@ export function Game({ settingsData }: GameProps) {
         delay: 2000,
       });
     }
-  }, [country, guesses]);
+  }, [country, guesses, i18n.resolvedLanguage]);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
