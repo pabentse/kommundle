@@ -84,7 +84,7 @@ export function Game({ settingsData }: GameProps) {
         toast.success("Godt gjort!", { delay: 2000 });
       }
     },
-    [addGuess, country, currentGuess, i18n.resolvedLanguage]
+    [addGuess, country, currentGuess]
   );
 
   useEffect(() => {
@@ -97,7 +97,7 @@ export function Game({ settingsData }: GameProps) {
         delay: 2000,
       });
     }
-  }, [country, guesses, i18n.resolvedLanguage]);
+  }, [country, guesses]);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
