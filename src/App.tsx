@@ -37,7 +37,7 @@ function App() {
         autoClose={2000}
         bodyClassName="font-bold text-center"
       />
-      {i18n.resolvedLanguage === "fr" ? (
+      {i18n.resolvedLanguage === "no" ? (
         <InfosFr
           isOpen={infoOpen}
           close={() => setInfoOpen(false)}
@@ -72,7 +72,7 @@ function App() {
               ❔
             </button>
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-              Wor<span className="text-green-600">l</span>dle
+              KOMMUND<span className="text-green-600">L</span>E
             </h1>
             <button
               className="ml-3 text-xl"
