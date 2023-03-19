@@ -84,7 +84,7 @@ export function Game({ settingsData }: GameProps) {
         toast.success("Godt gjort!", { delay: 2000 });
       }
     },
-    [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
+    [addGuess, country, currentGuess]
   );
 
   useEffect(() => {
@@ -92,12 +92,12 @@ export function Game({ settingsData }: GameProps) {
       guesses.length === MAX_TRY_COUNT &&
       guesses[guesses.length - 1].distance > 0
     ) {
-      toast.info(getCountryName(i18n.resolvedLanguage, country).toUpperCase(), {
+      toast.info(getCountryName(country).toUpperCase(), {
         autoClose: false,
         delay: 2000,
       });
     }
-  }, [country, guesses, i18n.resolvedLanguage]);
+  }, [country, guesses]);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
