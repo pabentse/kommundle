@@ -94,7 +94,7 @@ function App() {
             ❤️ <Worldle />? -
             <a
               className="underline pl-1"
-              href="v"
+              href="https://www.buymeacoffee.com/oyvindbs"
               target="_blank"
               rel="noopener noreferrer"
             >
