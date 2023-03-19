@@ -59,7 +59,7 @@ export function Share({
   return (
     <CopyToClipboard
       text={shareText}
-      onCopy={() => toast("Resultatene ble kopiert til utklippstavlen"))}
+      onCopy={() => toast("Resultatene ble kopiert til utklippstavlen")}
       options={{
         format: "text/plain",
       }}
