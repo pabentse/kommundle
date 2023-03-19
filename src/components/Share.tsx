@@ -28,7 +28,6 @@ export function Share({
   hideImageMode,
   rotationMode,
 }: ShareProps) {
-  const { t } = useTranslation();
   const { theme } = settingsData;
 
   const shareText = useMemo(() => {
