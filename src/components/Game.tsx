@@ -33,7 +33,6 @@ interface GameProps {
 }
 
 export function Game({ settingsData }: GameProps) {
-  const { t, i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
