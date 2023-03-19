@@ -62,8 +62,7 @@ export function Game({ settingsData }: GameProps) {
       const guessedCountry = countries.find(
         (country) =>
           sanitizeCountryName(
-            getCountryName(country)
-          ) === sanitizeCountryName(currentGuess)
+            getCountryName(country)) === sanitizeCountryName(currentGuess)
       );
 
       if (guessedCountry == null) {
