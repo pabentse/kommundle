@@ -84,7 +84,7 @@ export function Game({ settingsData }: GameProps) {
         toast.success("Godt gjort!", { delay: 2000 });
       }
     },
-    [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
+    [addGuess, country, currentGuess, i18n.resolvedLanguage]
   );
 
   useEffect(() => {
