@@ -61,8 +61,9 @@ export function Game({ settingsData }: GameProps) {
       e.preventDefault();
       const guessedCountry = countries.find(
         (country) =>
-          sanitizeCountryName(getCountryName(i18n.resolvedLanguage,country)) ===
-          sanitizeCountryName(currentGuess)
+          sanitizeCountryName(
+            getCountryName(i18n.resolvedLanguage, country)
+          ) === sanitizeCountryName(currentGuess)
       );
 
       if (guessedCountry == null) {
@@ -83,7 +84,7 @@ export function Game({ settingsData }: GameProps) {
         toast.success("Godt gjort!", { delay: 2000 });
       }
     },
-    [addGuess, country, currentGuess,i18n.resolvedLanguage]
+    [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
   );
 
   useEffect(() => {
@@ -91,12 +92,12 @@ export function Game({ settingsData }: GameProps) {
       guesses.length === MAX_TRY_COUNT &&
       guesses[guesses.length - 1].distance > 0
     ) {
-      toast.info(getCountryName(i18n.resolvedLanguage,country).toUpperCase(), {
+      toast.info(getCountryName(i18n.resolvedLanguage, country).toUpperCase(), {
         autoClose: false,
         delay: 2000,
       });
     }
-  }, [country, guesses]);
+  }, [country, guesses, i18n.resolvedLanguage]);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
@@ -152,9 +153,10 @@ export function Game({ settingsData }: GameProps) {
             />
             <a
               className="underline w-full text-center block mt-4"
-              href={`https://www.google.com/maps?q=${getCountryName(i18n.resolvedLanguage,
+              href={`https://www.google.com/maps?q=${getCountryName(
+                i18n.resolvedLanguage,
                 country
-              )}&hl=no}`}
+              )}&hl=${i18n.resolvedLanguage}`}
               target="_blank"
               rel="noopener noreferrer"
             >
