@@ -91,7 +91,7 @@ function App() {
           </header>
           <Game settingsData={settingsData} />
           <footer className="flex justify-center text-sm mt-8 mb-1">
-            ❤️ <Kommundle />? -
+            ❤️ <Wordle />? -
             <a
               className="underline pl-1"
               href="v"
