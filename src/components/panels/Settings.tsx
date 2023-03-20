@@ -61,7 +61,7 @@ export function Settings({
       <div className="my-4">
         <header className="my-2">
           <h3 className="text-lg font-bold">
-          {"Forvanskere"}
+            {"Forvanskere"}
           </h3>
           <div className="text-sm italic text-gray-500">
             {"Begynner neste dag"}
