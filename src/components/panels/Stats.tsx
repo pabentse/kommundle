@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { formatDistance } from "../../domain/geography";
 import { getStatsData } from "../../domain/stats";
 import { Panel } from "./Panel";
@@ -11,7 +10,6 @@ interface StatsProps {
 }
 
 export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
-  const { t } = useTranslation();
   const {
     played,
     winRatio,
@@ -23,12 +21,12 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
 
   const maxDistribution = Math.max(...Object.values(guessDistribution));
   return (
-    <Panel title={t("stats.title")} isOpen={isOpen} close={close}>
+    <Panel title={Statistikk} isOpen={isOpen} close={close}>
       <div className="flex justify-center">
-        <StatsTile value={played} name={t("stats.played")} />
-        <StatsTile value={Math.round(winRatio * 100)} name={t("stats.win")} />
-        <StatsTile value={currentStreak} name={t("stats.currentStreak")} />
-        <StatsTile value={maxStreak} name={t("stats.maxStreak")} />
+        <StatsTile value={played} name={"Ganger spilt"} />
+        <StatsTile value={Math.round(winRatio * 100)} name={"Ganger vunnet"} />
+        <StatsTile value={currentStreak} name={"Nåværende seierrekke"} />
+        <StatsTile value={maxStreak} name={"Lengste seierrekke"} />
       </div>
       <div className="flex justify-center m-6">
         <div className="flex flex-col m-2">
@@ -36,12 +34,12 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
             {formatDistance(averageBestDistance, distanceUnit)}
           </p>
           <p className="text-lg text-center">
-            {t("stats.averageBestDistance")}
+            {"Gjennomsnittlig korteste avstand"}
           </p>
         </div>
       </div>
       <div>
-        <h3 className="text-xl font-bold">{t("stats.guessDistribution")}</h3>
+        <h3 className="text-xl font-bold">{Gjettefordeling}</h3>
         <ul className="mx-1">
           {Object.entries(guessDistribution).map(([index, count]) => (
             <li key={index} className="my-2 flex">
