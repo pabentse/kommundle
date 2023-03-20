@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { SettingsData } from "../../hooks/useSettings";
 import { Panel } from "./Panel";
 
