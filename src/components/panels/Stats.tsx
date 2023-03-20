@@ -25,8 +25,8 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
       <div className="flex justify-center">
         <StatsTile value={played} name={"Ganger spilt"} />
         <StatsTile value={Math.round(winRatio * 100)} name={"Ganger vunnet"} />
-        <StatsTile value={currentStreak} name={"Nåværende seierrekke"} />
-        <StatsTile value={maxStreak} name={"Lengste seierrekke"} />
+        <StatsTile value={currentStreak} name={"Nåværende seiersrekke"} />
+        <StatsTile value={maxStreak} name={"Lengste seiersrekke"} />
       </div>
       <div className="flex justify-center m-6">
         <div className="flex flex-col m-2">
@@ -39,7 +39,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
         </div>
       </div>
       <div>
-        <h3 className="text-xl font-bold">{Gjettefordeling}</h3>
+        <h3 className="text-xl font-bold">{"Gjettefordeling"}</h3>
         <ul className="mx-1">
           {Object.entries(guessDistribution).map(([index, count]) => (
             <li key={index} className="my-2 flex">
