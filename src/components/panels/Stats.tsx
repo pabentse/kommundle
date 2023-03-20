@@ -21,7 +21,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
 
   const maxDistribution = Math.max(...Object.values(guessDistribution));
   return (
-    <Panel title={Statistikk} isOpen={isOpen} close={close}>
+    <Panel title={"Statistikk"} isOpen={isOpen} close={close}>
       <div className="flex justify-center">
         <StatsTile value={played} name={"Ganger spilt"} />
         <StatsTile value={Math.round(winRatio * 100)} name={"Ganger vunnet"} />
