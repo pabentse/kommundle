@@ -16,10 +16,10 @@ export function Settings({
   settingsData,
   updateSettings,
 }: SettingsProps) {
-  const { t } = useTranslation();
+
 
   return (
-    <Panel title={t("settings.title")} isOpen={isOpen} close={close}>
+    <Panel title={"Innstilling"} isOpen={isOpen} close={close}>
       <div className="my-4">
         <div className="flex p-1">
           <select
@@ -37,7 +37,7 @@ export function Settings({
             className="flex-1 ml-2 flex items-center"
             htmlFor="setting-distanceUnit"
           >
-            {t("settings.distanceUnit")}
+            {"Avstandsenhet"}
           </label>
         </div>
         <div className="flex p-1">
@@ -56,17 +56,17 @@ export function Settings({
             className="flex-1 ml-2 flex items-center"
             htmlFor="setting-theme"
           >
-            {t("settings.theme")}
+            {"Tema"}
           </label>
         </div>
       </div>
       <div className="my-4">
         <header className="my-2">
           <h3 className="text-lg font-bold">
-            {t("settings.difficultyModifiers")}
+            {"Forvanskere"}
           </h3>
           <div className="text-sm italic text-gray-500">
-            {t("settings.startingNextDay")}
+            {"Begynner neste dag"}
           </div>
         </header>
         <div className="flex p-1">
@@ -77,7 +77,7 @@ export function Settings({
             onChange={(e) => updateSettings({ noImageMode: e.target.checked })}
           />
           <label className="flex-1 ml-2" htmlFor="setting-noImage">
-            {t("settings.noImageMode")}
+            {"Uten bilder"}
           </label>
         </div>
         <div className="flex p-1">
@@ -88,7 +88,7 @@ export function Settings({
             onChange={(e) => updateSettings({ rotationMode: e.target.checked })}
           />
           <label className="flex-1 ml-2" htmlFor="setting-rotationMode">
-            {t("settings.rotationMode")}
+            {"Roter bildene"}
           </label>
         </div>
       </div>
