@@ -23,7 +23,7 @@ import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
 
 function getDayString() {
-  return DateTime.now().toFormat("yyyy-MM-dd");
+  return DateTime.now().toFormat("dd-MM-yyyy");
 }
 
 const MAX_TRY_COUNT = 6;
