@@ -156,7 +156,6 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             splmaps.
             </a>
         </div>
-      </div>
     </Panel>
   );
 }
