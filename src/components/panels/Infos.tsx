@@ -5,6 +5,7 @@ import { Worldle } from "../Worldle";
 import { formatDistance } from "../../domain/geography";
 import { SettingsData } from "../../hooks/useSettings";
 
+
 interface InfosProps {
   isOpen: boolean;
   close: () => void;
