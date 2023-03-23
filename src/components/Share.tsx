@@ -18,11 +18,7 @@ interface ShareProps {
   settingsData: SettingsData;
 }
 
-export function Share({
-  guesses,
-  dayString,
-  settingsData,
-}: ShareProps) {
+export function Share({ guesses, dayString, settingsData }: ShareProps) {
   const { theme } = settingsData;
 
   const shareText = useMemo(() => {
