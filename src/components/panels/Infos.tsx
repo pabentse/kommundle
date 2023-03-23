@@ -122,8 +122,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
-          <Worldle />{" "}
-          er laget av{" "}
+          <Worldle /> er laget av{" "}
           <a
             className="underline"
             href="https://nerdculture.de/@Oyvindbs"
