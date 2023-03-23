@@ -23,6 +23,10 @@ import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
 
 function getDayString() {
+  return DateTime.now().toFormat("yyyy-MM-dd");
+}
+
+function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
 
@@ -34,7 +38,7 @@ interface GameProps {
 
 export function Game({ settingsData }: GameProps) {
   const { i18n } = useTranslation();
-  const dayString = useMemo(getDayString, []);
+  const dayString = useMemo(getDayStringNew, []);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
 
