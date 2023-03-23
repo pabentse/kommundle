@@ -24,7 +24,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
     <Panel title={"Statistikk"} isOpen={isOpen} close={close}>
       <div className="flex justify-center">
         <StatsTile value={played} name={"Ganger spilt"} />
-        <StatsTile value={Math.round(winRatio * 100)} name={"Ganger vunnet"} />
+        <StatsTile value={Math.round(winRatio * 100)} name={"Vinnerprosent"} />
         <StatsTile value={currentStreak} name={"Nåværende seiersrekke"} />
         <StatsTile value={maxStreak} name={"Lengste seiersrekke"} />
       </div>
