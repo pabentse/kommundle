@@ -38,17 +38,18 @@ interface GameProps {
 
 export function Game({ settingsData }: GameProps) {
   const { i18n } = useTranslation();
-  const dayString = useMemo(getDayStringNew, []);
+  const dayString = useMemo(getDayString, []);
+  const dayStringNew = useMemo(getDayStringNew, []);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
 
-  const [country, randomAngle, imageScale] = useCountry(dayString);
+  const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, addGuess] = useGuesses(dayString);
+  const [guesses, addGuess] = useGuesses(dayStringNew);
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
-    dayString,
+    dayStringNew,
     settingsData.noImageMode
   );
   const [rotationMode, setRotationMode] = useMode(
