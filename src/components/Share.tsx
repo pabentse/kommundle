@@ -16,9 +16,17 @@ interface ShareProps {
   guesses: Guess[];
   dayString: string;
   settingsData: SettingsData;
+  hideImageMode: boolean;
+  rotationMode: boolean;
 }
 
-export function Share({ guesses, dayString, settingsData }: ShareProps) {
+export function Share({
+  guesses,
+  dayString,
+  settingsData,
+  hideImageMode,
+  rotationMode,
+}: ShareProps) {
   const { theme } = settingsData;
 
   const shareText = useMemo(() => {
@@ -29,7 +37,12 @@ export function Share({ guesses, dayString, settingsData }: ShareProps) {
         "day"
       )
     );
-    const title = `#Kommundle #${dayCount} ${guessCount}/6`;
+    const difficultyModifierEmoji = hideImageMode
+      ? " "
+      : rotationMode
+      ? " "
+      : "";
+    const title = `#Kommundle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {
@@ -39,7 +52,7 @@ export function Share({ guesses, dayString, settingsData }: ShareProps) {
       .join("\n");
 
     return [title, guessString, "https://kommundle.no"].join("\n");
-  }, [dayString, guesses, theme]);
+  }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
   return (
     <CopyToClipboard
