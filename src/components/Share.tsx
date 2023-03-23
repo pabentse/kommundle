@@ -10,7 +10,7 @@ import { Guess } from "../domain/guess";
 import React from "react";
 import { SettingsData } from "../hooks/useSettings";
 
-const START_DATE = DateTime.fromISO("2022-01-21");
+const START_DATE = DateTime.fromISO("2023-02-24");
 
 interface ShareProps {
   guesses: Guess[];
@@ -37,11 +37,6 @@ export function Share({
         "day"
       )
     );
-    const difficultyModifierEmoji = hideImageMode
-      ? " 🙈"
-      : rotationMode
-      ? " 🌀"
-      : "";
     const title = `#Kommundle #${dayCount} ${guessCount}/6`;
 
     const guessString = guesses
