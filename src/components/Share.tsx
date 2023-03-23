@@ -16,16 +16,12 @@ interface ShareProps {
   guesses: Guess[];
   dayString: string;
   settingsData: SettingsData;
-  hideImageMode: boolean;
-  rotationMode: boolean;
 }
 
 export function Share({
   guesses,
   dayString,
   settingsData,
-  hideImageMode,
-  rotationMode,
 }: ShareProps) {
   const { theme } = settingsData;
 
@@ -47,7 +43,7 @@ export function Share({
       .join("\n");
 
     return [title, guessString, "https://kommundle.no"].join("\n");
-  }, [dayString, guesses, hideImageMode, rotationMode, theme]);
+  }, [dayString, guesses, theme]);
 
   return (
     <CopyToClipboard
