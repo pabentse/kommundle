@@ -45,7 +45,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
             <li key={index} className="my-2 flex">
               <div className="mr-1 font-bold">{index}</div>
               <div
-                className="bg-slate-400"
+                className="bg-slate-400 bg-red-500"
                 style={{
                   flex: `0 1 ${Math.round((count / maxDistribution) * 100)}%`,
                 }}
@@ -66,7 +66,7 @@ interface StatsTileProps {
 
 function StatsTile({ value, name }: StatsTileProps) {
   return (
-    <div className="flex flex-col m-2 max-w-min bg-red-500">
+    <div className="flex flex-col m-2 max-w-min">
       <p className="text-3xl font-bold text-center">{value}</p>
       <p className="text-center">{name}</p>
     </div>
