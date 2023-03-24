@@ -66,7 +66,7 @@ interface StatsTileProps {
 
 function StatsTile({ value, name }: StatsTileProps) {
   return (
-    <div className="flex flex-col m-2 max-w-min">
+    <div className="flex flex-col m-2 max-w-min bg-red-500">
       <p className="text-3xl font-bold text-center">{value}</p>
       <p className="text-center">{name}</p>
     </div>
