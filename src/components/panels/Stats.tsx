@@ -28,16 +28,6 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
         <StatsTile value={currentStreak} name={"Nåværende seiersrekke"} />
         <StatsTile value={maxStreak} name={"Lengste seiersrekke"} />
       </div>
-      <div className="flex justify-center m-6">
-        <div className="flex flex-col m-2">
-          <p className="text-4xl font-bold text-center">
-            {formatDistance(averageBestDistance, distanceUnit)}
-          </p>
-          <p className="text-lg text-center">
-            {"Gjennomsnittlig korteste avstand"}
-          </p>
-        </div>
-      </div>
       <div>
         <h3 className="text-xl font-bold">{"Antall forsøk"}</h3>
         <ul className="mx-1">
@@ -56,6 +46,16 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
             </li>
           ))}
         </ul>
+      </div>
+      <div className="flex justify-center m-6">
+        <div className="flex flex-col m-2">
+          <p className="text-4xl font-bold text-center">
+            {formatDistance(averageBestDistance, distanceUnit)}
+          </p>
+          <p className="text-lg text-center">
+            {"Gjennomsnittlig korteste avstand"}
+          </p>
+        </div>
       </div>
     </Panel>
   );
