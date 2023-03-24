@@ -50,7 +50,9 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
                   flex: `0 1 ${Math.round((count / maxDistribution) * 100)}%`,
                 }}
               />
-              <div className="px-1 bg-slate-400 text-slate-100 font-bold">{count}</div>
+              <div className="px-1 bg-slate-400 text-slate-100 font-bold">
+                {count}
+              </div>
             </li>
           ))}
         </ul>
