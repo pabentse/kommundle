@@ -47,7 +47,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
           ))}
         </ul>
       </div>
-      <div className="flex justify-center m-6">
+      {/* <div className="flex justify-center m-6">
         <div className="flex flex-col m-2">
           <p className="text-4xl font-bold text-center">
             {formatDistance(averageBestDistance, distanceUnit)}
@@ -56,7 +56,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
             {"Gjennomsnittlig korteste avstand"}
           </p>
         </div>
-      </div>
+      </div> */}
     </Panel>
   );
 }
