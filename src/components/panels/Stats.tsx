@@ -45,7 +45,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
             <li key={index} className="my-2 flex">
               <div className="mr-1 font-bold">{index}</div>
               <div
-                className="bg-slate-400 bg-green-600"
+                className="bg-green-600"
                 style={{
                   flex: `0 1 ${Math.round((count / maxDistribution) * 100)}%`,
                 }}
