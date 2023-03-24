@@ -162,7 +162,7 @@ export function Game({ settingsData }: GameProps) {
               href={`https://www.google.com/maps?q=${getCountryName(
                 i18n.resolvedLanguage,
                 country
-              )}&hl=${i18n.resolvedLanguage}`}
+              )}%20kommune&hl=${i18n.resolvedLanguage}`}
               target="_blank"
               rel="noopener noreferrer"
             >
