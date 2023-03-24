@@ -1,5 +1,5 @@
 import React from "react";
-import { formatDistance } from "../../domain/geography";
+// import { formatDistance } from "../../domain/geography";
 import { getStatsData } from "../../domain/stats";
 import { Panel } from "./Panel";
 
@@ -15,7 +15,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
     winRatio,
     currentStreak,
     maxStreak,
-    averageBestDistance,
+    // averageBestDistance,
     guessDistribution,
   } = getStatsData();
 
