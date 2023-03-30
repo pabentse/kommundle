@@ -29,9 +29,9 @@ export function getStatsData(): StatsData {
   let maxStreak = 0;
   let previousDate: DateTime | undefined;
   let bestDistanceSum = 0;
-  for (const [dayString, guesses] of allGuessesEntries) {
+  for (const [dayStringNew, guesses] of allGuessesEntries) {
     bestDistanceSum += Math.min(...guesses.map((guess) => guess.distance));
-    const currentDate = DateTime.fromFormat(dayString, "dd-MM-yyyy");
+    const currentDate = DateTime.fromFormat(dayStringNew, "dd-MM-yyyy");
     const winIndex = guesses.findIndex((guess) => guess.distance === 0);
     const won = winIndex >= 0;
     if (won) {

@@ -7,11 +7,11 @@ function loadAllModeValues(modeName: string): Record<string, boolean> {
 
 export function useMode(
   modeName: string,
-  dayString: string,
+  dayStringNew: string,
   defaultValue: boolean
 ): [boolean, (modeValue: boolean) => void] {
   const [modeValue, setModeValue] = useState<boolean>(
-    loadAllModeValues(modeName)[dayString] ?? defaultValue
+    loadAllModeValues(modeName)[dayStringNew] ?? defaultValue
   );
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export function useMode(
       modeName,
       JSON.stringify({
         ...allModeValues,
-        [dayString]: modeValue,
+        [dayStringNew]: modeValue,
       })
     );
-  }, [dayString, modeName, modeValue]);
+  }, [dayStringNew, modeName, modeValue]);
 
   return [modeValue, setModeValue];
 }

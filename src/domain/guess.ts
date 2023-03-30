@@ -11,7 +11,7 @@ export function loadAllGuesses(): Record<string, Guess[]> {
   return storedGuesses != null ? JSON.parse(storedGuesses) : {};
 }
 
-export function saveGuesses(dayString: string, guesses: Guess[]): void {
+export function saveGuesses(dayStringNew: string, guesses: Guess[]): void {
   const allGuesses = loadAllGuesses();
   localStorage.setItem(
     "guesses",
