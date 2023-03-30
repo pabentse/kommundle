@@ -17,7 +17,7 @@ export function saveGuesses(dayStringNew: string, guesses: Guess[]): void {
     "guesses",
     JSON.stringify({
       ...allGuesses,
-      [dayString]: guesses,
+      [dayStringNew]: guesses,
     })
   );
 }
