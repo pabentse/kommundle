@@ -69,7 +69,7 @@ function App() {
               type="button"
               onClick={() => setInfoOpen(true)}
             >
-              ❔
+              ❓
             </button>
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
               KOMMUND<span className="text-green-600">L</span>E
