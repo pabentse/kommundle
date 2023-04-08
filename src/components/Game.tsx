@@ -41,7 +41,7 @@ export function Game({ settingsData }: GameProps) {
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
 
-  const countryInputRef = useRef < HTMLInputElement > null;
+  const countryInputRef = useRef<HTMLInputElement>(null);
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
