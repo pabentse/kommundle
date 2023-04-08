@@ -106,7 +106,7 @@ export function Game({ settingsData }: GameProps) {
   }, [country, guesses, i18n.resolvedLanguage]);
 
   return (
-    <meta name="twitter:image" content={`images/countries/${country.code.toLowerCase()}/vector.png`} \>
+    <meta name="twitter:image" content={`images/countries/${country.code.toLowerCase()}/vector.png`} />
     <div className="flex-grow flex flex-col mx-2">
       {hideImageMode && !gameEnded && (
         <button
