@@ -41,7 +41,7 @@ export function Game({ settingsData }: GameProps) {
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
 
-  const countryInputRef = useRef<HTMLInputElement>(null);
+  const countryInputRef = useRef < HTMLInputElement > null;
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
@@ -187,7 +187,10 @@ export function Game({ settingsData }: GameProps) {
           </form>
         )}
       </div>
-      <meta name="twitter:image" content={`images/countries/${country.code.toLowerCase()}/vector.png`} />
+      <meta
+        name="twitter:image"
+        content={`images/countries/${country.code.toLowerCase()}/vector.png`}
+      />
     </div>
   );
 }
