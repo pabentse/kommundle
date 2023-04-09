@@ -187,10 +187,6 @@ export function Game({ settingsData }: GameProps) {
           </form>
         )}
       </div>
-      <meta
-        name="twitter:image"
-        content={`images/countries/${country.code.toLowerCase()}/vector.png`}
-      />
     </div>
   );
 }
