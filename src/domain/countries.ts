@@ -2474,7 +2474,7 @@ export const countries = [
     code: "municip5046",
     latitude: 64.7444570917345,
     longitude: 12.3601439886942,
-    name: "Høylandet",
+    name: "test123",
   },
   {
     code: "municip5045",
