@@ -21,18 +21,27 @@ export interface Country {
 export const countries = [
   {
     code: "municip5046",
-    latitude: 64.7444570917345,
-    longitude: 12.3601439886942,
+    latitude: 48.860294,
+    longitude: 2.338629,
     year: 1503,
     name: "Mona Lisa",
+    artist: "Leonardo da Vinci",
+    location: "Paris",
+    country: "France",
+    museum: "Musée du Louvre",
   },
   {
     code: "municip5045",
-    latitude: 64.5135975563769,
-    longitude: 12.5870779657394,
-    name: "Grong",
+    latitude: 45.464664,
+    longitude: 9.18854,
+    year: 1495,
+    name: "The Last Supper",
+    artist: "Leonardo da Vinci",
+    location: "Milan",
+    country: "Italy",
+    museum: "Santa Maria delle Grazie",
   },
-  {
+  /* {
     code: "municip1103",
     latitude: 58.945808815807,
     longitude: 5.69252983765359,
@@ -55,7 +64,7 @@ export const countries = [
     latitude: 64.2051205757401,
     longitude: 12.6297672504942,
     name: "Snåase-Snåsa",
-  },
+  }, */
 ];
 
 export const countriesWithImage = countries.filter((c) =>
