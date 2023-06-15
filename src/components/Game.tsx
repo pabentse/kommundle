@@ -122,7 +122,7 @@ export function Game({ settingsData }: GameProps) {
             hideImageMode && !gameEnded ? "h-0" : "h-full"
           }`}
           alt="country to guess"
-          src={`images/countries/${country.code.toLowerCase()}/vector1.png`}
+          src={`images/countries/${country.code.toLowerCase()}/vector.png`}
           style={
             rotationMode && !gameEnded
               ? {
