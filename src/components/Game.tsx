@@ -87,7 +87,7 @@ export function Game({ settingsData }: GameProps) {
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        toast.success("Godt gjort!", { delay: 2000 });
+        toast.success("Well done!", { delay: 2000 });
       }
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage]

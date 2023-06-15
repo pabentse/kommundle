@@ -94,11 +94,11 @@ function App() {
             ❤️ <Worldle />? -
             <a
               className="underline pl-1"
-              href="https://www.buymeacoffee.com/oyvindbs"
+              href="www.nrk.no"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {"Kjøp oss en kaffe!"}
+              {"Buy us a coffee!"}
             </a>
           </footer>
         </div>
