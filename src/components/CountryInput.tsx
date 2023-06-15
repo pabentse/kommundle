@@ -49,7 +49,7 @@ export function CountryInput({
       inputProps={{
         ref: inputRef,
         className: "w-full dark:bg-slate-800 dark:text-slate-100",
-        placeholder: "Kommune",
+        placeholder: "Name of artist",
         value: currentGuess,
         onChange: (_e, { newValue }) => setCurrentGuess(newValue),
       }}

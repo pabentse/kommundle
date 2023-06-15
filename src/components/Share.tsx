@@ -42,7 +42,7 @@ export function Share({
       : rotationMode
       ? " "
       : "";
-    const title = `#Kommundle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
+    const title = `#Artle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {
@@ -51,19 +51,23 @@ export function Share({
       })
       .join("\n");
 
-    return [title, guessString, "https://kommundle.no"].join("\n");
+    return [title, guessString, "https://artle.no"].join("\n");
   }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
   return (
     <CopyToClipboard
       text={shareText}
-      onCopy={() => toast("Resultatene ble kopiert til utklippstavlen")}
+      onCopy={() =>
+        toast(
+          "The result has been copied to your clipboard, share it with your friends!"
+        )
+      }
       options={{
         format: "text/plain",
       }}
     >
       <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
-        {"Del"}
+        {"Share"}
       </button>
     </CopyToClipboard>
   );

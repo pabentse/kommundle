@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
+import ConfettiExplosion from "react-confetti-explosion";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -58,6 +59,17 @@ export function Game({ settingsData }: GameProps) {
     settingsData.rotationMode
   );
 
+  const [isExploding, setIsExploding] = React.useState(false);
+
+  useEffect(() => {
+    if (isExploding) {
+      const timer = setTimeout(() => {
+        setIsExploding(false);
+      }, 3000); // adjust the delay as needed
+      return () => clearTimeout(timer);
+    }
+  }, [isExploding]);
+
   const gameEnded =
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.distance === 0;
@@ -85,9 +97,9 @@ export function Game({ settingsData }: GameProps) {
 
       addGuess(newGuess);
       setCurrentGuess("");
-
       if (newGuess.distance === 0) {
         toast.success("Well done!", { delay: 2000 });
+        setIsExploding(true);
       }
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage]
@@ -150,6 +162,14 @@ export function Game({ settingsData }: GameProps) {
       <div className="my-2">
         {gameEnded ? (
           <>
+            {isExploding && (
+              <ConfettiExplosion
+                force={0.8}
+                duration={3000}
+                particleCount={400}
+                width={1600}
+              />
+            )}
             <Share
               guesses={guesses}
               dayString={dayString}
