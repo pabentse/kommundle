@@ -11,6 +11,8 @@ import {
   countries,
   getCountryName,
   sanitizeCountryName,
+  getMusemName,
+  getCityName,
 } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
@@ -179,14 +181,14 @@ export function Game({ settingsData }: GameProps) {
             />
             <a
               className="underline w-full text-center block mt-4"
-              href={`https://www.google.com/maps?q=${getCountryName(
+              href={`https://www.google.com/maps?q=${getMusemName(
                 i18n.resolvedLanguage,
                 country
-              )}%20kommune&hl=${i18n.resolvedLanguage}`}
+              )},%20${getCityName(i18n.resolvedLanguage, country)}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {"Vis på Google Maps"}
+              {"Show on Google Maps"}
             </a>
           </>
         ) : (

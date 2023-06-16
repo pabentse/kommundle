@@ -16,6 +16,8 @@ export interface Country {
   latitude: number;
   longitude: number;
   name: string;
+  museum: string;
+  location: string;
 }
 
 export const countries = [
@@ -500,6 +502,20 @@ export function getCountryName(language: string, country: Country) {
     return frenchCountryNames[country.code];
   }
   return country.name;
+}
+
+export function getMusemName(language: string, country: Country) {
+  if (language === "fr") {
+    return frenchCountryNames[country.code]; // TODO
+  }
+  return country.museum;
+}
+
+export function getCityName(language: string, country: Country) {
+  if (language === "fr") {
+    return frenchCountryNames[country.code]; // TODO
+  }
+  return country.location;
 }
 
 export function sanitizeCountryName(countryName: string): string {

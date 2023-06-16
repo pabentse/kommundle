@@ -91,10 +91,20 @@ function App() {
           </header>
           <Game settingsData={settingsData} />
           <footer className="flex justify-center text-sm mt-8 mb-1">
+            <a>
+              {
+                "This game is in alpha. Development will progress over the coming weeks. Hope you enjoy!"
+              }
+            </a>
+          </footer>
+          <footer className="flex justify-center text-sm mt-8 mb-1">
+            <a>{"Image copyrights: Wiki Commons"}</a>
+          </footer>
+          <footer className="flex justify-center text-sm mt-8 mb-1">
             ❤️ <Worldle />? -
             <a
               className="underline pl-1"
-              href="www.nrk.no"
+              href="https://ko-fi.com/artle"
               target="_blank"
               rel="noopener noreferrer"
             >

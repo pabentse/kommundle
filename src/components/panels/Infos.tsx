@@ -13,21 +13,17 @@ interface InfosProps {
 
 export function Infos({ isOpen, close, settingsData }: InfosProps) {
   return (
-    <Panel title="Spillemåte" isOpen={isOpen} close={close}>
+    <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Gjett riktig kommune på seks forsøk. Hver gjetning må være en norsk
-          kommune.
+          Guess the right painting in 6 tries or less. You can guess by typing
+          in the input field.
         </div>
         <div>
-          Etter hver gjetning får du vite hvor langt unna du er og hvilken
-          retning den korrekte kommunen ligger relativ til den du har gjetta. I
-          tillegg får du en prosentandel som sier hvor nærme du er relativ til
-          Norges lengde. Et lavt tall nær 0 % tilsier at du er nesten hele
-          Norges lengde unna den riktige kommunen. Et tall nær 100 % betyr at
-          det ikke er langt igjen til riktig kommune. Kommunenes plassering er
-          det beregnede midtpunktet i kommunen. Nabokommuner kan dermed være en
-          god del kilometer fra hverandre.
+          After each guess you will be told how far away you by year, and
+          whether you need to guess higher or lower. You are also given a
+          percentage that tells you how close you are relative to the range of
+          years. More instructions to come.
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -100,7 +96,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Worldle /> er inspirert av og baserer seg på kode fra{" "}
+        <Worldle /> is inspired by and is based on code from{" "}
         <a
           className="underline"
           href="https://worldle.teuteuf.fr"
@@ -109,7 +105,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         >
           WORLDLE
         </a>{" "}
-        laget og generøst delt av{" "}
+        made and generously shared by{" "}
         <a
           className="underline"
           href="https://mastodon.social/@teuteuf"
@@ -118,61 +114,25 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         >
           @teuteuf@mastodon.social
         </a>
-        .
+        . Also, a big thanks to Kommundle.no for help and guidance.
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
-          <Worldle /> er laget av{" "}
-          <a
-            className="underline"
-            href="https://nerdculture.de/@Oyvindbs"
-            target="_blank"
-            rel="me noopener noreferrer"
-          >
-            Øyvind Solheim{" "}
-          </a>
-          og{" "}
-          <a
-            className="underline"
-            href="https://twitter.com/sandrabruce"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Sandra Bruce.
-          </a>
+          <Worldle /> is made by Pål Bentsen.
         </div>
         <div>
           <a
             className="underline"
-            href="https://www.buymeacoffee.com/oyvindbs"
+            href="https://ko-fi.com/artle"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Lyst til å kjøpe oss en kaffe? ☕
+            Do you want to buy me a coffee? ☕
           </a>
         </div>
         <div className="font-bold">DATA</div>
-        Denne siden hadde ikke vært mulig uten data tilrettelagt av andre og vi
-        er veldig takknemlige for dette dugnadsarbeidet og for det offentliges
-        tilgjengeliggjøring av data. Kommunevåpnene er hentet fra{" "}
-        <a
-          className="underline"
-          href="https://no.m.wikipedia.org/wiki/Kommunev%C3%A5pen_i_Norge"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Wikipedia
-        </a>
-        . Norske kommuners geografiske plassering er beregnet ved hjelp av
-        kartene som er tilgjengelige i Folkehelseinstituttets r-pakke{" "}
-        <a
-          className="underline"
-          href="https://docs.sykdomspulsen.no/splmaps/articles/splmaps.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          splmaps.
-        </a>
+        This game would not have been possible without data made available by
+        Kommundle.no, Worldle by teuteuf.fr and Wikipedia.{" "}
       </div>
     </Panel>
   );
