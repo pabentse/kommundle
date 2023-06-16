@@ -5,6 +5,7 @@ import {
   countries,
   getCountryName,
   sanitizeCountryName,
+  getArtistName,
 } from "../domain/countries";
 
 interface CountryInputProps {
@@ -28,7 +29,8 @@ export function CountryInput({
       onSuggestionsFetchRequested={({ value }) =>
         setSuggestions(
           countries
-            .map((c) => getCountryName(i18n.resolvedLanguage, c).toUpperCase())
+            .map((c) => getArtistName(i18n.resolvedLanguage, c).toUpperCase())
+            //^denne har jeg endret fra getCountryName til getArtistName
             .filter((countryName) =>
               sanitizeCountryName(countryName).includes(
                 sanitizeCountryName(value)

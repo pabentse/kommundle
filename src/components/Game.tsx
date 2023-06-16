@@ -13,6 +13,7 @@ import {
   sanitizeCountryName,
   getMusemName,
   getCityName,
+  getArtistName,
 } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
@@ -81,9 +82,8 @@ export function Game({ settingsData }: GameProps) {
       e.preventDefault();
       const guessedCountry = countries.find(
         (country) =>
-          sanitizeCountryName(
-            getCountryName(i18n.resolvedLanguage, country)
-          ) === sanitizeCountryName(currentGuess)
+          sanitizeCountryName(getArtistName(i18n.resolvedLanguage, country)) ===
+          sanitizeCountryName(currentGuess)
       );
 
       if (guessedCountry == null) {
@@ -93,13 +93,15 @@ export function Game({ settingsData }: GameProps) {
 
       const newGuess = {
         name: currentGuess,
+        artist: getArtistName(i18n.resolvedLanguage, guessedCountry),
         distance: geolib.getDistance(guessedCountry, country),
         direction: geolib.getCompassDirection(guessedCountry, country),
       };
 
       addGuess(newGuess);
       setCurrentGuess("");
-      if (newGuess.distance === 0) {
+      if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
+        //^Denne har jeg endret fra newGuess.country til newGuess.artist
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
       }

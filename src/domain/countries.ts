@@ -18,6 +18,7 @@ export interface Country {
   name: string;
   museum: string;
   location: string;
+  artist: string;
 }
 
 export const countries = [
@@ -509,6 +510,13 @@ export function getMusemName(language: string, country: Country) {
     return frenchCountryNames[country.code]; // TODO
   }
   return country.museum;
+}
+
+export function getArtistName(language: string, country: Country) {
+  if (language === "fr") {
+    return frenchCountryNames[country.code]; // TODO
+  }
+  return country.artist;
 }
 
 export function getCityName(language: string, country: Country) {
