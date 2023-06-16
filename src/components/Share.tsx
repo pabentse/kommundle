@@ -51,7 +51,7 @@ export function Share({
       })
       .join("\n");
 
-    return [title, guessString, "https://artle.no"].join("\n");
+    return [title, guessString, "https://artle.eu"].join("\n");
   }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
   return (

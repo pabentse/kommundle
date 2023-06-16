@@ -30,7 +30,6 @@ export function CountryInput({
         setSuggestions(
           countries
             .map((c) => getArtistName(i18n.resolvedLanguage, c).toUpperCase())
-            //^denne har jeg endret fra getCountryName til getArtistName
             .filter((countryName) =>
               sanitizeCountryName(countryName).includes(
                 sanitizeCountryName(value)
@@ -40,8 +39,12 @@ export function CountryInput({
       }
       onSuggestionsClearRequested={() => setSuggestions([])}
       getSuggestionValue={(suggestion) => suggestion}
-      renderSuggestion={(suggestion) => (
-        <div className="border-2 dark:bg-slate-800 dark:text-slate-100">
+      renderSuggestion={(suggestion, { isHighlighted }) => (
+        <div
+          className={`border-2 dark:bg-slate-800 dark:text-slate-100 ${
+            isHighlighted ? "font-bold" : ""
+          }`}
+        >
           {suggestion}
         </div>
       )}
@@ -63,6 +66,7 @@ export function CountryInput({
           {children}
         </div>
       )}
+      highlightFirstSuggestion={true}
     />
   );
 }
