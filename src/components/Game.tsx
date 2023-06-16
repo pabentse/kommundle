@@ -87,7 +87,7 @@ export function Game({ settingsData }: GameProps) {
       );
 
       if (guessedCountry == null) {
-        toast.error("Ukjent kommune");
+        toast.error("Unknown artist");
         return;
       }
 
