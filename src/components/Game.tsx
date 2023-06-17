@@ -169,10 +169,10 @@ export function Game({ settingsData }: GameProps) {
             {isExploding && (
               <div className="confetti-container">
                 <ConfettiExplosion
-                force={0.8}
-                duration={3000}
-                particleCount={400}
-                width={1600}
+                  force={0.8}
+                  duration={3000}
+                  particleCount={300} //400 lagger litt, 300 er bra
+                  width={1600}
                 />
               </div>
             )}
