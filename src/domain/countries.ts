@@ -19,6 +19,7 @@ export interface Country {
   museum: string;
   location: string;
   artist: string;
+  year: number;
 }
 
 export const countries = [
@@ -543,4 +544,8 @@ export function sanitizeCountryName(countryName: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[- '()]/g, "")
     .toLowerCase();
+}
+
+export function getYear(country: Country) {
+  return country.year; //type: number
 }
