@@ -167,12 +167,14 @@ export function Game({ settingsData }: GameProps) {
         {gameEnded ? (
           <>
             {isExploding && (
-              <ConfettiExplosion
+              <div className="confetti-container">
+                <ConfettiExplosion
                 force={0.8}
                 duration={3000}
                 particleCount={400}
                 width={1600}
-              />
+                />
+              </div>
             )}
             <Share
               guesses={guesses}
