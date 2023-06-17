@@ -5,12 +5,14 @@ export interface SettingsData {
   rotationMode: boolean;
   distanceUnit: "km" | "miles";
   theme: "light" | "dark";
+  paalYearUnit: "year";
 }
 
 const defaultSettingsData: SettingsData = {
   noImageMode: false,
   rotationMode: false,
   distanceUnit: "km",
+  paalYearUnit: "year",
   theme: window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light",

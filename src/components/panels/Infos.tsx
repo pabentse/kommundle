@@ -36,6 +36,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
                 name: "Vadsø",
                 direction: "SW",
                 distance: 1_195_000,
+                year: 2021,
               },
             ]}
             settingsData={settingsData}
@@ -55,6 +56,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
                 name: "Tydal",
                 direction: "W",
                 distance: 127_000,
+                year: 2021,
               },
             ]}
             settingsData={settingsData}
@@ -74,6 +76,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
                 name: "Rindal",
                 direction: "N",
                 distance: 0,
+                year: 2021,
               },
             ]}
             settingsData={settingsData}

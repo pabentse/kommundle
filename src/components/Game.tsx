@@ -14,6 +14,7 @@ import {
   getMusemName,
   getCityName,
   getArtistName,
+  getYear,
 } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
@@ -34,7 +35,7 @@ function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
 
-const MAX_TRY_COUNT = 6;
+const MAX_TRY_COUNT = 6; //Max number of guesses
 
 interface GameProps {
   settingsData: SettingsData;
@@ -62,13 +63,13 @@ export function Game({ settingsData }: GameProps) {
     settingsData.rotationMode
   );
 
-  const [isExploding, setIsExploding] = React.useState(false);
+  const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
   useEffect(() => {
     if (isExploding) {
       const timer = setTimeout(() => {
         setIsExploding(false);
-      }, 3000); // adjust the delay as needed
+      }, 6000); // adjust the delay as needed
       return () => clearTimeout(timer);
     }
   }, [isExploding]);
@@ -87,20 +88,24 @@ export function Game({ settingsData }: GameProps) {
       );
 
       if (guessedCountry == null) {
+        //If the guess is wrong
         toast.error("Unknown artist");
         return;
       }
 
       const newGuess = {
+        //This is the guess that is added to the list of guesses
         name: currentGuess,
         artist: getArtistName(i18n.resolvedLanguage, guessedCountry),
         distance: geolib.getDistance(guessedCountry, country),
         direction: geolib.getCompassDirection(guessedCountry, country),
+        year: getYear(guessedCountry),
       };
 
       addGuess(newGuess);
       setCurrentGuess("");
       if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
+        //If the guess is correct
         //^Denne har jeg endret fra newGuess.country til newGuess.artist
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
@@ -111,10 +116,11 @@ export function Game({ settingsData }: GameProps) {
 
   useEffect(() => {
     if (
-      guesses.length === MAX_TRY_COUNT &&
-      guesses[guesses.length - 1].distance > 0
+      guesses.length === MAX_TRY_COUNT && //If length of guesses is 6
+      guesses[guesses.length - 1].distance > 0 //If the last guess is wrong?
     ) {
-      toast.info(getCountryName(i18n.resolvedLanguage, country).toUpperCase(), {
+      toast.info(getArtistName(i18n.resolvedLanguage, country).toUpperCase(), {
+        //If the last guess is wrong, show the correct answer
         autoClose: false,
         delay: 2000,
       });
@@ -169,10 +175,10 @@ export function Game({ settingsData }: GameProps) {
             {isExploding && (
               <div className="confetti-container">
                 <ConfettiExplosion
-                  force={0.8}
-                  duration={3000}
-                  particleCount={300} //400 lagger litt, 300 er bra
-                  width={1600}
+                  force={1}
+                  duration={6000}
+                  particleCount={200}
+                  width={2500}
                 />
               </div>
             )}

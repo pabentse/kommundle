@@ -3,11 +3,16 @@ import {
   Direction,
   formatDistance,
   generateSquareCharacters,
+  computeYearDifference,
 } from "../domain/geography";
 import { Guess } from "../domain/guess";
 import React, { useCallback, useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { SettingsData } from "../hooks/useSettings";
+import { getYear } from "../domain/countries";
+import { useCountry } from "../hooks/useCountry";
+import { DateTime, Interval } from "luxon";
+import { useMemo } from "react";
 
 const DIRECTION_ARROWS: Record<Direction, string> = {
   N: "⬆️",
@@ -28,6 +33,10 @@ const DIRECTION_ARROWS: Record<Direction, string> = {
   NNW: "↖️",
 };
 
+function getDayStringNew() {
+  return DateTime.now().toFormat("dd-MM-yyyy");
+}
+
 const SQUARE_ANIMATION_LENGTH = 250;
 type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
 
@@ -44,11 +53,16 @@ export function GuessRow({
 }: GuessRowProps) {
   const { distanceUnit, theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
+  //this should be the year difference between the guess and the correct year
   const squares = generateSquareCharacters(proximity, theme);
-
+  const dayStringNew = useMemo(getDayStringNew, []);
+  const [country, randomAngle, imageScale] = useCountry(dayStringNew);
+  const correctYear = getYear(country);
+  const yearDifference =
+    guess != null ? computeYearDifference(guess.year, correctYear).yearDiff : 0;
+  // comment
   const [animationState, setAnimationState] =
     useState<AnimationState>("NOT_STARTED");
-
   useEffect(() => {
     if (guess == null) {
       return;
@@ -114,7 +128,7 @@ export function GuessRow({
             </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
-            {guess && formatDistance(guess.distance, distanceUnit)}
+            {yearDifference}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
             {guess?.distance === 0

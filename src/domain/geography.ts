@@ -51,3 +51,16 @@ export function formatDistance(
     ? `${Math.round(distanceInKm)}km`
     : `${Math.round(distanceInKm * 0.621371)}mi`;
 }
+
+export function computeYearDifference(
+  //Takes two years, and returns:
+  //1. The difference between the two years
+  //2. The direction of the difference (forward or back)
+  yearOfGuess: number,
+  yearOfCorrectArtist: number
+): { yearDiff: number; direction: string } {
+  const yearDiff = Math.abs(yearOfGuess - yearOfCorrectArtist);
+  const direction = yearOfGuess < yearOfCorrectArtist ? "forward" : "back";
+
+  return { yearDiff, direction };
+}
