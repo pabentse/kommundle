@@ -128,12 +128,10 @@ export function GuessRow({
             </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
-            {yearDifference}
+            {`${yearDifference} years off!`}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
-            {guess?.distance === 0
-              ? "🎉"
-              : guess && DIRECTION_ARROWS[guess.direction]}
+            {yearDifference < 0 ? "➡️" : yearDifference > 0 ? "⬅️" : null}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
             {`${proximity}%`}
