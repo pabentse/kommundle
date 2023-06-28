@@ -52,6 +52,7 @@ export function Game({ settingsData }: GameProps) {
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayStringNew);
+  const [blurAmount, setBlurAmount] = useState(20); // Start with a high blur
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
     dayStringNew,
@@ -107,8 +108,12 @@ export function Game({ settingsData }: GameProps) {
       if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
         //If the guess is correct
         //^Denne har jeg endret fra newGuess.country til newGuess.artist
+        setBlurAmount(0);
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
+      } else {
+        //If the guess is wrong
+        setBlurAmount((currentBlur) => Math.max(0, currentBlur - 4));
       }
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage]
@@ -145,13 +150,10 @@ export function Game({ settingsData }: GameProps) {
           }`}
           alt="country to guess"
           src={`images/countries/${country.code.toLowerCase()}/vector.png`}
-          style={
-            rotationMode && !gameEnded
-              ? {
-                  transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
-                }
-              : {}
-          }
+          style={{
+            filter: `blur(${blurAmount}px)`,
+            transition: "filter 0.5s ease-in-out",
+          }}
         />
       </div>
       {rotationMode && !hideImageMode && !gameEnded && (
