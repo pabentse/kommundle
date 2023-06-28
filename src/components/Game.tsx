@@ -151,7 +151,7 @@ export function Game({ settingsData }: GameProps) {
           alt="country to guess"
           src={`images/countries/${country.code.toLowerCase()}/vector.png`}
           style={{
-            filter: `blur(${blurAmount}px)`,
+            filter: `blur(${gameEnded ? 0 : blurAmount}px)`,
             transition: "filter 0.5s ease-in-out",
           }}
         />
