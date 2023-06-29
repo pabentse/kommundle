@@ -25,7 +25,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
-import ConfettiExplosion from "react-confetti-explosion";
+//import ConfettiExplosion from "react-confetti-explosion";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -41,19 +41,50 @@ interface GameProps {
   settingsData: SettingsData;
 }
 
+const usePersistedState = <T,>(
+  key: string,
+  defaultValue: T
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
+  const [state, setState] = useState<T>(() => {
+    try {
+      const savedState = window.localStorage.getItem(key);
+      if (savedState) {
+        return JSON.parse(savedState);
+      }
+    } catch (err) {
+      // If the JSON is malformed or it's an empty document it will fall in this block
+      console.error(
+        `Error parsing state for key "${key}" from localstorage`,
+        err
+      );
+    }
+    return defaultValue; // If no valid data was found, return the default value
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+};
+
 export function Game({ settingsData }: GameProps) {
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
-  const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
+  //const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  const [currentRound, setCurrentRound] = usePersistedState<number>(
+    `currentRound-${today}`,
+    MAX_TRY_COUNT - 1
+  );
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayStringNew);
-  //const [blurAmount, setBlurAmount] = useState(20); // Start with a high blur
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
     dayStringNew,
@@ -116,17 +147,15 @@ export function Game({ settingsData }: GameProps) {
       if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
         //If the guess is correct
         //^Denne har jeg endret fra newGuess.country til newGuess.artist
-        //setBlurAmount(0);
         setCurrentRound(0); //Jump to the last round (last image)
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
       } else {
         //If the guess is wrong
-        //setBlurAmount((currentBlur) => Math.max(0, currentBlur - 4));
         setCurrentRound((round) => Math.max(0, round - 1)); //Jump to the next round (next image)
       }
     },
-    [addGuess, country, currentGuess, i18n.resolvedLanguage]
+    [addGuess, country, currentGuess, i18n.resolvedLanguage, setCurrentRound]
   );
 
   useEffect(() => {
@@ -161,7 +190,6 @@ export function Game({ settingsData }: GameProps) {
           alt="country to guess"
           src={`images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`}
           style={{
-            //filter: `blur(${gameEnded ? 0 : blurAmount}px)`,
             transition: "filter 0.5s ease-in-out",
           }}
         />
@@ -186,12 +214,12 @@ export function Game({ settingsData }: GameProps) {
           <>
             {isExploding && (
               <div className="confetti-container">
-                <ConfettiExplosion
+                {/* <ConfettiExplosion
                   force={1}
                   duration={6000}
                   particleCount={200}
                   width={2500}
-                />
+                /> */}
               </div>
             )}
             <Share
