@@ -53,7 +53,7 @@ export function Game({ settingsData }: GameProps) {
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayStringNew);
-  const [blurAmount, setBlurAmount] = useState(20); // Start with a high blur
+  //const [blurAmount, setBlurAmount] = useState(20); // Start with a high blur
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
     dayStringNew,
@@ -64,6 +64,13 @@ export function Game({ settingsData }: GameProps) {
     dayString,
     settingsData.rotationMode
   );
+
+  useEffect(() => {
+    for (let i = 0; i <= 5; i++) {
+      const img = new Image();
+      img.src = `images/countries/${country.code.toLowerCase()}/vector${i}.png`;
+    }
+  }, [country]);
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
