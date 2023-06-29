@@ -47,6 +47,7 @@ export function Game({ settingsData }: GameProps) {
   const dayStringNew = useMemo(getDayStringNew, []);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
+  const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
@@ -108,12 +109,14 @@ export function Game({ settingsData }: GameProps) {
       if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
         //If the guess is correct
         //^Denne har jeg endret fra newGuess.country til newGuess.artist
-        setBlurAmount(0);
+        //setBlurAmount(0);
+        setCurrentRound(0); //Jump to the last round (last image)
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
       } else {
         //If the guess is wrong
-        setBlurAmount((currentBlur) => Math.max(0, currentBlur - 4));
+        //setBlurAmount((currentBlur) => Math.max(0, currentBlur - 4));
+        setCurrentRound((round) => Math.max(0, round - 1)); //Jump to the next round (next image)
       }
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage]
@@ -149,9 +152,9 @@ export function Game({ settingsData }: GameProps) {
             hideImageMode && !gameEnded ? "h-0" : "h-full"
           }`}
           alt="country to guess"
-          src={`images/countries/${country.code.toLowerCase()}/vector.png`}
+          src={`images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`}
           style={{
-            filter: `blur(${gameEnded ? 0 : blurAmount}px)`,
+            //filter: `blur(${gameEnded ? 0 : blurAmount}px)`,
             transition: "filter 0.5s ease-in-out",
           }}
         />
