@@ -128,13 +128,16 @@ export function GuessRow({
             </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
-            {`${yearDifference} years off!`}
+            {``}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
-            {yearDifference < 0 ? "➡️" : yearDifference > 0 ? "⬅️" : null}
+            {/* {yearDifference < 0 ? "➡️" : yearDifference > 0 ? "⬅️" : null} */}
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
-            {`${proximity}%`}
+          <div
+            className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop"
+            style={{ backgroundColor: proximity === 100 ? "green" : "red" }}
+          >
+            {``}
           </div>
         </>
       );
