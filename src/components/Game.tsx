@@ -25,6 +25,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
+import Modal from "./Modal";
 //import ConfettiExplosion from "react-confetti-explosion";
 
 function getDayString() {
@@ -102,6 +103,9 @@ export function Game({ settingsData }: GameProps) {
       img.src = `images/countries/${country.code.toLowerCase()}/vector${i}.png`;
     }
   }, [country]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
@@ -183,7 +187,28 @@ export function Game({ settingsData }: GameProps) {
         </button>
       )}
       <div className="my-1">
-        <img
+        <div className="my-1">
+          {isModalOpen ? (
+            <Modal
+              active={isModalOpen}
+              image={image}
+              onClose={() => setIsModalOpen(false)}
+            />
+          ) : (
+            <img
+              className={`max-h-52 m-auto transition-transform duration-700 ease-in ${
+                hideImageMode && !gameEnded ? "h-0" : "h-full"
+              } cursor-pointer`}
+              alt="country to guess"
+              src={image}
+              onClick={() => setIsModalOpen(true)}
+              style={{
+                transition: "filter 0.5s ease-in-out",
+              }}
+            />
+          )}
+        </div>
+        {/* <img
           className={`max-h-52 m-auto transition-transform duration-700 ease-in ${
             hideImageMode && !gameEnded ? "h-0" : "h-full"
           }`}
@@ -192,7 +217,7 @@ export function Game({ settingsData }: GameProps) {
           style={{
             transition: "filter 0.5s ease-in-out",
           }}
-        />
+        /> */}
       </div>
       {rotationMode && !hideImageMode && !gameEnded && (
         <button
