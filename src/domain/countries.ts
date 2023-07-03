@@ -3,7 +3,7 @@
 // Countries images => https://github.com/djaiss/mapsicon
 
 export const countryCodesWithImage = [
-  "municip5046",
+  "artwork5046",
   "municip5045",
   "municip1103",
   "municip1106",
@@ -18,17 +18,17 @@ export interface Country {
   name: string;
   museum: string;
   location: string;
-  artist: string;
+  artistAndName: string;
 }
 
 export const countries = [
   {
-    code: "municip5046",
+    code: "artwork5046",
     latitude: 48.860294,
     longitude: 2.338629,
     year: 1503,
     name: "Mona Lisa",
-    artist: "Leonardo da Vinci",
+    artistAndName: "Leonardo da Vinci: Mona Lisa",
     location: "Paris",
     country: "France",
     museum: "Musée du Louvre",
@@ -39,7 +39,7 @@ export const countries = [
     longitude: 9.18854,
     year: 1495,
     name: "The Last Supper",
-    artist: "Leonardo da Vinci",
+    artistAndName: "Leonardo da Vinci: The Last Supper",
     location: "Milan",
     country: "Italy",
     museum: "Santa Maria delle Grazie",
@@ -50,7 +50,7 @@ export const countries = [
     longitude: -73.978271,
     year: 1889,
     name: "The Starry Night",
-    artist: "Vincent van Gogh",
+    artistAndName: "Vincent van Gogh: The Starry Night",
     location: "New York City",
     country: "United States",
     museum: "Museum of Modern Art",
@@ -61,7 +61,7 @@ export const countries = [
     longitude: 16.363449,
     year: 1907,
     name: "The Kiss",
-    artist: "Gustav Klimt",
+    artistAndName: "Gustav Klimt: The Kiss",
     location: "Vienna",
     country: "Austria",
     museum: "Österreichische Galerie Belvedere",
@@ -72,7 +72,7 @@ export const countries = [
     longitude: -3.7037,
     year: 1937,
     name: "Guernica",
-    artist: "Pablo Picasso",
+    artistAndName: "Pablo Picasso: Guernica",
     location: "Madrid",
     country: "Spain",
     museum: "Museo Reina Sofía",
@@ -83,7 +83,7 @@ export const countries = [
     longitude: 10.757933,
     year: 1893,
     name: "The Scream",
-    artist: "Edvard Munch",
+    artistAndName: "Edvard Munch: The Scream",
     location: "Oslo",
     country: "Norway",
     museum: "Munch Museum",
@@ -94,7 +94,7 @@ export const countries = [
     longitude: 4.288788,
     year: 1665,
     name: "Girl with a Pearl Earring",
-    artist: "Johannes Vermeer",
+    artistAndName: "Johannes Vermeer: Girl with a Pearl Earring",
     location: "The Hague",
     country: "Netherlands",
     museum: "Mauritshuis",
@@ -102,7 +102,7 @@ export const countries = [
   {
     code: "municip5048",
     name: "The Birth of Venus",
-    artist: "Sandro Botticelli",
+    artistAndName: "Sandro Botticelli: The Birth of Venus",
     year: 1486,
     location: "Florence",
     country: "Italy",
@@ -113,7 +113,7 @@ export const countries = [
   {
     code: "municip5049",
     name: "Las Meninas",
-    artist: "Diego Velázquez",
+    artistAndName: "Diego Velázquez: Las Meninas",
     year: 1656,
     location: "Madrid",
     country: "Spain",
@@ -124,7 +124,7 @@ export const countries = [
   {
     code: "municip5050",
     name: "Creation of Adam",
-    artist: "Michelangelo",
+    artistAndName: "Michelangelo: Creation of Adam",
     year: 1508,
     location: "Vatican City",
     country: "Vatican City",
@@ -516,7 +516,7 @@ export function getArtistName(language: string, country: Country) {
   if (language === "fr") {
     return frenchCountryNames[country.code]; // TODO
   }
-  return country.artist;
+  return country.artistAndName;
 }
 
 export function getCityName(language: string, country: Country) {

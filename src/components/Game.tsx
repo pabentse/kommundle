@@ -24,7 +24,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
-import ConfettiExplosion from "react-confetti-explosion";
+import {ConfettiExplosion}  from "react-confetti-explosion";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -87,7 +87,7 @@ export function Game({ settingsData }: GameProps) {
       );
 
       if (guessedCountry == null) {
-        toast.error("Ukjent kommune");
+        toast.error("Ukjent kunstner");
         return;
       }
 
