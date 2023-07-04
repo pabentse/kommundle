@@ -26,6 +26,7 @@ import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
 import Modal from "./Modal";
+import { GuessRow } from "./GuessRow";
 //import ConfettiExplosion from "react-confetti-explosion";
 
 function getDayString() {
@@ -70,9 +71,11 @@ const usePersistedState = <T,>(
 };
 
 export function Game({ settingsData }: GameProps) {
+  const [currentGuessGlobal, setCurrentGuessGlobal] = useState("");
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
+  const [isGuessCorrect, setIsGuessCorrect] = useState(false);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
   //const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
@@ -122,6 +125,9 @@ export function Game({ settingsData }: GameProps) {
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.distance === 0;
 
+  const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
+  const [centuryFeedback, setCenturyFeedback] = useState<string | null>(null);
+  console.log('1isGuessCorrect after handle submit:', isGuessCorrect);
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -136,7 +142,6 @@ export function Game({ settingsData }: GameProps) {
         toast.error("Unknown artist");
         return;
       }
-
       const newGuess = {
         //This is the guess that is added to the list of guesses
         name: currentGuess,
@@ -144,18 +149,41 @@ export function Game({ settingsData }: GameProps) {
         distance: geolib.getDistance(guessedCountry, country),
         direction: geolib.getCompassDirection(guessedCountry, country),
         year: getYear(guessedCountry),
+        isCorrect : false, //initially set to false
       };
 
       addGuess(newGuess);
       setCurrentGuess("");
+
       if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
         //If the guess is correct
         //^Denne har jeg endret fra newGuess.country til newGuess.artist
+        newGuess.isCorrect = true; //update isCorrect to true
+        setIsGuessCorrect(true);
         setCurrentRound(0); //Jump to the last round (last image)
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
       } else {
         //If the guess is wrong
+        newGuess.isCorrect = false;
+        setIsGuessCorrect(false);
+        if (
+          guessedCountry.country ===
+          getArtistName(i18n.resolvedLanguage, country)
+        ) {
+          setCountryFeedback("Correct country!");
+        } else {
+          setCountryFeedback(null);
+        }
+
+        if (
+          Math.floor(guessedCountry.year / 100) ===
+          Math.floor(country.year / 100)
+        ) {
+          setCenturyFeedback("Correct century!");
+        } else {
+          setCenturyFeedback(null);
+        }
         setCurrentRound((round) => Math.max(0, round - 1)); //Jump to the next round (next image)
       }
     },
@@ -173,8 +201,10 @@ export function Game({ settingsData }: GameProps) {
         delay: 2000,
       });
     }
+    console.log('2isGuessCorrect after handle submit:', isGuessCorrect);
   }, [country, guesses, i18n.resolvedLanguage]);
-
+  console.log('3isGuessCorrect after handle submit:', isGuessCorrect);
+  
   return (
     <div className="flex-grow flex flex-col mx-2">
       {hideImageMode && !gameEnded && (

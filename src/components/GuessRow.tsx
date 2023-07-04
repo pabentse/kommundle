@@ -44,20 +44,26 @@ interface GuessRowProps {
   guess?: Guess;
   settingsData: SettingsData;
   countryInputRef?: React.RefObject<HTMLInputElement>;
+  countryFeedback?: string | null;
+  centuryFeedback?: string | null;
+  isGuessCorrect?: boolean;
 }
 
 export function GuessRow({
   guess,
   settingsData,
   countryInputRef,
+  countryFeedback,
+  centuryFeedback,
 }: GuessRowProps) {
   const { distanceUnit, theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
-  //this should be the year difference between the guess and the correct year
   const squares = generateSquareCharacters(proximity, theme);
   const dayStringNew = useMemo(getDayStringNew, []);
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
   const correctYear = getYear(country);
+  const isGuessCorrect = guess?.isCorrect;
+  
   const yearDifference =
     guess != null ? computeYearDifference(guess.year, correctYear).yearDiff : 0;
   // comment
@@ -111,11 +117,11 @@ export function GuessRow({
             ))}
           </div>
           <div className="border-2 h-8 col-span-1 animate-reveal">
-            <CountUp
+            {/* <CountUp
               end={proximity}
               suffix="%"
               duration={(SQUARE_ANIMATION_LENGTH * 5) / 1000}
-            />
+            /> */}
           </div>
         </>
       );
@@ -128,14 +134,16 @@ export function GuessRow({
             </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
-            {``}
+            {centuryFeedback}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
-            {/* {yearDifference < 0 ? "➡️" : yearDifference > 0 ? "⬅️" : null} */}
+            {centuryFeedback?.toString()}
           </div>
           <div
             className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop"
-            style={{ backgroundColor: proximity === 100 ? "green" : "red" }}
+            style={{
+              backgroundColor: isGuessCorrect  ? "green" : "red",
+            }}
           >
             {``}
           </div>
