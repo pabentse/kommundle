@@ -127,7 +127,6 @@ export function Game({ settingsData }: GameProps) {
 
   const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
   const [centuryFeedback, setCenturyFeedback] = useState<string | null>(null);
-  console.log('1isGuessCorrect after handle submit:', isGuessCorrect);
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -149,7 +148,7 @@ export function Game({ settingsData }: GameProps) {
         distance: geolib.getDistance(guessedCountry, country),
         direction: geolib.getCompassDirection(guessedCountry, country),
         year: getYear(guessedCountry),
-        isCorrect : false, //initially set to false
+        isCorrect: false, //initially set to false
       };
 
       addGuess(newGuess);
@@ -201,10 +200,8 @@ export function Game({ settingsData }: GameProps) {
         delay: 2000,
       });
     }
-    console.log('2isGuessCorrect after handle submit:', isGuessCorrect);
   }, [country, guesses, i18n.resolvedLanguage]);
-  console.log('3isGuessCorrect after handle submit:', isGuessCorrect);
-  
+
   return (
     <div className="flex-grow flex flex-col mx-2">
       {hideImageMode && !gameEnded && (

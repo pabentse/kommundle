@@ -63,7 +63,7 @@ export function GuessRow({
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
   const correctYear = getYear(country);
   const isGuessCorrect = guess?.isCorrect;
-  
+
   const yearDifference =
     guess != null ? computeYearDifference(guess.year, correctYear).yearDiff : 0;
   // comment
@@ -142,7 +142,7 @@ export function GuessRow({
           <div
             className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop"
             style={{
-              backgroundColor: isGuessCorrect  ? "green" : "red",
+              backgroundColor: isGuessCorrect ? "green" : "red",
             }}
           >
             {``}
