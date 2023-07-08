@@ -16,7 +16,7 @@ export function Settings({
   updateSettings,
 }: SettingsProps) {
   return (
-    <Panel title={"Innstilling"} isOpen={isOpen} close={close}>
+    <Panel title={"Settings"} isOpen={isOpen} close={close}>
       <div className="my-4">
         <div className="flex p-1">
           <select
@@ -34,7 +34,7 @@ export function Settings({
             className="flex-1 ml-2 flex items-center"
             htmlFor="setting-distanceUnit"
           >
-            {"Avstandsenhet"}
+            {"Distance unit"}
           </label>
         </div>
         <div className="flex p-1">
@@ -46,22 +46,22 @@ export function Settings({
               updateSettings({ theme: e.target.value as "light" | "dark" })
             }
           >
-            <option value="light">Lyst</option>
-            <option value="dark">Mørkt</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
           </select>
           <label
             className="flex-1 ml-2 flex items-center"
             htmlFor="setting-theme"
           >
-            {"Tema"}
+            {"Theme"}
           </label>
         </div>
       </div>
       <div className="my-4">
         <header className="my-2">
-          <h3 className="text-lg font-bold">{"Forvanskere"}</h3>
+          <h3 className="text-lg font-bold">{"Hardeners"}</h3>
           <div className="text-sm italic text-gray-500">
-            {"Begynner neste dag"}
+            {"Starts next day"}
           </div>
         </header>
         <div className="flex p-1">
@@ -72,7 +72,7 @@ export function Settings({
             onChange={(e) => updateSettings({ noImageMode: e.target.checked })}
           />
           <label className="flex-1 ml-2" htmlFor="setting-noImage">
-            {"Uten bilder"}
+            {"Without image"}
           </label>
         </div>
         <div className="flex p-1">
@@ -83,7 +83,7 @@ export function Settings({
             onChange={(e) => updateSettings({ rotationMode: e.target.checked })}
           />
           <label className="flex-1 ml-2" htmlFor="setting-rotationMode">
-            {"Roter bildene"}
+            {"Rotate images"}
           </label>
         </div>
       </div>

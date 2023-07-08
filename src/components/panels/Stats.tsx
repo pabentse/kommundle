@@ -21,15 +21,15 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
 
   const maxDistribution = Math.max(...Object.values(guessDistribution));
   return (
-    <Panel title={"Statistikk"} isOpen={isOpen} close={close}>
+    <Panel title={"Statistics"} isOpen={isOpen} close={close}>
       <div className="flex justify-center">
-        <StatsTile value={played} name={"Ganger spilt"} />
-        <StatsTile value={Math.round(winRatio * 100)} name={"Vinnerprosent"} />
-        <StatsTile value={currentStreak} name={"Nåværende seiersrekke"} />
-        <StatsTile value={maxStreak} name={"Lengste seiersrekke"} />
+        <StatsTile value={played} name={"Times played"} />
+        <StatsTile value={Math.round(winRatio * 100)} name={"Win percentage"} />
+        <StatsTile value={currentStreak} name={"Current win streak"} />
+        <StatsTile value={maxStreak} name={"Longest win streak"} />
       </div>
       <div>
-        <h3 className="text-xl font-bold">{"Antall forsøk"}</h3>
+        <h3 className="text-xl font-bold">{"Attempts"}</h3>
         <ul className="mx-1">
           {Object.entries(guessDistribution).map(([index, count]) => (
             <li key={index} className="my-2 flex">
