@@ -93,7 +93,7 @@ function App() {
           <footer className="flex justify-center text-sm mt-8 mb-1">
             <a>
               {
-                "This game is in alpha. Development will progress over the coming weeks. Hope you enjoy!"
+                "This game is in beta version. Development will progress over the coming weeks. Hope you enjoy!"
               }
             </a>
           </footer>
