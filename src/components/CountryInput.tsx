@@ -26,17 +26,18 @@ export function CountryInput({
   return (
     <Autosuggest
       suggestions={suggestions}
-      onSuggestionsFetchRequested={({ value }) =>
-        setSuggestions(
-          countries
-            .map((c) => getArtistName(i18n.resolvedLanguage, c).toUpperCase())
-            .filter((countryName) =>
-              sanitizeCountryName(countryName).includes(
-                sanitizeCountryName(value)
-              )
+      onSuggestionsFetchRequested={({ value }) => {
+        let suggestions = countries
+          .map((c) => getArtistName(i18n.resolvedLanguage, c).toUpperCase())
+          .filter((countryName) =>
+            sanitizeCountryName(countryName).includes(
+              sanitizeCountryName(value)
             )
-        )
-      }
+          );
+        // Filter out duplicates by converting the array to a Set and back to an Array
+        suggestions = Array.from(new Set(suggestions));
+        setSuggestions(suggestions);
+      }}
       onSuggestionsClearRequested={() => setSuggestions([])}
       getSuggestionValue={(suggestion) => suggestion}
       renderSuggestion={(suggestion, { isHighlighted }) => (
