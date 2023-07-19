@@ -16,17 +16,12 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the right painting in 6 tries or less. You can guess by typing
-          in the input field.
+          Guess the right artist in 6 tries or less. You can guess by typing in
+          the input field.
         </div>
-        <div>
-          After each guess you will be told how far away you by year, and
-          whether you need to guess higher or lower. You are also given a
-          percentage that tells you how close you are relative to the range of
-          years. More instructions to come.
-        </div>
+        <div>Click on the picture to enlarge it.</div>
       </div>
-      <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
+      {/* <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div className="font-bold">Examples</div>
         <div>
           <Guesses
@@ -87,17 +82,17 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             Gratulerer! 🎉
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        Det kommer en ny <Worldle /> hver dag.
+        You can play a new game of <Worldle /> every day.
       </div>
-      <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
+      {/* <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div className="font-bold">Angående avstander</div>
         <div>
           Avstandene som brukes er mellom midtpunkteti hver kommune. Selv
           nabokommuner har dermed mer enn 0 i avstand.
         </div>
-      </div>
+      </div> */}
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <Worldle /> is inspired by and is based on code from{" "}
         <a
