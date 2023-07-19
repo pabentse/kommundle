@@ -16,6 +16,7 @@ export const countryCodesWithImage = [
 ];
 
 export interface Country {
+  country: any;
   code: string;
   latitude: number;
   longitude: number;
@@ -27,7 +28,7 @@ export interface Country {
 }
 
 export const countries = [
-  {
+  /* {
     code: "municip5046",
     latitude: 48.860294,
     longitude: 2.338629,
@@ -37,7 +38,7 @@ export const countries = [
     location: "Paris",
     country: "France",
     museum: "Musée du Louvre",
-  },
+  }, */
   {
     code: "municip5045",
     latitude: 45.464664,
@@ -145,7 +146,7 @@ export const countries = [
     name: "Creation of Adam",
     artist: "Michelangelo",
     location: "Vatican City",
-    country: "Vatican City",
+    country: "Italy",
     museum: "Sistine Chapel",
   },
   {
@@ -256,6 +257,10 @@ export function getArtistName(language: string, country: Country) {
 
 export function getCityName(language: string, country: Country) {
   return country.location;
+}
+
+export function getCountryCountry(country: Country) {
+  return country.country;
 }
 
 export function sanitizeCountryName(countryName: string): string {

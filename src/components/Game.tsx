@@ -15,6 +15,7 @@ import {
   getCityName,
   getArtistName,
   getYear,
+  getCountryCountry,
 } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
@@ -27,7 +28,7 @@ import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
 import Modal from "./Modal";
 import { GuessRow } from "./GuessRow";
-//import ConfettiExplosion from "react-confetti-explosion";
+import ConfettiExplosion from "react-confetti-explosion";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -149,6 +150,9 @@ export function Game({ settingsData }: GameProps) {
         direction: geolib.getCompassDirection(guessedCountry, country),
         year: getYear(guessedCountry),
         isCorrect: false, //initially set to false
+        isCorrectCentury: false,
+        isCorrectCountry: false,
+        countryNew: guessedCountry.country,
       };
 
       addGuess(newGuess);
@@ -158,6 +162,8 @@ export function Game({ settingsData }: GameProps) {
         //If the guess is correct
         //^Denne har jeg endret fra newGuess.country til newGuess.artist
         newGuess.isCorrect = true; //update isCorrect to true
+        newGuess.isCorrectCountry = true;
+        newGuess.isCorrectCentury = true;
         setIsGuessCorrect(true);
         setCurrentRound(0); //Jump to the last round (last image)
         toast.success("Well done!", { delay: 2000 });
@@ -166,13 +172,23 @@ export function Game({ settingsData }: GameProps) {
         //If the guess is wrong
         newGuess.isCorrect = false;
         setIsGuessCorrect(false);
-        if (
-          guessedCountry.country ===
-          getArtistName(i18n.resolvedLanguage, country)
-        ) {
-          setCountryFeedback("Correct country!");
+        //console.log("guessedCountry is: ", guessedCountry);
+        console.log("guessedCountry.country is: ", guessedCountry.country);
+        //console.log("typeof guessedCountry.country is:", typeof guessedCountry.country);
+        //console.log("typeof getartistname i18n country is: ", typeof getArtistName(i18n.resolvedLanguage, country));
+        console.log("print getCountryName: ", getCountryCountry(country));
+        if (guessedCountry.country === getCountryCountry(country)) {
+          newGuess.isCorrectCountry = true;
         } else {
-          setCountryFeedback(null);
+          newGuess.isCorrectCountry = false;
+        }
+        if (
+          Math.floor(guessedCountry.year / 100) ===
+          Math.floor(country.year / 100)
+        ) {
+          newGuess.isCorrectCentury = true;
+        } else {
+          newGuess.isCorrectCentury = false;
         }
 
         if (
@@ -204,6 +220,11 @@ export function Game({ settingsData }: GameProps) {
 
   return (
     <div className="flex-grow flex flex-col mx-2">
+      <GuessRow
+        centuryFeedback={centuryFeedback}
+        countryFeedback={countryFeedback}
+        settingsData={settingsData}
+      />
       {hideImageMode && !gameEnded && (
         <button
           className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"

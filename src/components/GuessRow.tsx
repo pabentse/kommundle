@@ -33,6 +33,69 @@ const DIRECTION_ARROWS: Record<Direction, string> = {
   NNW: "↖️",
 };
 
+const countryFlags: { [key: string]: string } = {
+  Italy: "🇮🇹",
+  France: "🇫🇷",
+  Germany: "🇩🇪",
+  Spain: "🇪🇸",
+  "United Kingdom": "🇬🇧",
+  Russia: "🇷🇺",
+  Ukraine: "🇺🇦",
+  Poland: "🇵🇱",
+  Romania: "🇷🇴",
+  Netherlands: "🇳🇱",
+  Belgium: "🇧🇪",
+  Greece: "🇬🇷",
+  "Czech Republic": "🇨🇿",
+  Portugal: "🇵🇹",
+  Sweden: "🇸🇪",
+  Hungary: "🇭🇺",
+  Belarus: "🇧🇾",
+  Austria: "🇦🇹",
+  Serbia: "🇷🇸",
+  Switzerland: "🇨🇭",
+  Bulgaria: "🇧🇬",
+  Denmark: "🇩🇰",
+  Finland: "🇫🇮",
+  Slovakia: "🇸🇰",
+  Norway: "🇳🇴",
+  Ireland: "🇮🇪",
+  Croatia: "🇭🇷",
+  Moldova: "🇲🇩",
+  "Bosnia and Herzegovina": "🇧🇦",
+  Albania: "🇦🇱",
+  Lithuania: "🇱🇹",
+  "North Macedonia": "🇲🇰",
+  Slovenia: "🇸🇮",
+  Latvia: "🇱🇻",
+  Estonia: "🇪🇪",
+  Montenegro: "🇲🇪",
+  Luxembourg: "🇱🇺",
+  Malta: "🇲🇹",
+  Iceland: "🇮🇸",
+  Andorra: "🇦🇩",
+  Mexico: "🇲🇽",
+  Canada: "🇨🇦",
+  "United States": "🇺🇸",
+  Brazil: "🇧🇷",
+  Argentina: "🇦🇷",
+  Colombia: "🇨🇴",
+  Peru: "🇵🇪",
+  China: "🇨🇳",
+  India: "🇮🇳",
+  Indonesia: "🇮🇩",
+  Pakistan: "🇵🇰",
+  Bangladesh: "🇧🇩",
+  eSwatini: "🇸🇿",
+  Afghanistan: "🇦🇫",
+  Angola: "🇦🇴",
+  Algeria: "🇩🇿",
+  Azerbaijan: "🇦🇿",
+  Bahrain: "🇧🇭",
+  Benin: "🇧🇯",
+  Botswana: "🇧🇼",
+};
+
 function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
@@ -46,6 +109,7 @@ interface GuessRowProps {
   countryInputRef?: React.RefObject<HTMLInputElement>;
   countryFeedback?: string | null;
   centuryFeedback?: string | null;
+  countryNew?: string | null;
   isGuessCorrect?: boolean;
 }
 
@@ -53,19 +117,19 @@ export function GuessRow({
   guess,
   settingsData,
   countryInputRef,
-  countryFeedback,
-  centuryFeedback,
 }: GuessRowProps) {
   const { distanceUnit, theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
   const squares = generateSquareCharacters(proximity, theme);
   const dayStringNew = useMemo(getDayStringNew, []);
-  const [country, randomAngle, imageScale] = useCountry(dayStringNew);
-  const correctYear = getYear(country);
+  //const [country, randomAngle, imageScale] = useCountry(dayStringNew);
+  //const correctYear = getYear(country);
   const isGuessCorrect = guess?.isCorrect;
+  const isCorrectCentury = guess?.isCorrectCentury;
+  const isCorrectCountry = guess?.isCorrectCountry;
 
-  const yearDifference =
-    guess != null ? computeYearDifference(guess.year, correctYear).yearDiff : 0;
+  //const yearDifference =
+  //guess != null ? computeYearDifference(guess.year, correctYear).yearDiff : 0;
   // comment
   const [animationState, setAnimationState] =
     useState<AnimationState>("NOT_STARTED");
@@ -83,6 +147,15 @@ export function GuessRow({
       clearTimeout(timeout);
     };
   }, [guess]);
+
+  function getFlagEmoji(country: string) {
+    //console.log("pure country from guessrow is: ", country);
+    //console.log("isCorrectCountry from guessrow is: ", isCorrectCountry);
+    return countryFlags[country] || "";
+  }
+
+  const flagEmoji =
+    guess && guess.countryNew ? getFlagEmoji(guess.countryNew) : "";
 
   const handleClickOnEmptyRow = useCallback(() => {
     if (countryInputRef?.current != null) {
@@ -116,13 +189,7 @@ export function GuessRow({
               </div>
             ))}
           </div>
-          <div className="border-2 h-8 col-span-1 animate-reveal">
-            {/* <CountUp
-              end={proximity}
-              suffix="%"
-              duration={(SQUARE_ANIMATION_LENGTH * 5) / 1000}
-            /> */}
-          </div>
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal"></div>
         </>
       );
     case "ENDED":
@@ -133,11 +200,19 @@ export function GuessRow({
               {guess?.name.toUpperCase()}
             </p>
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
-            {centuryFeedback}
-          </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
-            {centuryFeedback?.toString()}
+            {guess?.countryNew ? flagEmoji : ""}
+            {isCorrectCountry ? " ✅" : "❌"}
+          </div>
+          <div
+            className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal"
+            //style={{ backgroundColor: isCorrectCentury ? "green" : "red" }}
+          >
+            {isGuessCorrect
+              ? guess?.year
+              : isCorrectCentury
+              ? "Century ✅"
+              : "Century ❌"}
           </div>
           <div
             className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop"
