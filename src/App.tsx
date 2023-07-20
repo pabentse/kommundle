@@ -108,7 +108,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {"Buy us a coffee!"}
+              {"Buy me a coffee!"}
             </a>
           </footer>
         </div>
