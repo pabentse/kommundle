@@ -4,8 +4,8 @@
 
 export const countryCodesWithImage = [
   "municip5046",
-  "municip5045",
-  "municip1103",
+  //"municip5045",
+  //"municip1103",
   "municip1106",
   "municip5042",
   "municip5041",
