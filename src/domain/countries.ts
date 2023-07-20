@@ -7,12 +7,14 @@ export const countryCodesWithImage = [
   //"municip5045",
   //"municip1103",
   "municip1106",
-  "municip5042",
-  "municip5041",
-  "municip5047",
+  //"municip5042",
+  //"municip5041", //scream
+  "municip5047", //
   "municip5048",
   "municip5049",
   "municip5050",
+  //"municip5051",
+  "municip5052",
 ];
 
 export interface Country {
@@ -58,7 +60,7 @@ export const countries = [
     name: "The Starry Night",
     artist: "Vincent van Gogh",
     location: "New York City",
-    country: "United States",
+    country: "Netherlands",
     museum: "Museum of Modern Art",
   },
   {
@@ -168,7 +170,7 @@ export const countries = [
     name: "The Persistence of Memory",
     artist: "Salvador Dalí",
     location: "New York City",
-    country: "United States",
+    country: "Spain",
     museum: "Museum of Modern Art",
   },
   {
@@ -223,7 +225,7 @@ export const countries = [
     name: "The Dance",
     artist: "Henri Matisse",
     location: "New York City",
-    country: "United States",
+    country: "France",
     museum: "Museum of Modern Art",
   },
   {
@@ -234,7 +236,7 @@ export const countries = [
     name: "The Treachery of Images",
     artist: "René Magritte",
     location: "Los Angeles",
-    country: "United States",
+    country: "Belgium",
     museum: "Los Angeles County Museum of Art",
   },
 ];

@@ -220,11 +220,13 @@ export function Game({ settingsData }: GameProps) {
 
   return (
     <div className="flex-grow flex flex-col mx-2">
-      <GuessRow
-        centuryFeedback={centuryFeedback}
-        countryFeedback={countryFeedback}
-        settingsData={settingsData}
-      />
+      <div className="flex flex-row justify-between">
+        <GuessRow
+          centuryFeedback={centuryFeedback}
+          countryFeedback={countryFeedback}
+          settingsData={settingsData}
+        />
+      </div>
       {hideImageMode && !gameEnded && (
         <button
           className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
