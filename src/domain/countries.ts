@@ -10,10 +10,10 @@ export const countryCodesWithImage = [
   //"municip5042",
   //"municip5041", //scream
   //"municip5047", //
-  //"municip5048",
+  "municip5048",
   "municip5049",
   "municip5050",
-  //"municip5051",
+  "municip5051",
   "municip5052",
 ];
 
