@@ -38,7 +38,7 @@ function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
 
-const MAX_TRY_COUNT = 6; //Max number of guesses
+const MAX_TRY_COUNT = 3; //Max number of guesses
 
 interface GameProps {
   settingsData: SettingsData;
@@ -102,14 +102,27 @@ export function Game({ settingsData }: GameProps) {
   );
 
   useEffect(() => {
-    for (let i = 0; i <= 5; i++) {
-      const img = new Image();
+    const imageIndices: number[] = [5, 3, 0];
+    for (const i of imageIndices) {
+      const img: HTMLImageElement = new Image();
       img.src = `images/countries/${country.code.toLowerCase()}/vector${i}.png`;
     }
-  }, [country]);
+  }, [country.code]); // Now `country.code` is in dependency array
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
+
+  // assuming currentRound is of type number
+  const roundToImageIndexMapping: { [key in number]: number } = {
+    2: 5,
+    1: 3,
+    0: 0,
+  };
+  const imageIndex =
+    roundToImageIndexMapping[
+      currentRound as keyof typeof roundToImageIndexMapping
+    ];
+  const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
