@@ -13,6 +13,7 @@ import { getYear } from "../domain/countries";
 import { useCountry } from "../hooks/useCountry";
 import { DateTime, Interval } from "luxon";
 import { useMemo } from "react";
+import "./GuessRow.css";
 
 const DIRECTION_ARROWS: Record<Direction, string> = {
   N: "⬆️",
@@ -214,9 +215,7 @@ export function GuessRow({
               ? "Century ✅"
               : "Century ❌"}
           </div> */}
-          <div
-            className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop"
-            >
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
             {isGuessCorrect ? "✅" : "❌"}
           </div>
         </>
