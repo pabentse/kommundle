@@ -195,16 +195,16 @@ export function GuessRow({
     case "ENDED":
       return (
         <>
-          <div className="flex items-center justify-center border-2 h-8 col-span-3 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-6 animate-reveal">
             <p className="text-ellipsis overflow-hidden whitespace-nowrap">
               {guess?.name.toUpperCase()}
             </p>
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
+          {/* <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
             {guess?.countryNew ? flagEmoji : ""}
             {isCorrectCountry ? " ✅" : "❌"}
-          </div>
-          <div
+          </div> */}
+          {/* <div
             className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal"
             //style={{ backgroundColor: isCorrectCentury ? "green" : "red" }}
           >
@@ -213,14 +213,11 @@ export function GuessRow({
               : isCorrectCentury
               ? "Century ✅"
               : "Century ❌"}
-          </div>
+          </div> */}
           <div
             className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop"
-            style={{
-              backgroundColor: isGuessCorrect ? "green" : "red",
-            }}
-          >
-            {``}
+            >
+            {isGuessCorrect ? "✅" : "❌"}
           </div>
         </>
       );
