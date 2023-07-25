@@ -74,7 +74,7 @@ export const countries = [
     country: "Austria",
     museum: "Österreichische Galerie Belvedere",
   },
-  /* {
+  {
     code: "municip5042",
     latitude: 40.416775,
     longitude: -3.7037,
@@ -84,7 +84,7 @@ export const countries = [
     location: "Madrid",
     country: "Spain",
     museum: "Museo Reina Sofía",
-  } */
+  },
   {
     code: "municip5042",
     latitude: 40.416775,
