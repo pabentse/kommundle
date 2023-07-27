@@ -15,6 +15,12 @@ export const countryCodesWithImage = [
   "municip5050",
   "municip5051",
   "municip5052",
+  "municip5053",
+  "municip5054",
+  "municip5055",
+  "municip5056",
+  "municip5057",
+  "municip5058",
 ];
 
 export interface Country {

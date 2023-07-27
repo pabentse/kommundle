@@ -29,6 +29,7 @@ import { useCountry } from "../hooks/useCountry";
 import Modal from "./Modal";
 import { GuessRow } from "./GuessRow";
 import ConfettiExplosion from "react-confetti-explosion";
+import { NextRound } from "./NextRound";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -136,10 +137,9 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [isExploding]);
 
-  const gameEnded =
+  const roundOneEnded =
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.distance === 0;
-
   const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
   const [centuryFeedback, setCenturyFeedback] = useState<string | null>(null);
   const handleSubmit = useCallback(
@@ -241,7 +241,7 @@ export function Game({ settingsData }: GameProps) {
           settingsData={settingsData}
         />
       </div>
-      {hideImageMode && !gameEnded && (
+      {hideImageMode && !roundOneEnded && (
         <button
           className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
           type="button"
@@ -261,7 +261,7 @@ export function Game({ settingsData }: GameProps) {
           ) : (
             <img
               className={`max-h-52 m-auto transition-transform duration-700 ease-in ${
-                hideImageMode && !gameEnded ? "h-0" : "h-full"
+                hideImageMode && !roundOneEnded ? "h-0" : "h-full"
               } cursor-pointer`}
               alt="country to guess"
               src={image}
@@ -274,7 +274,7 @@ export function Game({ settingsData }: GameProps) {
         </div>
         {/* <img
           className={`max-h-52 m-auto transition-transform duration-700 ease-in ${
-            hideImageMode && !gameEnded ? "h-0" : "h-full"
+            hideImageMode && !roundOneEnded ? "h-0" : "h-full"
           }`}
           alt="country to guess"
           src={`images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`}
@@ -283,7 +283,7 @@ export function Game({ settingsData }: GameProps) {
           }}
         /> */}
       </div>
-      {rotationMode && !hideImageMode && !gameEnded && (
+      {rotationMode && !hideImageMode && !roundOneEnded && (
         <button
           className="border-2 uppercase mb-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
           type="button"
@@ -299,7 +299,7 @@ export function Game({ settingsData }: GameProps) {
         countryInputRef={countryInputRef}
       />
       <div className="my-2">
-        {gameEnded ? (
+        {roundOneEnded ? (
           <>
             {isExploding && (
               <div className="confetti-container">
@@ -311,6 +311,13 @@ export function Game({ settingsData }: GameProps) {
                 /> */}
               </div>
             )}
+            {/* <NextRound
+              guesses={guesses}
+              dayString={dayString}
+              settingsData={settingsData}
+              hideImageMode={hideImageMode}
+              rotationMode={rotationMode}
+            /> */}
             <Share
               guesses={guesses}
               dayString={dayString}
