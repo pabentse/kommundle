@@ -42,7 +42,7 @@ export function Share({
       : rotationMode
       ? " "
       : "";
-    const title = `#Artle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
+    const title = `#Artle #${dayCount} ${guessCount}/3${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {

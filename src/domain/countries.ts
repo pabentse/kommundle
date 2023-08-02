@@ -4,13 +4,13 @@
 
 export const countryCodesWithImage = [
   "municip5046",
-  //"municip5045",
-  //"municip1103",
-  //"municip1106",
-  //"municip5042",
+  "municip5045",
+  "municip1103",
+  "municip1106",
+  "municip5042",
   //"municip5041", //scream
-  //"municip5047", //
-  "municip5048",
+  //"municip5047", //earring
+  //"municip5048", //botticelli
   "municip5049",
   "municip5050",
   "municip5051",
