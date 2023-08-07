@@ -22,6 +22,7 @@ export const countryCodesWithImage = [
   "municip5057",
   "municip5058",
   "municip5059",
+  "municip5060",
 ];
 
 export interface Country {
@@ -37,7 +38,7 @@ export interface Country {
 }
 
 export const countries = [
-  /* {
+  {
     code: "municip5046",
     latitude: 48.860294,
     longitude: 2.338629,
@@ -47,7 +48,7 @@ export const countries = [
     location: "Paris",
     country: "France",
     museum: "Musée du Louvre",
-  }, */
+  },
   {
     code: "municip5045",
     latitude: 45.464664,
@@ -256,6 +257,17 @@ export const countries = [
     location: "New York City",
     country: "Belarus",
     museum: "Museum of Modern Art",
+  },
+  {
+    code: "municip5060",
+    name: "The School of Athens",
+    artist: "Raphael",
+    location: "Vatican City",
+    country: "Italy",
+    museum: "Apostolic Palace",
+    year: 1511,
+    latitude: 41.9029,
+    longitude: 12.4534,
   },
 ];
 
