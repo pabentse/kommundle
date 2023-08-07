@@ -8,9 +8,9 @@ export const countryCodesWithImage = [
   "municip1103",
   "municip1106",
   "municip5042",
-  //"municip5041", //scream
-  //"municip5047", //earring
-  //"municip5048", //botticelli
+  "municip5041", //scream
+  "municip5047", //earring
+  "municip5048", //botticelli
   "municip5049",
   "municip5050",
   "municip5051",
@@ -21,6 +21,7 @@ export const countryCodesWithImage = [
   "municip5056",
   "municip5057",
   "municip5058",
+  "municip5059",
 ];
 
 export interface Country {
@@ -244,6 +245,17 @@ export const countries = [
     location: "Los Angeles",
     country: "Belgium",
     museum: "Los Angeles County Museum of Art",
+  },
+  {
+    code: "municip5059",
+    longitude: -73.9776,
+    latitude: 40.7615,
+    year: 1911,
+    name: "I and the Village",
+    artist: "Marc Chagall",
+    location: "New York City",
+    country: "Belarus",
+    museum: "Museum of Modern Art",
   },
 ];
 
