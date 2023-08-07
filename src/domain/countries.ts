@@ -25,6 +25,7 @@ export const countryCodesWithImage = [
   "municip5060",
   "municip5061",
   "municip5062",
+  "municip5063",
 ];
 
 export interface Country {
@@ -292,6 +293,17 @@ export const countries = [
     year: 1925,
     latitude: 48.860294,
     longitude: 2.338629,
+  },
+  {
+    code: "municip5063",
+    name: "The Third of May 1808",
+    artist: "Francisco Goya",
+    location: "Madrid",
+    country: "Spain",
+    museum: "Museo del Prado",
+    year: 1814,
+    latitude: 40.416775,
+    longitude: -3.7037,
   },
 ];
 
