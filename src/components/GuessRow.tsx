@@ -126,7 +126,7 @@ export function GuessRow({
   //const [country, randomAngle, imageScale] = useCountry(dayStringNew);
   //const correctYear = getYear(country);
   const isGuessCorrect = guess?.isCorrect;
-  const isCorrectCentury = guess?.isCorrectCentury;
+  //const isCorrectCentury = guess?.isCorrectCentury;
   const isCorrectCountry = guess?.isCorrectCountry;
 
   //const yearDifference =
@@ -150,8 +150,6 @@ export function GuessRow({
   }, [guess]);
 
   function getFlagEmoji(country: string) {
-    //console.log("pure country from guessrow is: ", country);
-    //console.log("isCorrectCountry from guessrow is: ", isCorrectCountry);
     return countryFlags[country] || "";
   }
 
@@ -194,6 +192,9 @@ export function GuessRow({
         </>
       );
     case "ENDED":
+      console.log("isGuessCorrect from guessrow is: ", isGuessCorrect);
+      console.log("isCorrectCountry from guessrow is: ", isCorrectCountry);
+      console.log("guess?.name from guessrow is: ", guess?.name);
       return (
         <>
           <div className="flex items-center justify-center border-2 h-8 col-span-6 animate-reveal">

@@ -156,63 +156,44 @@ export function Game({ settingsData }: GameProps) {
         toast.error("Unknown artist");
         return;
       }
+      const isCorrect =
+        getArtistName(i18n.resolvedLanguage, country) ===
+        getArtistName(i18n.resolvedLanguage, guessedCountry);
+      const isCorrectCountryValue =
+        guessedCountry.country === getCountryCountry(country);
+      const isCorrectCenturyValue =
+        Math.floor(guessedCountry.year / 100) ===
+        Math.floor(country.year / 100);
+
       const newGuess = {
-        //This is the guess that is added to the list of guesses
         name: currentGuess,
         artist: getArtistName(i18n.resolvedLanguage, guessedCountry),
         distance: geolib.getDistance(guessedCountry, country),
         direction: geolib.getCompassDirection(guessedCountry, country),
         year: getYear(guessedCountry),
-        isCorrect: false, //initially set to false
-        isCorrectCentury: false,
-        isCorrectCountry: false,
+        isCorrect: isCorrect,
+        isCorrectCentury: isCorrectCenturyValue,
+        isCorrectCountry: isCorrectCountryValue,
         countryNew: guessedCountry.country,
       };
 
       addGuess(newGuess);
       setCurrentGuess("");
 
-      if (newGuess.artist === getArtistName(i18n.resolvedLanguage, country)) {
-        //If the guess is correct
-        //^Denne har jeg endret fra newGuess.country til newGuess.artist
-        newGuess.isCorrect = true; //update isCorrect to true
-        newGuess.isCorrectCountry = true;
-        newGuess.isCorrectCentury = true;
+      if (isCorrect) {
         setIsGuessCorrect(true);
         setCurrentRound(0); //Jump to the last round (last image)
         toast.success("Well done!", { delay: 2000 });
         setIsExploding(true);
       } else {
-        //If the guess is wrong
-        newGuess.isCorrect = false;
         setIsGuessCorrect(false);
-        //console.log("guessedCountry is: ", guessedCountry);
-        console.log("guessedCountry.country is: ", guessedCountry.country);
-        //console.log("typeof guessedCountry.country is:", typeof guessedCountry.country);
-        //console.log("typeof getartistname i18n country is: ", typeof getArtistName(i18n.resolvedLanguage, country));
-        console.log("print getCountryName: ", getCountryCountry(country));
-        if (guessedCountry.country === getCountryCountry(country)) {
-          newGuess.isCorrectCountry = true;
-        } else {
-          newGuess.isCorrectCountry = false;
-        }
-        if (
-          Math.floor(guessedCountry.year / 100) ===
-          Math.floor(country.year / 100)
-        ) {
-          newGuess.isCorrectCentury = true;
-        } else {
-          newGuess.isCorrectCentury = false;
-        }
 
-        if (
-          Math.floor(guessedCountry.year / 100) ===
-          Math.floor(country.year / 100)
-        ) {
+        if (isCorrectCenturyValue) {
           setCenturyFeedback("Correct century!");
         } else {
           setCenturyFeedback(null);
         }
+
         setCurrentRound((round) => Math.max(0, round - 1)); //Jump to the next round (next image)
       }
     },
