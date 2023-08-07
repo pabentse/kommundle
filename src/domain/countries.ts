@@ -23,6 +23,8 @@ export const countryCodesWithImage = [
   "municip5058",
   "municip5059",
   "municip5060",
+  "municip5061",
+  "municip5062",
 ];
 
 export interface Country {
@@ -268,6 +270,28 @@ export const countries = [
     year: 1511,
     latitude: 41.9029,
     longitude: 12.4534,
+  },
+  {
+    code: "municip5061",
+    name: "Pietà",
+    artist: "Michelangelo",
+    location: "Vatican City",
+    country: "Italy",
+    museum: "St. Peter's Basilica",
+    year: 1499,
+    latitude: 41.9029,
+    longitude: 12.4534,
+  },
+  {
+    code: "municip5062",
+    name: "Yellow-Red-Blue",
+    artist: "Wassily Kandinsky",
+    location: "Paris",
+    country: "Russia",
+    museum: "Musee National d'Art Moderne",
+    year: 1925,
+    latitude: 48.860294,
+    longitude: 2.338629,
   },
 ];
 
