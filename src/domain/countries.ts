@@ -26,6 +26,9 @@ export const countryCodesWithImage = [
   "municip5061",
   "municip5062",
   "municip5063",
+  "municip5064",
+  "municip5065",
+  "municip5066",
 ];
 
 export interface Country {
@@ -304,6 +307,39 @@ export const countries = [
     year: 1814,
     latitude: 40.416775,
     longitude: -3.7037,
+  },
+  {
+    code: "municip5064",
+    name: "Narcissus",
+    artist: "Caravaggio",
+    location: "Rome",
+    country: "Italy",
+    museum: "Galleria Nazionale d'Arte Antica",
+    year: 1597,
+    latitude: 41.9029,
+    longitude: 12.4534,
+  },
+  {
+    code: "municip5065",
+    name: "The Milkmaid",
+    artist: "Johannes Vermeer",
+    location: "Amsterdam",
+    country: "Netherlands",
+    museum: "Rijksmuseum",
+    year: 1658,
+    latitude: 52.078663,
+    longitude: 4.288788,
+  },
+  {
+    code: "municip5066",
+    name: "The Fighting Temeraire",
+    artist: "J. M. W. Turner",
+    location: "London",
+    country: "United Kingdom",
+    museum: "National Gallery",
+    year: 1839,
+    latitude: 51.507351,
+    longitude: -0.127758,
   },
 ];
 
