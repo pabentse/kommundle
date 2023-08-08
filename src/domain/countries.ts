@@ -341,6 +341,17 @@ export const countries = [
     latitude: 51.507351,
     longitude: -0.127758,
   },
+  {
+    code: "municip5067",
+    name: "The Death of Marat",
+    artist: "Jacques-Louis David",
+    location: "Brussels",
+    country: "France",
+    museum: "Royal Museums of Fine Arts of Belgium",
+    year: 1793,
+    latitude: 50.850346,
+    longitude: 4.351721,
+  },
 ];
 
 export const countriesWithImage = countries.filter((c) =>
