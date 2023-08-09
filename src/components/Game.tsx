@@ -123,8 +123,8 @@ export function Game({ settingsData }: GameProps) {
     roundToImageIndexMapping[
       currentRound as keyof typeof roundToImageIndexMapping
     ];
-  //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
-  const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
+  const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
+  //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
