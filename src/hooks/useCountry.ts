@@ -3,8 +3,17 @@ import seedrandom from "seedrandom";
 import { countriesWithImage, Country } from "../domain/countries";
 
 const forcedCountries: Record<string, string> = {
-  "2022-02-02": "TD",
-  "2022-02-03": "PY",
+  "09-08-2023": "municip5056",
+  "10-08-2023": "municip5057",
+  "11-08-2023": "municip5058",
+  "12-08-2023": "municip5059",
+  "13-08-2023": "municip5060",
+  "14-08-2023": "municip5061",
+  "15-08-2023": "municip5062",
+  "16-08-2023": "municip5063",
+  "17-08-2023": "municip5064",
+  "18-08-2023": "municip5065",
+  "19-08-2023": "municip5066",
 };
 
 export function useCountry(dayString: string): [Country, number, number] {
@@ -16,7 +25,11 @@ export function useCountry(dayString: string): [Country, number, number] {
             (country) => country.code === forcedCountryCode
           )
         : undefined;
-
+    if (forcedCountry) {
+      console.log(`Forced country for ${dayString}:`, forcedCountry);
+    } else {
+      console.log(`No forced country for ${dayString}.`);
+    }
     return (
       forcedCountry ??
       countriesWithImage[
