@@ -29,6 +29,8 @@ export const countryCodesWithImage = [
   "municip5064",
   "municip5065",
   "municip5066",
+  "municip5067",
+  "municip5068",
 ];
 
 export interface Country {
@@ -351,6 +353,17 @@ export const countries = [
     year: 1793,
     latitude: 50.850346,
     longitude: 4.351721,
+  },
+  {
+    code: "municip5068",
+    name: "Untitled Skull",
+    artist: "Jean-Michel Basquiat",
+    location: "New York City",
+    country: "United States",
+    museum: "Museum of Modern Art",
+    year: 1982,
+    latitude: 40.761509,
+    longitude: -73.978271,
   },
 ];
 
