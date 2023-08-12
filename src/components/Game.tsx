@@ -137,9 +137,7 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [isExploding]);
 
-  const roundOneEnded =
-    guesses.length === MAX_TRY_COUNT ||
-    guesses[guesses.length - 1]?.distance === 0;
+  const roundOneEnded = guesses.length === MAX_TRY_COUNT;
   const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
   const [centuryFeedback, setCenturyFeedback] = useState<string | null>(null);
   const handleSubmit = useCallback(
@@ -154,6 +152,7 @@ export function Game({ settingsData }: GameProps) {
       if (guessedCountry == null) {
         //If the guess is wrong
         toast.error("Unknown artist");
+        console.log("Unknown artist");
         return;
       }
       const isCorrect =
@@ -187,6 +186,7 @@ export function Game({ settingsData }: GameProps) {
         setIsExploding(true);
       } else {
         setIsGuessCorrect(false);
+        console.log("Wrong guess");
 
         if (isCorrectCenturyValue) {
           setCenturyFeedback("Correct century!");
@@ -253,16 +253,6 @@ export function Game({ settingsData }: GameProps) {
             />
           )}
         </div>
-        {/* <img
-          className={`max-h-52 m-auto transition-transform duration-700 ease-in ${
-            hideImageMode && !roundOneEnded ? "h-0" : "h-full"
-          }`}
-          alt="country to guess"
-          src={`images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`}
-          style={{
-            transition: "filter 0.5s ease-in-out",
-          }}
-        /> */}
       </div>
       {rotationMode && !hideImageMode && !roundOneEnded && (
         <button
