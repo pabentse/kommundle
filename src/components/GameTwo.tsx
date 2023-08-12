@@ -295,13 +295,13 @@ export function Game({ settingsData }: GameProps) {
               </div>
             )}
             {
-              <NextRound
+             /*  <NextRound
                 guesses={guesses}
                 dayString={dayString}
                 settingsData={settingsData}
                 hideImageMode={hideImageMode}
                 rotationMode={rotationMode}
-              />
+              /> */
             }
             <Share
               guesses={guesses}
