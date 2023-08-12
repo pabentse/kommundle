@@ -1,6 +1,7 @@
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
+//import { GameTwo } from "./components/GameTwo";
 import React, { useEffect, useState } from "react";
 import { Infos } from "./components/panels/Infos";
 import { useTranslation } from "react-i18next";
@@ -9,6 +10,7 @@ import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Stats } from "./components/panels/Stats";
 import { Worldle } from "./components/Worldle";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const { i18n } = useTranslation();
@@ -61,6 +63,14 @@ function App() {
         close={() => setStatsOpen(false)}
         distanceUnit={settingsData.distanceUnit}
       />
+      {/* <Routes> */}
+      {/* <Route path="/round1" element={<Game settingsData={settingsData} />} /> */}
+      {/* <Route
+            path="/round2"
+            element={<GameTwo settingsData={settingsData} />}
+          /> */}
+      {/* <Route path="/" element={<Game settingsData={settingsData} />} index /> */}
+      {/* </Routes> */}
       <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
         <div className="w-full max-w-lg flex flex-col">
           <header className="border-b-2 px-3 border-gray-200 flex">

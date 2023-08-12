@@ -72,7 +72,7 @@ const usePersistedState = <T,>(
   return [state, setState];
 };
 
-export function GameTwo({ settingsData }: GameProps) {
+export function Game({ settingsData }: GameProps) {
   const [currentGuessGlobal, setCurrentGuessGlobal] = useState("");
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
@@ -103,13 +103,28 @@ export function GameTwo({ settingsData }: GameProps) {
   );
 
   useEffect(() => {
-    const img: HTMLImageElement = new Image();
-    img.src = `images/countries/${country.code.toLowerCase()}/vector0.png`;
+    const imageIndices: number[] = [5, 3, 0];
+    for (const i of imageIndices) {
+      const img: HTMLImageElement = new Image();
+      img.src = `images/countries/${country.code.toLowerCase()}/vector${i}.png`;
+    }
   }, [country.code]); // Now `country.code` is in dependency array
 
   const [isModalOpen, setIsModalOpen] = useState(true);
+  //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
 
-  const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
+  // assuming currentRound is of type number
+  const roundToImageIndexMapping: { [key in number]: number } = {
+    2: 5,
+    1: 3,
+    0: 0,
+  };
+  const imageIndex =
+    roundToImageIndexMapping[
+      currentRound as keyof typeof roundToImageIndexMapping
+    ];
+  const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
+  //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
@@ -122,7 +137,7 @@ export function GameTwo({ settingsData }: GameProps) {
     }
   }, [isExploding]);
 
-  const roundOneEnded =
+  const roundOneEnded = 
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.distance === 0;
   const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
@@ -184,6 +199,8 @@ export function GameTwo({ settingsData }: GameProps) {
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage, setCurrentRound]
   );
+
+  
 
   useEffect(() => {
     if (

@@ -28,7 +28,7 @@ import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
 import Modal from "./Modal";
 import { GuessRow } from "./GuessRow";
-import ConfettiExplosion from "react-confetti-explosion";
+import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
 
 function getDayString() {
@@ -284,21 +284,26 @@ export function Game({ settingsData }: GameProps) {
           <>
             {isExploding && (
               <div className="confetti-container">
-                {/* <ConfettiExplosion
-                  force={1}
-                  duration={6000}
-                  particleCount={200}
-                  width={2500}
-                /> */}
+                {
+                  <ConfettiExplosion
+                    force={1}
+                    duration={3500}
+                    particleCount={180}
+                    width={2000}
+                    height={800}
+                  />
+                }
               </div>
             )}
-            {/* <NextRound
-              guesses={guesses}
-              dayString={dayString}
-              settingsData={settingsData}
-              hideImageMode={hideImageMode}
-              rotationMode={rotationMode}
-            /> */}
+            {
+              <NextRound
+                guesses={guesses}
+                dayString={dayString}
+                settingsData={settingsData}
+                hideImageMode={hideImageMode}
+                rotationMode={rotationMode}
+              />
+            }
             <Share
               guesses={guesses}
               dayString={dayString}
