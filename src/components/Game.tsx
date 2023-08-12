@@ -137,7 +137,10 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [isExploding]);
 
-  const roundOneEnded = guesses.length === MAX_TRY_COUNT;
+  const roundOneEnded =
+    guesses.length === MAX_TRY_COUNT ||
+    //guesses[guesses.length - 1]?.distance === 0;
+    guesses[guesses.length - 1]?.isCorrect === true;
   const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
   const [centuryFeedback, setCenturyFeedback] = useState<string | null>(null);
   const handleSubmit = useCallback(
