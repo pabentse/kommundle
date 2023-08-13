@@ -1,7 +1,7 @@
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
-//import { GameTwo } from "./components/GameTwo";
+import { GameTwo } from "./components/GameTwo";
 import React, { useEffect, useState } from "react";
 import { Infos } from "./components/panels/Infos";
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,7 @@ import { useSettings } from "./hooks/useSettings";
 import { Stats } from "./components/panels/Stats";
 import { Worldle } from "./components/Worldle";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { GameThree } from "./components/GameThree";
 
 function App() {
   const { i18n } = useTranslation();
@@ -20,6 +21,8 @@ function App() {
   const [statsOpen, setStatsOpen] = useState(false);
 
   const [settingsData, updateSettings] = useSettings();
+
+  const [currentMetaRound, setCurrentMetaRound] = useState(1);
 
   useEffect(() => {
     if (settingsData.theme === "dark") {
@@ -31,98 +34,124 @@ function App() {
 
   return (
     <>
-      <ToastContainer
-        hideProgressBar
-        position="top-center"
-        transition={Flip}
-        theme={settingsData.theme}
-        autoClose={2000}
-        bodyClassName="font-bold text-center"
-      />
-      {i18n.resolvedLanguage === "no" ? (
-        <InfosFr
-          isOpen={infoOpen}
-          close={() => setInfoOpen(false)}
-          settingsData={settingsData}
+      <Router>
+        <ToastContainer
+          hideProgressBar
+          position="top-center"
+          transition={Flip}
+          theme={settingsData.theme}
+          autoClose={2000}
+          bodyClassName="font-bold text-center"
         />
-      ) : (
-        <Infos
-          isOpen={infoOpen}
-          close={() => setInfoOpen(false)}
+        {i18n.resolvedLanguage === "no" ? (
+          <InfosFr
+            isOpen={infoOpen}
+            close={() => setInfoOpen(false)}
+            settingsData={settingsData}
+          />
+        ) : (
+          <Infos
+            isOpen={infoOpen}
+            close={() => setInfoOpen(false)}
+            settingsData={settingsData}
+          />
+        )}
+        <Settings
+          isOpen={settingsOpen}
+          close={() => setSettingsOpen(false)}
           settingsData={settingsData}
+          updateSettings={updateSettings}
         />
-      )}
-      <Settings
-        isOpen={settingsOpen}
-        close={() => setSettingsOpen(false)}
-        settingsData={settingsData}
-        updateSettings={updateSettings}
-      />
-      <Stats
-        isOpen={statsOpen}
-        close={() => setStatsOpen(false)}
-        distanceUnit={settingsData.distanceUnit}
-      />
-      {/* <Routes> */}
-      {/* <Route path="/round1" element={<Game settingsData={settingsData} />} /> */}
-      {/* <Route
-            path="/round2"
-            element={<GameTwo settingsData={settingsData} />}
-          /> */}
-      {/* <Route path="/" element={<Game settingsData={settingsData} />} index /> */}
-      {/* </Routes> */}
-      <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
-        <div className="w-full max-w-lg flex flex-col">
-          <header className="border-b-2 px-3 border-gray-200 flex">
-            <button
-              className="mr-3 text-xl"
-              type="button"
-              onClick={() => setInfoOpen(true)}
-            >
-              ❓
-            </button>
-            <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-              ART<span className="text-green-600">L</span>E
-            </h1>
-            <button
-              className="ml-3 text-xl"
-              type="button"
-              onClick={() => setStatsOpen(true)}
-            >
-              📈
-            </button>
-            <button
-              className="ml-3 text-xl"
-              type="button"
-              onClick={() => setSettingsOpen(true)}
-            >
-              ⚙️
-            </button>
-          </header>
-          <Game settingsData={settingsData} />
-          <footer className="flex justify-center text-sm mt-8 mb-1">
-            <a>
-              {
-                "This game is in beta version. Development will progress over the coming weeks. Hope you enjoy!"
-              }
-            </a>
-          </footer>
-          <footer className="flex justify-center text-sm mt-8 mb-1">
-            <a>{"Image copyrights: Wiki Commons"}</a>
-          </footer>
-          <footer className="flex justify-center text-sm mt-8 mb-1">
-            ❤️ <Worldle />? -
-            <a
-              className="underline pl-1"
-              href="https://ko-fi.com/artle"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {"Buy me a coffee!"}
-            </a>
-          </footer>
+        <Stats
+          isOpen={statsOpen}
+          close={() => setStatsOpen(false)}
+          distanceUnit={settingsData.distanceUnit}
+        />
+        <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
+          <div className="w-full max-w-lg flex flex-col">
+            <header className="border-b-2 px-3 border-gray-200 flex">
+              <button
+                className="mr-3 text-xl"
+                type="button"
+                onClick={() => setInfoOpen(true)}
+              >
+                ❓
+              </button>
+              <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
+                ART<span className="text-green-600">L</span>E
+              </h1>
+              <button
+                className="ml-3 text-xl"
+                type="button"
+                onClick={() => setStatsOpen(true)}
+              >
+                📈
+              </button>
+              <button
+                className="ml-3 text-xl"
+                type="button"
+                onClick={() => setSettingsOpen(true)}
+              >
+                ⚙️
+              </button>
+            </header>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Game
+                    settingsData={settingsData}
+                    currentMetaRound={currentMetaRound}
+                    setCurrentMetaRound={setCurrentMetaRound}
+                  />
+                }
+              />
+              <Route
+                path="/round2"
+                element={
+                  <GameTwo
+                    settingsData={settingsData}
+                    currentMetaRound={currentMetaRound}
+                    setCurrentMetaRound={setCurrentMetaRound}
+                  />
+                }
+              />
+              <Route
+                path="/round3"
+                element={
+                  <GameThree
+                    settingsData={settingsData}
+                    currentMetaRound={currentMetaRound}
+                    setCurrentMetaRound={setCurrentMetaRound}
+                  />
+                }
+              />
+            </Routes>
+
+            <footer className="flex justify-center text-sm mt-8 mb-1">
+              <a>
+                {
+                  "This game is in beta version. Development will progress over the coming weeks. Hope you enjoy!"
+                }
+              </a>
+            </footer>
+            <footer className="flex justify-center text-sm mt-8 mb-1">
+              <a>{"Image copyrights: Wiki Commons"}</a>
+            </footer>
+            <footer className="flex justify-center text-sm mt-8 mb-1">
+              ❤️ <Worldle />? -
+              <a
+                className="underline pl-1"
+                href="https://ko-fi.com/artle"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {"Buy me a coffee!"}
+              </a>
+            </footer>
+          </div>
         </div>
-      </div>
+      </Router>
     </>
   );
 }

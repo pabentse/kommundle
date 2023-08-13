@@ -43,6 +43,8 @@ const MAX_TRY_COUNT = 3; //Max number of guesses
 
 interface GameProps {
   settingsData: SettingsData;
+  currentMetaRound: number;
+  setCurrentMetaRound: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const usePersistedState = <T,>(
@@ -73,6 +75,7 @@ const usePersistedState = <T,>(
 };
 
 export function Game({ settingsData }: GameProps) {
+  const [currentMetaRound, setCurrentMetaRound] = useState(1); // Or whatever initial value you want
   const [currentGuessGlobal, setCurrentGuessGlobal] = useState("");
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
@@ -90,7 +93,7 @@ export function Game({ settingsData }: GameProps) {
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, addGuess] = useGuesses(dayStringNew);
+  const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
     dayStringNew,
@@ -185,7 +188,7 @@ export function Game({ settingsData }: GameProps) {
       if (isCorrect) {
         setIsGuessCorrect(true);
         setCurrentRound(0); //Jump to the last round (last image)
-        toast.success("Well done!", { delay: 2000 });
+        toast.success("Well done!", { delay: 50 });
         setIsExploding(true);
       } else {
         setIsGuessCorrect(false);
@@ -281,22 +284,25 @@ export function Game({ settingsData }: GameProps) {
                   <ConfettiExplosion
                     force={1}
                     duration={3500}
-                    particleCount={180}
+                    particleCount={120}
                     width={2000}
                     height={800}
                   />
                 }
               </div>
             )}
-            {/* {
+            {
               <NextRound
                 guesses={guesses}
                 dayString={dayString}
                 settingsData={settingsData}
                 hideImageMode={hideImageMode}
                 rotationMode={rotationMode}
+                currentRound={1} // Assuming Game.tsx represents round 1
+                currentMetaRound={currentMetaRound}
+                setCurrentMetaRound={setCurrentMetaRound}
               />
-            } */}
+            }
             <Share
               guesses={guesses}
               dayString={dayString}

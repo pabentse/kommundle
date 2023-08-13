@@ -34,69 +34,6 @@ const DIRECTION_ARROWS: Record<Direction, string> = {
   NNW: "↖️",
 };
 
-const countryFlags: { [key: string]: string } = {
-  Italy: "🇮🇹",
-  France: "🇫🇷",
-  Germany: "🇩🇪",
-  Spain: "🇪🇸",
-  "United Kingdom": "🇬🇧",
-  Russia: "🇷🇺",
-  Ukraine: "🇺🇦",
-  Poland: "🇵🇱",
-  Romania: "🇷🇴",
-  Netherlands: "🇳🇱",
-  Belgium: "🇧🇪",
-  Greece: "🇬🇷",
-  "Czech Republic": "🇨🇿",
-  Portugal: "🇵🇹",
-  Sweden: "🇸🇪",
-  Hungary: "🇭🇺",
-  Belarus: "🇧🇾",
-  Austria: "🇦🇹",
-  Serbia: "🇷🇸",
-  Switzerland: "🇨🇭",
-  Bulgaria: "🇧🇬",
-  Denmark: "🇩🇰",
-  Finland: "🇫🇮",
-  Slovakia: "🇸🇰",
-  Norway: "🇳🇴",
-  Ireland: "🇮🇪",
-  Croatia: "🇭🇷",
-  Moldova: "🇲🇩",
-  "Bosnia and Herzegovina": "🇧🇦",
-  Albania: "🇦🇱",
-  Lithuania: "🇱🇹",
-  "North Macedonia": "🇲🇰",
-  Slovenia: "🇸🇮",
-  Latvia: "🇱🇻",
-  Estonia: "🇪🇪",
-  Montenegro: "🇲🇪",
-  Luxembourg: "🇱🇺",
-  Malta: "🇲🇹",
-  Iceland: "🇮🇸",
-  Andorra: "🇦🇩",
-  Mexico: "🇲🇽",
-  Canada: "🇨🇦",
-  "United States": "🇺🇸",
-  Brazil: "🇧🇷",
-  Argentina: "🇦🇷",
-  Colombia: "🇨🇴",
-  Peru: "🇵🇪",
-  China: "🇨🇳",
-  India: "🇮🇳",
-  Indonesia: "🇮🇩",
-  Pakistan: "🇵🇰",
-  Bangladesh: "🇧🇩",
-  eSwatini: "🇸🇿",
-  Afghanistan: "🇦🇫",
-  Angola: "🇦🇴",
-  Algeria: "🇩🇿",
-  Azerbaijan: "🇦🇿",
-  Bahrain: "🇧🇭",
-  Benin: "🇧🇯",
-  Botswana: "🇧🇼",
-};
-
 function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
@@ -149,13 +86,13 @@ export function GuessRow({
     };
   }, [guess]);
 
-  function getFlagEmoji(country: string) {
+  /* function getFlagEmoji(country: string) {
     return countryFlags[country] || "";
-  }
+  } */
 
-  const flagEmoji =
+  /*   const flagEmoji =
     guess && guess.countryNew ? getFlagEmoji(guess.countryNew) : "";
-
+ */
   const handleClickOnEmptyRow = useCallback(() => {
     if (countryInputRef?.current != null) {
       countryInputRef?.current.focus();

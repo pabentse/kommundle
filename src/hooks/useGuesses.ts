@@ -3,10 +3,15 @@ import { Guess, loadAllGuesses, saveGuesses } from "../domain/guess";
 
 export function useGuesses(
   dayString: string
-): [Guess[], (guess: Guess) => void] {
+): [Guess[], (guess: Guess) => void, () => void] {
   const [guesses, setGuesses] = useState<Guess[]>(
     loadAllGuesses()[dayString] ?? []
   );
+
+  const resetGuesses = useCallback(() => {
+    setGuesses([]);
+    saveGuesses(dayString, []); // This will clear the entry in local storage
+  }, [dayString]);
 
   const addGuess = useCallback(
     (newGuess: Guess) => {
@@ -14,9 +19,11 @@ export function useGuesses(
 
       setGuesses(newGuesses);
       saveGuesses(dayString, newGuesses);
+
+      console.log("Inside useGuesses, updated guesses:", newGuesses);
     },
     [dayString, guesses]
   );
 
-  return [guesses, addGuess];
+  return [guesses, addGuess, resetGuesses];
 }

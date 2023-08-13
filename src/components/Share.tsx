@@ -12,7 +12,7 @@ import { SettingsData } from "../hooks/useSettings";
 
 const START_DATE = DateTime.fromISO("2023-02-24");
 
-interface ShareProps {
+export interface ShareProps {
   guesses: Guess[];
   dayString: string;
   settingsData: SettingsData;

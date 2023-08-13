@@ -43,6 +43,7 @@ export interface Country {
   location: string;
   artist: string;
   year: number;
+  attributes: string[];
 }
 
 export const countries = [
@@ -56,6 +57,7 @@ export const countries = [
     location: "Paris",
     country: "France",
     museum: "Musée du Louvre",
+    attributes: ["Renaissance"],
   },
   {
     code: "municip5045",
@@ -67,6 +69,7 @@ export const countries = [
     location: "Milan",
     country: "Italy",
     museum: "Santa Maria delle Grazie",
+    attributes: ["Renaissance"],
   },
   {
     code: "municip1103",
@@ -78,6 +81,7 @@ export const countries = [
     location: "New York City",
     country: "Netherlands",
     museum: "Museum of Modern Art",
+    attributes: ["Post-Impressionism"],
   },
   {
     code: "municip1106",
@@ -89,6 +93,7 @@ export const countries = [
     location: "Vienna",
     country: "Austria",
     museum: "Österreichische Galerie Belvedere",
+    attributes: ["Symbolism", "Art Nouveau", "Modernism"],
   },
   {
     code: "municip5042",
@@ -100,6 +105,7 @@ export const countries = [
     location: "Madrid",
     country: "Spain",
     museum: "Museo Reina Sofía",
+    attributes: ["Northern Renaissance", "Mannerism"],
   },
   {
     code: "municip5042",
@@ -111,6 +117,7 @@ export const countries = [
     location: "Madrid",
     country: "Spain",
     museum: "Museo Reina Sofía",
+    attributes: ["Cubism", "Surrealism"],
   },
   {
     code: "municip5041",
@@ -122,6 +129,12 @@ export const countries = [
     location: "Oslo",
     country: "Norway",
     museum: "Munch Museum",
+    attributes: [
+      "Expressionism",
+      "Symbolism",
+      "Modernism",
+      "Post-Impressionism",
+    ],
   },
   {
     code: "municip5047",
@@ -133,6 +146,7 @@ export const countries = [
     location: "The Hague",
     country: "Netherlands",
     museum: "Mauritshuis",
+    attributes: ["Baroque", "Dutch Golden Age"],
   },
   {
     code: "municip5048",
@@ -144,6 +158,7 @@ export const countries = [
     location: "Florence",
     country: "Italy",
     museum: "Uffizi Gallery",
+    attributes: ["Early Renaissance", "Italian Renaissance"],
   },
   {
     code: "municip5049",
@@ -155,6 +170,7 @@ export const countries = [
     location: "Madrid",
     country: "Spain",
     museum: "Museo del Prado",
+    attributes: ["Baroque", "Spanish Golden Age"],
   },
   {
     code: "municip5050",
@@ -166,6 +182,7 @@ export const countries = [
     location: "Vatican City",
     country: "Italy",
     museum: "Sistine Chapel",
+    attributes: ["High Renaissance", "Italian Renaissance"],
   },
   {
     code: "municip5051",
@@ -177,6 +194,7 @@ export const countries = [
     location: "Amsterdam",
     country: "Netherlands",
     museum: "Rijksmuseum",
+    attributes: ["Baroque", "Dutch Golden Age"],
   },
   {
     code: "municip5052",
@@ -188,6 +206,7 @@ export const countries = [
     location: "New York City",
     country: "Spain",
     museum: "Museum of Modern Art",
+    attributes: ["Surrealism", "Modernism"],
   },
   {
     code: "municip5053",
@@ -199,6 +218,7 @@ export const countries = [
     location: "Paris",
     country: "France",
     museum: "Musée Rodin",
+    attributes: ["Impressionism", "Modernism"],
   },
   {
     code: "municip5054",
@@ -210,6 +230,7 @@ export const countries = [
     location: "New York City",
     country: "United States",
     museum: "Museum of Modern Art",
+    attributes: ["Pop Art", "Modernism"],
   },
   {
     code: "municip5055",
@@ -221,6 +242,7 @@ export const countries = [
     location: "Mexico City",
     country: "Mexico",
     museum: "Museo Dolores Olmedo",
+    attributes: ["Surrealism", "Modernism"],
   },
   {
     code: "municip5056",
@@ -232,6 +254,7 @@ export const countries = [
     location: "Tokyo",
     country: "Japan",
     museum: "Tokyo National Museum",
+    attributes: ["Ukiyo-e", "Edo Period"],
   },
   {
     code: "municip5057",
@@ -243,6 +266,7 @@ export const countries = [
     location: "New York City",
     country: "France",
     museum: "Museum of Modern Art",
+    attributes: ["Fauvism", "Modernism"],
   },
   {
     code: "municip5058",
@@ -254,6 +278,7 @@ export const countries = [
     location: "Los Angeles",
     country: "Belgium",
     museum: "Los Angeles County Museum of Art",
+    attributes: ["Surrealism", "Modernism"],
   },
   {
     code: "municip5059",
@@ -265,6 +290,7 @@ export const countries = [
     location: "New York City",
     country: "Belarus",
     museum: "Museum of Modern Art",
+    attributes: ["Cubism", "Modernism"],
   },
   {
     code: "municip5060",
@@ -276,6 +302,7 @@ export const countries = [
     year: 1511,
     latitude: 41.9029,
     longitude: 12.4534,
+    attributes: ["High Renaissance", "Italian Renaissance"],
   },
   {
     code: "municip5061",
@@ -287,6 +314,7 @@ export const countries = [
     year: 1499,
     latitude: 41.9029,
     longitude: 12.4534,
+    attributes: ["High Renaissance", "Italian Renaissance"],
   },
   {
     code: "municip5062",
@@ -298,6 +326,7 @@ export const countries = [
     year: 1925,
     latitude: 48.860294,
     longitude: 2.338629,
+    attributes: ["Abstract Art", "Modernism"],
   },
   {
     code: "municip5063",
@@ -309,6 +338,7 @@ export const countries = [
     year: 1814,
     latitude: 40.416775,
     longitude: -3.7037,
+    attributes: ["Romanticism", "Spanish Golden Age"],
   },
   {
     code: "municip5064",
@@ -320,6 +350,7 @@ export const countries = [
     year: 1597,
     latitude: 41.9029,
     longitude: 12.4534,
+    attributes: ["Baroque", "Italian Renaissance"],
   },
   {
     code: "municip5065",
@@ -331,6 +362,7 @@ export const countries = [
     year: 1658,
     latitude: 52.078663,
     longitude: 4.288788,
+    attributes: ["Baroque", "Dutch Golden Age"],
   },
   {
     code: "municip5066",
@@ -342,6 +374,7 @@ export const countries = [
     year: 1839,
     latitude: 51.507351,
     longitude: -0.127758,
+    attributes: ["Romanticism", "Modernism"],
   },
   {
     code: "municip5067",
@@ -353,6 +386,7 @@ export const countries = [
     year: 1793,
     latitude: 50.850346,
     longitude: 4.351721,
+    attributes: ["Neoclassicism", "French Revolution"],
   },
   {
     code: "municip5068",
@@ -364,6 +398,7 @@ export const countries = [
     year: 1982,
     latitude: 40.761509,
     longitude: -73.978271,
+    attributes: ["Neo-Expressionism", "Modernism"],
   },
 ];
 
@@ -401,4 +436,8 @@ export function sanitizeCountryName(countryName: string): string {
 
 export function getYear(country: Country) {
   return country.year; //type: number
+}
+
+export function getAttributes(country: Country) {
+  return country.attributes; //type: string[]
 }

@@ -3,12 +3,13 @@ import { Direction } from "./geography";
 export interface Guess {
   name: string;
   distance: number;
-  direction: Direction;
+  direction?: Direction;
   year: number;
   isCorrect?: boolean;
   isCorrectCountry?: boolean;
   isCorrectCentury?: boolean;
   countryNew?: string;
+  attribute?: string;
 }
 
 export function loadAllGuesses(): Record<string, Guess[]> {

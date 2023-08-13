@@ -9,15 +9,16 @@ import {
 import { Guess } from "../domain/guess";
 import React from "react";
 import { SettingsData } from "../hooks/useSettings";
+import { Link } from "react-router-dom";
+import { useGuesses } from "../hooks/useGuesses";
+import { ShareProps } from "./Share";
 
 const START_DATE = DateTime.fromISO("2023-02-24");
 
-interface ShareProps {
-  guesses: Guess[];
-  dayString: string;
-  settingsData: SettingsData;
-  hideImageMode: boolean;
-  rotationMode: boolean;
+interface NextRoundProps extends ShareProps {
+  currentRound: number;
+  currentMetaRound: number;
+  setCurrentMetaRound: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export function NextRound({
@@ -26,8 +27,16 @@ export function NextRound({
   settingsData,
   hideImageMode,
   rotationMode,
-}: ShareProps) {
+  currentRound,
+  currentMetaRound,
+}: NextRoundProps) {
   const { theme } = settingsData;
+
+  // Instantiate the useGuesses hook at the top of the component
+  const [, , resetGuesses] = useGuesses(dayString);
+
+  let nextRoundLink = "/round2";
+  let buttonText = "Go to round 2!";
 
   const nextRoundText = useMemo(() => {
     const guessCount =
@@ -55,9 +64,26 @@ export function NextRound({
     //return null;
   }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
+  if (currentMetaRound === 2) {
+    nextRoundLink = "/round3";
+    buttonText = "Go to round 3!";
+  }
+  if (currentMetaRound === 3) {
+    nextRoundLink = "/round4";
+    buttonText = "Go to round 4!";
+  }
+
   return (
-    <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
-      {"Go to round 2!"}
-    </button>
+    <Link to={nextRoundLink}>
+      <button
+        className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full"
+        onClick={() => {
+          // Reset state
+          resetGuesses();
+        }}
+      >
+        {buttonText}
+      </button>
+    </Link>
   );
 }

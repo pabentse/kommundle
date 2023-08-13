@@ -16,6 +16,8 @@ import {
   getArtistName,
   getYear,
   getCountryCountry,
+  getAttributes,
+  Country,
 } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
@@ -30,6 +32,7 @@ import Modal from "./Modal";
 import { GuessRow } from "./GuessRow";
 import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
+import seedrandom from "seedrandom";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -38,8 +41,6 @@ function getDayString() {
 function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
-
-const MAX_TRY_COUNT = 1; //Max number of guesses
 
 interface GameProps {
   settingsData: SettingsData;
@@ -84,46 +85,25 @@ function createRNG(seed: number) {
     return seed / m; // Normalize to [0, 1)
   };
 }
-function getWeightedRandomYear(
-  correctYear: number,
-  years: number[],
-  rng: () => number
-): number {
-  // Calculate weights
-  const weights = years.map((year) => 1 / (Math.abs(year - correctYear) + 1));
 
-  // Normalize weights
-  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
-  const normalizedWeights = weights.map((weight) => weight / totalWeight);
-
-  // Weighted random selection
-  const rand = rng();
-  let sum = 0;
-  for (let i = 0; i < normalizedWeights.length; i++) {
-    sum += normalizedWeights[i];
-    if (rand < sum) return years[i];
-  }
-
-  return years[years.length - 1]; // Fallback, shouldn't really happen
-}
-
-export function GameTwo({ settingsData }: GameProps) {
-  const [currentMetaRound, setCurrentMetaRound] = useState(2); // Or whatever initial value you want
+export function GameThree({ settingsData }: GameProps) {
+  const [currentMetaRound, setCurrentMetaRound] = useState(3); // Or whatever initial value you want
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
+  const MAX_TRY_COUNT = 2; //Max number of guesses
+  const seed = new Date().getDate(); // Using the day of the month as the seed
+  const rng = seedrandom(seed.toString());
 
   const countryInputRef = useRef<HTMLInputElement>(null);
   //const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const [currentRound, setCurrentRound] = usePersistedState<number>(
     `currentRound-${today}`,
-    MAX_TRY_COUNT - 1
+    MAX_TRY_COUNT
   );
-
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
-
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
   useEffect(() => {
@@ -150,19 +130,46 @@ export function GameTwo({ settingsData }: GameProps) {
   }, [country.code]); // Now `country.code` is in dependency array
 
   const [isModalOpen, setIsModalOpen] = useState(true);
-  //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
+  const getButtonStyle = (attribute: string) => {
+    const guess = guessedAttributes.find((g) => g.attribute === attribute);
 
-  // assuming currentRound is of type number
-  const roundToImageIndexMapping: { [key in number]: number } = {
-    2: 5,
-    1: 3,
-    0: 0,
+    if (guess) {
+      if (guess.isCorrect) {
+        return "bg-green-500 hover:bg-green-600";
+      } else {
+        return "bg-red-500 hover:bg-red-600";
+      }
+    } else if (currentRound === 0 && correctAttributes.includes(attribute)) {
+      return "bg-green-400 hover:bg-green-500";
+    } else {
+      return "bg-gray-100 hover:bg-gray-200";
+    }
   };
-  const imageIndex =
-    roundToImageIndexMapping[
-      currentRound as keyof typeof roundToImageIndexMapping
-    ];
-  const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
+
+  interface GuessedAttribute {
+    attribute: string;
+    isCorrect: boolean;
+  }
+
+  const [guessedAttributes, setGuessedAttributes] = useState<
+    GuessedAttribute[]
+  >([]);
+
+  const [attributeOptions, setAttributeOptions] = useState<string[]>(() => {
+    const correctAttributes = getAttributes(country);
+    const randomAttributeOptions = getRandomAttributes(
+      correctAttributes,
+      4,
+      countries
+    );
+    const allAttributeOptions = shuffleArray([
+      ...correctAttributes,
+      ...randomAttributeOptions,
+    ]);
+    return allAttributeOptions;
+  });
+
+  const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
   //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
@@ -178,7 +185,6 @@ export function GameTwo({ settingsData }: GameProps) {
 
   const roundOneEnded =
     guesses.length === MAX_TRY_COUNT ||
-    //guesses[guesses.length - 1]?.distance === 0;
     guesses[guesses.length - 1]?.isCorrect === true;
   console.log("roundOneEnded value is:", roundOneEnded);
   const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
@@ -186,118 +192,98 @@ export function GameTwo({ settingsData }: GameProps) {
   const correctYear = getYear(country);
   console.log("Last guess:", guesses[guesses.length - 1]);
 
-  function getRandomYears(excludedYears: number[], count: number): number[] {
-    const randomYears = [];
-    while (randomYears.length < count) {
+  function getRandomAttributes(
+    excludedAttributes: string[],
+    count: number,
+    allCountries: Country[]
+  ): string[] {
+    const chosenAttributes = new Set<string>();
+
+    while (chosenAttributes.size < count) {
       const randomCountry =
-        countries[Math.floor(Math.random() * countries.length)];
-      const randomYear = getYear(randomCountry);
-      if (!excludedYears.includes(randomYear)) {
-        randomYears.push(randomYear);
+        allCountries[Math.floor(rng() * allCountries.length)];
+      const attributesForRandomCountry = getAttributes(randomCountry);
+
+      // Filter out excluded attributes
+      const possibleAttributes = attributesForRandomCountry.filter(
+        (attr) => !excludedAttributes.includes(attr)
+      );
+
+      // We use a random index to get a random attribute from the filtered list
+      if (possibleAttributes.length > 0) {
+        const randomIndex = Math.floor(rng() * possibleAttributes.length);
+        const randomAttribute = possibleAttributes[randomIndex];
+
+        chosenAttributes.add(randomAttribute);
       }
     }
-    return randomYears;
+
+    return Array.from(chosenAttributes);
   }
 
-  const randomYears = getRandomYears([correctYear], 3);
-  function shuffleArray(array: any[]) {
+  function generateAttributeOptions(
+    country: Country,
+    allCountries: Country[]
+  ): string[] {
+    // 1. Get the attributes for the `guessedCountry`.
+    const correctAttributes = getAttributes(country);
+
+    // 2. Randomly pick four other attributes.
+    const randomAttributes = getRandomAttributes(
+      correctAttributes,
+      4,
+      countries
+    );
+
+    // 3. Combine the attributes and shuffle them.
+    const combinedAttributes = [
+      ...correctAttributes,
+      ...Array.from(randomAttributes),
+    ];
+    const shuffledAttributes = shuffleArray(combinedAttributes);
+
+    // 4. Return the shuffled attributes.
+    return shuffledAttributes;
+  }
+
+  function shuffleArray(array: any[]): any[] {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
   }
+  const [selectedAttribute, setSelectedAttribute] = useState<string | null>(
+    null
+  );
+  const correctAttributes = getAttributes(country);
+  const [correctGuesses, setCorrectGuesses] = useState<string[]>([]);
+  const handleAttributeGuess = (guessedAttribute: string) => {
+    const isCorrect = correctAttributes.includes(guessedAttribute);
 
-  const rng = createRNG(new Date().getDate()); // Using the day of the month as the seed
+    // Add the guessed attribute to the list of guessed attributes.
+    setGuessedAttributes([
+      ...guessedAttributes,
+      {
+        attribute: guessedAttribute,
+        isCorrect: isCorrect,
+      },
+    ]);
 
-  // Assuming allYears is a list of all potential years
+    setIsGuessCorrect(isCorrect);
+    setCurrentRound(currentRound - 1);
 
-  let allYears = shuffleArray([correctYear, ...randomYears]);
-
-  const alternatives = [];
-  for (let i = 0; i < 3; i++) {
-    // To get 3 alternatives
-    const year = getWeightedRandomYear(correctYear, allYears, rng);
-    alternatives.push(year);
-    // Remove the selected year from allYears to avoid repetition
-    allYears = allYears.filter((y) => y !== year);
-  }
-  const getButtonStyle = (year: number) => {
-    if (!roundOneEnded) {
-      return "bg-white hover:bg-gray-200"; // Default color (white) before round ends
-    }
-
-    if (selectedYear === year && isAnswerCorrect) {
-      return "bg-green-500 hover:bg-green-600"; // Green for correct answer
-    } else if (selectedYear === year && !isAnswerCorrect) {
-      return "bg-red-500 hover:bg-red-600"; // Red for incorrect answer
-    } else if (year === correctYear) {
-      return "bg-green-500 hover:bg-green-600"; // Green for the actual correct answer
-    } else {
-      return "bg-gray-100 hover:bg-gray-200"; // Lighter gray for other answers
+    if (currentRound === 0) {
+      // changed from 0 to 1 because we decrement after this check
+      if (!isGuessCorrect) {
+        // Notify player that the round is over and show the correct answers.
+        toast.info(`Round over! Correct answers are highlighted.`, {
+          delay: 100,
+        });
+      }
+      // Logic to proceed to the next round or display a game-over screen.
     }
   };
-
-  allYears.map((year, index) => <button key={index}>{year}</button>);
-  const [selectedYear, setSelectedYear] = useState<number | null>(null);
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
-
-  function generateYearOptions(correctYear: number): number[] {
-    const yearOptions = new Set<number>();
-    yearOptions.add(correctYear); // add the correct year
-
-    while (yearOptions.size < 4) {
-      // we want 4 options
-      const randomCountry =
-        countries[Math.floor(Math.random() * countries.length)];
-      yearOptions.add(getYear(randomCountry));
-    }
-
-    return Array.from(yearOptions);
-  }
-  //const correctYear = getYear(guessedCountry);
-  const yearOptions = useMemo(
-    () => generateYearOptions(correctYear),
-    [correctYear]
-  );
-  const handleYearGuess = useCallback(
-    (selectedYear: number) => {
-      setSelectedYear(selectedYear);
-      // Create a new guess based on the selected year
-      const newGuess = {
-        name: currentGuess, // This will be the country name, as previously
-        year: selectedYear,
-        distance: 0, //placeholder value
-        isCorrect: selectedYear === correctYear,
-        isCorrectCentury:
-          Math.floor(selectedYear / 100) === Math.floor(correctYear / 100),
-        // For the other properties, you can set them accordingly or use placeholders
-      };
-
-      // Add the new guess to the guesses array
-      addGuess(newGuess);
-
-      // Continue with the rest of your logic
-      if (selectedYear === correctYear) {
-        // logic for correct guess
-        setIsGuessCorrect(true);
-        setCurrentRound(0); // Jump to the last round (last image)
-        toast.success("Correct year!", { delay: 100 });
-        setIsExploding(true);
-        setIsAnswerCorrect(true);
-        console.log("Updated guesses array:", guesses);
-        console.log("Guess is correct");
-      } else {
-        // logic for incorrect guess
-        setIsAnswerCorrect(false);
-        setIsGuessCorrect(false);
-        toast.error(`Wrong year!`, { delay: 100 });
-        setCurrentRound((round) => Math.max(0, round - 1));
-        console.log("Guess is wrong");
-      }
-    },
-    [correctYear, setCurrentRound, guesses, addGuess, currentGuess]
-  );
 
   useEffect(() => {
     if (
@@ -344,13 +330,13 @@ export function GameTwo({ settingsData }: GameProps) {
       </div>
 
       <div className="grid grid-cols-2 gap-1">
-        {yearOptions.map((year, index) => (
+        {attributeOptions.map((attribute, index) => (
           <button
             key={index}
-            className={`border-2 uppercase m-2 ${getButtonStyle(year)}`}
-            onClick={() => handleYearGuess(year)}
+            className={`border-2 uppercase m-2 ${getButtonStyle(attribute)}`}
+            onClick={() => handleAttributeGuess(attribute)}
           >
-            {year}
+            {attribute}
           </button>
         ))}
       </div>
