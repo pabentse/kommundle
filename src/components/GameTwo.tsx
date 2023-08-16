@@ -121,7 +121,6 @@ export function GameTwo({ settingsData }: GameProps) {
     `currentRoundInTwo-${today}`,
     MAX_TRY_COUNT
   );
-  
 
   useEffect(() => {
     // Reset the currentRoundInThree to MAX_TRY_COUNT when a new game round begins
@@ -245,7 +244,6 @@ export function GameTwo({ settingsData }: GameProps) {
       return "bg-opacity-0"; // Lighter gray for other answers
     }
   };
-
 
   allYears.map((year, index) => <button key={index}>{year}</button>);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
