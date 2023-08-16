@@ -121,6 +121,7 @@ export function GameTwo({ settingsData }: GameProps) {
     `currentRoundInTwo-${today}`,
     MAX_TRY_COUNT
   );
+  
 
   useEffect(() => {
     // Reset the currentRoundInThree to MAX_TRY_COUNT when a new game round begins
@@ -231,19 +232,20 @@ export function GameTwo({ settingsData }: GameProps) {
   }
   const getButtonStyle = (year: number) => {
     if (!roundOneEnded) {
-      return "bg-white hover:bg-gray-200"; // Default color (white) before round ends
+      return "bg-opacity-0 hover:bg-gray-500"; // Transparent for the first round
     }
 
     if (selectedYear === year && isAnswerCorrect) {
-      return "bg-green-500 hover:bg-green-600"; // Green for correct answer
+      return "bg-green-500"; // Green for correct answer
     } else if (selectedYear === year && !isAnswerCorrect) {
-      return "bg-red-500 hover:bg-red-600"; // Red for incorrect answer
+      return "bg-red-500"; // Red for incorrect answer
     } else if (year === correctYear) {
-      return "bg-green-500 hover:bg-green-600"; // Green for the actual correct answer
+      return "bg-green-500"; // Green for the actual correct answer
     } else {
-      return "bg-gray-100 hover:bg-gray-200"; // Lighter gray for other answers
+      return "bg-opacity-0"; // Lighter gray for other answers
     }
   };
+
 
   allYears.map((year, index) => <button key={index}>{year}</button>);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);

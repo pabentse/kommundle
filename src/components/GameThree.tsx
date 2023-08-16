@@ -103,6 +103,7 @@ export function GameThree({ settingsData }: GameProps) {
   console.log("currentRoundInThree in beginning", currentRoundInThree);
   console.log("currentMetaRound in beginning", currentMetaRound);
   console.log("gameLocked in beginning", gameLocked);
+
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
@@ -145,7 +146,7 @@ export function GameThree({ settingsData }: GameProps) {
 
     const randomAttributeOptions = getRandomAttributes(
       correctAttributes,
-      3,
+      4,
       countries
     );
 
@@ -203,7 +204,7 @@ export function GameThree({ settingsData }: GameProps) {
     ) {
       return "bg-green-300 hover:bg-green-500";
     } else {
-      return "bg-gray-100 hover:bg-gray-200";
+      return "bg-opacity-0 hover:bg-gray-500";
     }
   };
 
