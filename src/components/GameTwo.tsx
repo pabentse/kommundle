@@ -113,14 +113,21 @@ export function GameTwo({ settingsData }: GameProps) {
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
-
+  const [gameLocked, setGameLocked] = useState(false);
   const countryInputRef = useRef<HTMLInputElement>(null);
-  //const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
+  //const [currentRoundInTwo, setCurrentRoundInTwo] = useState(MAX_TRY_COUNT - 1);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-  const [currentRound, setCurrentRound] = usePersistedState<number>(
-    `currentRound-${today}`,
+  const [currentRoundInTwo, setCurrentRoundInTwo] = usePersistedState<number>(
+    `currentRoundInTwo-${today}`,
     MAX_TRY_COUNT - 1
   );
+
+  useEffect(() => {
+    // Reset the currentRoundInThree to MAX_TRY_COUNT when a new game round begins
+    setCurrentRoundInTwo(MAX_TRY_COUNT);
+    // Unlock the game for the new round
+    setGameLocked(false);
+  }, [currentMetaRound, setCurrentRoundInTwo]);
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
@@ -150,9 +157,9 @@ export function GameTwo({ settingsData }: GameProps) {
   }, [country.code]); // Now `country.code` is in dependency array
 
   const [isModalOpen, setIsModalOpen] = useState(true);
-  //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
+  //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRoundInTwo}.png`;
 
-  // assuming currentRound is of type number
+  // assuming currentRoundInTwo is of type number
   const roundToImageIndexMapping: { [key in number]: number } = {
     2: 5,
     1: 3,
@@ -160,9 +167,9 @@ export function GameTwo({ settingsData }: GameProps) {
   };
   const imageIndex =
     roundToImageIndexMapping[
-      currentRound as keyof typeof roundToImageIndexMapping
+      currentRoundInTwo as keyof typeof roundToImageIndexMapping
     ];
-  const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
+  const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
   //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
 
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
@@ -281,7 +288,7 @@ export function GameTwo({ settingsData }: GameProps) {
       if (selectedYear === correctYear) {
         // logic for correct guess
         setIsGuessCorrect(true);
-        setCurrentRound(0); // Jump to the last round (last image)
+        setCurrentRoundInTwo(0); // Jump to the last round (last image)
         toast.success("Correct year!", { delay: 100 });
         setIsExploding(true);
         setIsAnswerCorrect(true);
@@ -292,11 +299,11 @@ export function GameTwo({ settingsData }: GameProps) {
         setIsAnswerCorrect(false);
         setIsGuessCorrect(false);
         toast.error(`Wrong year!`, { delay: 100 });
-        setCurrentRound((round) => Math.max(0, round - 1));
+        setCurrentRoundInTwo((round) => Math.max(0, round - 1));
         console.log("Guess is wrong");
       }
     },
-    [correctYear, setCurrentRound, guesses, addGuess, currentGuess]
+    [correctYear, setCurrentRoundInTwo, guesses, addGuess, currentGuess]
   );
 
   useEffect(() => {
@@ -311,6 +318,16 @@ export function GameTwo({ settingsData }: GameProps) {
       });
     }
   }, [country, guesses, i18n.resolvedLanguage]);
+  useEffect(() => {
+    if (currentRoundInTwo <= 0) {
+      // Logic for end of round
+      toast.info("Round over! Correct answers are highlighted.", {
+        delay: 100,
+      });
+      // Lock the game
+      setGameLocked(true);
+    }
+  }, [currentRoundInTwo]);
   return (
     <div className="flex-grow flex flex-col mx-2">
       <div className="flex flex-row justify-between">
@@ -349,6 +366,7 @@ export function GameTwo({ settingsData }: GameProps) {
             key={index}
             className={`border-2 uppercase m-2 ${getButtonStyle(year)}`}
             onClick={() => handleYearGuess(year)}
+            disabled={gameLocked}
           >
             {year}
           </button>
@@ -374,7 +392,7 @@ export function GameTwo({ settingsData }: GameProps) {
             settingsData={settingsData}
             hideImageMode={hideImageMode}
             rotationMode={rotationMode}
-            currentRound={2} // Assuming GameTwo.tsx represents round 2
+            currentRound={currentRoundInTwo} // Assuming GameTwo.tsx represents round 2
             currentMetaRound={currentMetaRound}
             setCurrentMetaRound={setCurrentMetaRound}
           />

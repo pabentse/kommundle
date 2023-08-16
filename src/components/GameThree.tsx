@@ -33,6 +33,7 @@ import { GuessRow } from "./GuessRow";
 import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
 import seedrandom from "seedrandom";
+import { get } from "http";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -47,6 +48,8 @@ interface GameProps {
   currentMetaRound: number;
   setCurrentMetaRound: React.Dispatch<React.SetStateAction<number>>;
 }
+const seed = new Date().getDate(); // Using the day of the month as the seed
+const rng = seedrandom(seed.toString());
 
 const usePersistedState = <T,>(
   key: string,
@@ -74,17 +77,6 @@ const usePersistedState = <T,>(
 
   return [state, setState];
 };
-function createRNG(seed: number) {
-  // LCG parameters from Numerical Recipes
-  const m = 2 ** 32;
-  const a = 1664525;
-  const c = 1013904223;
-
-  return function () {
-    seed = (a * seed + c) % m;
-    return seed / m; // Normalize to [0, 1)
-  };
-}
 
 export function GameThree({ settingsData }: GameProps) {
   const [currentMetaRound, setCurrentMetaRound] = useState(3); // Or whatever initial value you want
@@ -93,22 +85,78 @@ export function GameThree({ settingsData }: GameProps) {
   const dayStringNew = useMemo(getDayStringNew, []);
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
   const MAX_TRY_COUNT = 2; //Max number of guesses
-  const seed = new Date().getDate(); // Using the day of the month as the seed
-  const rng = seedrandom(seed.toString());
 
   const countryInputRef = useRef<HTMLInputElement>(null);
-  //const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
+  //const [currentRoundInThree, setcurrentRoundInThree] = useState(MAX_TRY_COUNT - 1);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-  const [currentRound, setCurrentRound] = usePersistedState<number>(
-    `currentRound-${today}`,
-    MAX_TRY_COUNT
-  );
+  const [gameLocked, setGameLocked] = useState(false);
+  const [currentRoundInThree, setcurrentRoundInThree] =
+    usePersistedState<number>(`currentRoundInThree-${today}`, MAX_TRY_COUNT);
+
+  useEffect(() => {
+    // Reset the currentRoundInThree to MAX_TRY_COUNT when a new game round begins
+    setcurrentRoundInThree(MAX_TRY_COUNT);
+    // Unlock the game for the new round
+    setGameLocked(false);
+  }, [currentMetaRound, setcurrentRoundInThree]);
+
+  console.log("currentRoundInThree in beginning", currentRoundInThree);
+  console.log("currentMetaRound in beginning", currentMetaRound);
+  console.log("gameLocked in beginning", gameLocked);
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
   useEffect(() => {
     resetGuesses();
   }, [resetGuesses]);
+
+  const correctAttributes = getAttributes(country);
+
+  const [attributeOptions, setAttributeOptions] = useState<string[]>([]);
+  useEffect(() => {
+    function getRandomAttributes(
+      excludedAttributes: string[],
+      count: number,
+      allCountries: Country[]
+    ): string[] {
+      const chosenAttributes = new Set<string>();
+
+      while (chosenAttributes.size < count) {
+        const randomCountry =
+          allCountries[Math.floor(rng() * allCountries.length)];
+        const attributesForRandomCountry = getAttributes(randomCountry);
+
+        // Filter out excluded attributes
+        const possibleAttributes = attributesForRandomCountry.filter(
+          (attr) => !excludedAttributes.includes(attr)
+        );
+
+        // We use a random index to get a random attribute from the filtered list
+        if (possibleAttributes.length > 0) {
+          const randomIndex = Math.floor(rng() * possibleAttributes.length);
+          const randomAttribute = possibleAttributes[randomIndex];
+
+          chosenAttributes.add(randomAttribute);
+        }
+      }
+
+      return Array.from(chosenAttributes);
+    }
+
+    const randomAttributeOptions = getRandomAttributes(
+      correctAttributes,
+      3,
+      countries
+    );
+
+    const allAttributeOptions = [
+      ...correctAttributes,
+      ...randomAttributeOptions,
+    ];
+
+    const shuffledAttributeOptions = shuffleArray(allAttributeOptions);
+    setAttributeOptions(shuffledAttributeOptions);
+  }, [country, correctAttributes]);
 
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
@@ -128,6 +176,16 @@ export function GameThree({ settingsData }: GameProps) {
       img.src = `images/countries/${country.code.toLowerCase()}/vector${i}.png`;
     }
   }, [country.code]); // Now `country.code` is in dependency array
+  useEffect(() => {
+    if (currentRoundInThree <= 0) {
+      // Logic for end of round
+      toast.info("Round over! Correct answers are highlighted.", {
+        delay: 100,
+      });
+      // Lock the game
+      setGameLocked(true);
+    }
+  }, [currentRoundInThree]);
 
   const [isModalOpen, setIsModalOpen] = useState(true);
   const getButtonStyle = (attribute: string) => {
@@ -139,35 +197,23 @@ export function GameThree({ settingsData }: GameProps) {
       } else {
         return "bg-red-500 hover:bg-red-600";
       }
-    } else if (currentRound === 0 && correctAttributes.includes(attribute)) {
-      return "bg-green-400 hover:bg-green-500";
+    } else if (
+      currentRoundInThree === 0 &&
+      correctAttributes.includes(attribute)
+    ) {
+      return "bg-green-300 hover:bg-green-500";
     } else {
       return "bg-gray-100 hover:bg-gray-200";
     }
   };
 
-  interface GuessedAttribute {
+  type GuessedAttribute = {
     attribute: string;
     isCorrect: boolean;
-  }
-
+  };
   const [guessedAttributes, setGuessedAttributes] = useState<
     GuessedAttribute[]
   >([]);
-
-  const [attributeOptions, setAttributeOptions] = useState<string[]>(() => {
-    const correctAttributes = getAttributes(country);
-    const randomAttributeOptions = getRandomAttributes(
-      correctAttributes,
-      4,
-      countries
-    );
-    const allAttributeOptions = shuffleArray([
-      ...correctAttributes,
-      ...randomAttributeOptions,
-    ]);
-    return allAttributeOptions;
-  });
 
   const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
   //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
@@ -186,65 +232,6 @@ export function GameThree({ settingsData }: GameProps) {
   const roundOneEnded =
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.isCorrect === true;
-  console.log("roundOneEnded value is:", roundOneEnded);
-  const [countryFeedback, setCountryFeedback] = useState<string | null>(null);
-  const [centuryFeedback, setCenturyFeedback] = useState<string | null>(null);
-  const correctYear = getYear(country);
-  console.log("Last guess:", guesses[guesses.length - 1]);
-
-  function getRandomAttributes(
-    excludedAttributes: string[],
-    count: number,
-    allCountries: Country[]
-  ): string[] {
-    const chosenAttributes = new Set<string>();
-
-    while (chosenAttributes.size < count) {
-      const randomCountry =
-        allCountries[Math.floor(rng() * allCountries.length)];
-      const attributesForRandomCountry = getAttributes(randomCountry);
-
-      // Filter out excluded attributes
-      const possibleAttributes = attributesForRandomCountry.filter(
-        (attr) => !excludedAttributes.includes(attr)
-      );
-
-      // We use a random index to get a random attribute from the filtered list
-      if (possibleAttributes.length > 0) {
-        const randomIndex = Math.floor(rng() * possibleAttributes.length);
-        const randomAttribute = possibleAttributes[randomIndex];
-
-        chosenAttributes.add(randomAttribute);
-      }
-    }
-
-    return Array.from(chosenAttributes);
-  }
-
-  function generateAttributeOptions(
-    country: Country,
-    allCountries: Country[]
-  ): string[] {
-    // 1. Get the attributes for the `guessedCountry`.
-    const correctAttributes = getAttributes(country);
-
-    // 2. Randomly pick four other attributes.
-    const randomAttributes = getRandomAttributes(
-      correctAttributes,
-      4,
-      countries
-    );
-
-    // 3. Combine the attributes and shuffle them.
-    const combinedAttributes = [
-      ...correctAttributes,
-      ...Array.from(randomAttributes),
-    ];
-    const shuffledAttributes = shuffleArray(combinedAttributes);
-
-    // 4. Return the shuffled attributes.
-    return shuffledAttributes;
-  }
 
   function shuffleArray(array: any[]): any[] {
     for (let i = array.length - 1; i > 0; i--) {
@@ -253,36 +240,16 @@ export function GameThree({ settingsData }: GameProps) {
     }
     return array;
   }
-  const [selectedAttribute, setSelectedAttribute] = useState<string | null>(
-    null
-  );
-  const correctAttributes = getAttributes(country);
-  const [correctGuesses, setCorrectGuesses] = useState<string[]>([]);
+
   const handleAttributeGuess = (guessedAttribute: string) => {
     const isCorrect = correctAttributes.includes(guessedAttribute);
 
-    // Add the guessed attribute to the list of guessed attributes.
     setGuessedAttributes([
       ...guessedAttributes,
-      {
-        attribute: guessedAttribute,
-        isCorrect: isCorrect,
-      },
+      { attribute: guessedAttribute, isCorrect },
     ]);
 
-    setIsGuessCorrect(isCorrect);
-    setCurrentRound(currentRound - 1);
-
-    if (currentRound === 0) {
-      // changed from 0 to 1 because we decrement after this check
-      if (!isGuessCorrect) {
-        // Notify player that the round is over and show the correct answers.
-        toast.info(`Round over! Correct answers are highlighted.`, {
-          delay: 100,
-        });
-      }
-      // Logic to proceed to the next round or display a game-over screen.
-    }
+    setcurrentRoundInThree(currentRoundInThree - 1);
   };
 
   useEffect(() => {
@@ -300,11 +267,7 @@ export function GameThree({ settingsData }: GameProps) {
   return (
     <div className="flex-grow flex flex-col mx-2">
       <div className="flex flex-row justify-between">
-        <GuessRow
-          centuryFeedback={centuryFeedback}
-          countryFeedback={countryFeedback}
-          settingsData={settingsData}
-        />
+        <GuessRow settingsData={settingsData} />
       </div>
 
       <div className="my-1">
@@ -335,6 +298,7 @@ export function GameThree({ settingsData }: GameProps) {
             key={index}
             className={`border-2 uppercase m-2 ${getButtonStyle(attribute)}`}
             onClick={() => handleAttributeGuess(attribute)}
+            disabled={gameLocked} // Disable the button when the game is locked
           >
             {attribute}
           </button>
@@ -360,7 +324,7 @@ export function GameThree({ settingsData }: GameProps) {
             settingsData={settingsData}
             hideImageMode={hideImageMode}
             rotationMode={rotationMode}
-            currentRound={2} // Assuming GameTwo.tsx represents round 2
+            currentRound={currentRoundInThree} // Assuming GameTwo.tsx represents round 2
             currentMetaRound={currentMetaRound}
             setCurrentMetaRound={setCurrentMetaRound}
           />
