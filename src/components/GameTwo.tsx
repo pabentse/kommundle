@@ -119,7 +119,7 @@ export function GameTwo({ settingsData }: GameProps) {
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const [currentRoundInTwo, setCurrentRoundInTwo] = usePersistedState<number>(
     `currentRoundInTwo-${today}`,
-    MAX_TRY_COUNT - 1
+    MAX_TRY_COUNT
   );
 
   useEffect(() => {
