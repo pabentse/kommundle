@@ -57,7 +57,7 @@ export const countries = [
     location: "Paris",
     country: "France",
     museum: "Musée du Louvre",
-    attributes: ["Renaissance"],
+    attributes: ["Renaissance", "Oil Painting"],
   },
   {
     code: "municip5045",
@@ -69,7 +69,7 @@ export const countries = [
     location: "Milan",
     country: "Italy",
     museum: "Santa Maria delle Grazie",
-    attributes: ["Renaissance"],
+    attributes: ["Renaissance", "Mural Painting"],
   },
   {
     code: "municip1103",
@@ -81,7 +81,7 @@ export const countries = [
     location: "New York City",
     country: "Netherlands",
     museum: "Museum of Modern Art",
-    attributes: ["Post-Impressionism"],
+    attributes: ["Post-Impressionism", "Modernism"],
   },
   {
     code: "municip1106",
@@ -93,7 +93,7 @@ export const countries = [
     location: "Vienna",
     country: "Austria",
     museum: "Österreichische Galerie Belvedere",
-    attributes: ["Symbolism", "Art Nouveau", "Modernism"],
+    attributes: ["Golden Period", "Modernism"],
   },
   {
     code: "municip5042",
@@ -131,8 +131,6 @@ export const countries = [
     museum: "Munch Museum",
     attributes: [
       "Expressionism",
-      "Symbolism",
-      "Modernism",
       "Post-Impressionism",
     ],
   },
@@ -242,7 +240,7 @@ export const countries = [
     location: "Mexico City",
     country: "Mexico",
     museum: "Museo Dolores Olmedo",
-    attributes: ["Surrealism", "Modernism"],
+    attributes: ["Surrealism", "Feminist Art"],
   },
   {
     code: "municip5056",

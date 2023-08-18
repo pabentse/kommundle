@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import seedrandom from "seedrandom";
 import { countriesWithImage, Country } from "../domain/countries";
 
+//hardcoded countries for each day
 const forcedCountries: Record<string, string> = {
   "09-08-2023": "municip5056",
   "10-08-2023": "municip5057",
