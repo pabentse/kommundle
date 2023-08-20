@@ -129,10 +129,7 @@ export const countries = [
     location: "Oslo",
     country: "Norway",
     museum: "Munch Museum",
-    attributes: [
-      "Expressionism",
-      "Post-Impressionism",
-    ],
+    attributes: ["Expressionism", "Post-Impressionism"],
   },
   {
     code: "municip5047",
@@ -397,6 +394,30 @@ export const countries = [
     latitude: 40.761509,
     longitude: -73.978271,
     attributes: ["Neo-Expressionism", "Modernism"],
+  },
+  {
+    code: "municip5069",
+    name: "The Dessert: Harmony in Red",
+    artist: "Henri Matisse",
+    location: "Saint Petersburg",
+    country: "France",
+    museum: "Hermitage Museum",
+    year: 1908,
+    latitude: 59.9343,
+    longitude: 30.3351,
+    attributes: ["Fauvism", "Modernism"],
+  },
+  {
+    code: "municip5070",
+    name: "Isle of the Dead",
+    artist: "Arnold Böcklin",
+    location: "Basel",
+    country: "Switzerland",
+    museum: "Kunstmuseum Basel",
+    year: 1883,
+    latitude: 47.5596,
+    longitude: 7.5886,
+    attributes: ["Symbolism", "Modernism"],
   },
 ];
 
