@@ -31,6 +31,10 @@ export const countryCodesWithImage = [
   "municip5066",
   "municip5067",
   "municip5068",
+  "municip5069",
+  "municip5070",
+  "municip5071",
+  "municip5072",
 ];
 
 export interface Country {
@@ -393,7 +397,7 @@ export const countries = [
     year: 1982,
     latitude: 40.761509,
     longitude: -73.978271,
-    attributes: ["Neo-Expressionism", "Modernism"],
+    attributes: ["Neo-Expressionism", "Post-Modernism"],
   },
   {
     code: "municip5069",
@@ -418,6 +422,30 @@ export const countries = [
     latitude: 47.5596,
     longitude: 7.5886,
     attributes: ["Symbolism", "Modernism"],
+  },
+  {
+    code: "municip5071",
+    name: "The Potato Eaters",
+    artist: "Vincent van Gogh",
+    location: "Amsterdam",
+    country: "Netherlands",
+    museum: "Van Gogh Museum",
+    year: 1885,
+    latitude: 52.078663,
+    longitude: 4.288788,
+    attributes: ["Post-Impressionism", "Modernism"],
+  },
+  {
+    code: "municip5072",
+    name: "The Arnolfini Portrait",
+    artist: "Jan van Eyck",
+    location: "London",
+    country: "United Kingdom",
+    museum: "National Gallery",
+    year: 1434,
+    latitude: 51.507351,
+    longitude: -0.127758,
+    attributes: ["Northern Renaissance", "Early Netherlandish"],
   },
 ];
 
