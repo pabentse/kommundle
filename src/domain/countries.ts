@@ -35,6 +35,8 @@ export const countryCodesWithImage = [
   "municip5070",
   "municip5071",
   "municip5072",
+  "municip5073",
+  "municip5074",
 ];
 
 export interface Country {
@@ -446,6 +448,30 @@ export const countries = [
     latitude: 51.507351,
     longitude: -0.127758,
     attributes: ["Northern Renaissance", "Early Netherlandish"],
+  },
+  {
+    code: "municip5073",
+    name: "Mont Sainte-Victoire",
+    artist: "Paul Cézanne",
+    location: "Paris",
+    country: "France",
+    museum: "Musée d'Orsay",
+    year: 1904,
+    latitude: 48.860294,
+    longitude: 2.338629,
+    attributes: ["Post-Impressionism", "Modernism"],
+  },
+  {
+    code: "municip5074",
+    name: "Conversion on the Way to Damascus",
+    artist: "Caravaggio",
+    location: "Rome",
+    country: "Italy",
+    museum: "Basilica of Santa Maria del Popolo",
+    year: 1601,
+    latitude: 41.9029,
+    longitude: 12.4534,
+    attributes: ["Baroque", "Italian Renaissance"],
   },
 ];
 
