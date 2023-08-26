@@ -37,6 +37,8 @@ export const countryCodesWithImage = [
   "municip5072",
   "municip5073",
   "municip5074",
+  "municip5075",
+  "municip5076",
 ];
 
 export interface Country {
@@ -472,6 +474,30 @@ export const countries = [
     latitude: 41.9029,
     longitude: 12.4534,
     attributes: ["Baroque", "Italian Renaissance"],
+  },
+  {
+    code: "municip5075",
+    name: "Madonna",
+    artist: "Edvard Munch",
+    location: "Oslo",
+    country: "Norway",
+    museum: "Munch Museum",
+    year: 1895,
+    latitude: 59.911491,
+    longitude: 10.757933,
+    attributes: ["Expressionism", "Post-Impressionism"],
+  },
+  {
+    code: "municip5076",
+    name: "Liberty Leading the People",
+    artist: "Eugène Delacroix",
+    location: "Paris",
+    country: "France",
+    museum: "Musée du Louvre",
+    year: 1830,
+    latitude: 48.860294,
+    longitude: 2.338629,
+    attributes: ["Romanticism", "Oil Painting"],
   },
 ];
 
