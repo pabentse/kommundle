@@ -497,7 +497,7 @@ export const countries = [
     year: 1830,
     latitude: 48.860294,
     longitude: 2.338629,
-    attributes: ["Romanticism", "Oil Painting"],
+    attributes: ["Romanticism", "French Revolution"],
   },
 ];
 
