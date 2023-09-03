@@ -103,7 +103,7 @@ export const countries = [
     museum: "Österreichische Galerie Belvedere",
     attributes: ["Golden Period", "Modernism"],
   },
-  {
+  /* {
     code: "municip5042",
     latitude: 40.416775,
     longitude: -3.7037,
@@ -114,7 +114,7 @@ export const countries = [
     country: "Spain",
     museum: "Museo Reina Sofía",
     attributes: ["Northern Renaissance", "Mannerism"],
-  },
+  }, */
   {
     code: "municip5042",
     latitude: 40.416775,
