@@ -113,6 +113,31 @@ export function GameThree({ settingsData }: GameProps) {
 
   const correctAttributes = getAttributes(country);
 
+  // Function to decide if an attribute should be excluded
+  const shouldExclude = (
+    attribute: string,
+    correctAttribute: string
+  ): boolean => {
+    const attributeTokens = attribute.split(" ");
+    const correctAttributeTokens = correctAttribute.split(" ");
+
+    for (const token of attributeTokens) {
+      // If token is in correctAttributeTokens but isn't a special term like "Post-Modernism"
+      if (correctAttributeTokens.includes(token) && !token.includes("-")) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  // Example usage:
+  const correctAttribute = "Italian Renaissance";
+  const randomAttribute = "High Renaissance"; // This should be excluded
+  const anotherRandomAttribute = "Post-Modernism"; // This should not be excluded
+
+  console.log(shouldExclude(randomAttribute, correctAttribute)); // Output: true
+  console.log(shouldExclude(anotherRandomAttribute, correctAttribute)); // Output: false
+
   const [attributeOptions, setAttributeOptions] = useState<string[]>([]);
   useEffect(() => {
     function getRandomAttributes(
@@ -128,9 +153,12 @@ export function GameThree({ settingsData }: GameProps) {
         const attributesForRandomCountry = getAttributes(randomCountry);
 
         // Filter out excluded attributes
-        const possibleAttributes = attributesForRandomCountry.filter(
-          (attr) => !excludedAttributes.includes(attr)
-        );
+        const possibleAttributes = attributesForRandomCountry.filter((attr) => {
+          // Check exclusion against all correct attributes
+          return !excludedAttributes.some((correctAttr) =>
+            shouldExclude(attr, correctAttr)
+          );
+        });
 
         // We use a random index to get a random attribute from the filtered list
         if (possibleAttributes.length > 0) {
