@@ -264,7 +264,7 @@ export function GameTwo({ settingsData }: GameProps) {
   }
   //const correctYear = getYear(guessedCountry);
   const yearOptions = useMemo(
-    () => generateYearOptions(correctYear),
+    () => shuffleArray(generateYearOptions(correctYear)),
     [correctYear]
   );
   const handleYearGuess = useCallback(
