@@ -113,33 +113,35 @@ export function GameThree({ settingsData }: GameProps) {
 
   const correctAttributes = getAttributes(country);
 
-  // Function to decide if an attribute should be excluded
-  const shouldExclude = (
-    attribute: string,
-    correctAttribute: string
-  ): boolean => {
-    const attributeTokens = attribute.split(" ");
-    const correctAttributeTokens = correctAttribute.split(" ");
-
-    for (const token of attributeTokens) {
-      // If token is in correctAttributeTokens but isn't a special term like "Post-Modernism"
-      if (correctAttributeTokens.includes(token) && !token.includes("-")) {
-        return true;
-      }
-    }
-    return false;
-  };
-
   // Example usage:
   const correctAttribute = "Italian Renaissance";
   const randomAttribute = "High Renaissance"; // This should be excluded
   const anotherRandomAttribute = "Post-Modernism"; // This should not be excluded
 
-  console.log(shouldExclude(randomAttribute, correctAttribute)); // Output: true
-  console.log(shouldExclude(anotherRandomAttribute, correctAttribute)); // Output: false
-
   const [attributeOptions, setAttributeOptions] = useState<string[]>([]);
   useEffect(() => {
+    const exceptionalTerms = ["Art", "Feminist", "Pop", "Abstract"]; // Add terms that should be exceptions
+
+    const shouldExclude = (
+      attribute: string,
+      correctAttribute: string
+    ): boolean => {
+      const attributeTokens = attribute.split(" ");
+      const correctAttributeTokens = correctAttribute.split(" ");
+
+      for (const token of attributeTokens) {
+        // Check if the token is an exceptional term
+        if (exceptionalTerms.includes(token)) {
+          continue;
+        }
+
+        // If token is in correctAttributeTokens but isn't a special term like "Post-Modernism"
+        if (correctAttributeTokens.includes(token) && !token.includes("-")) {
+          return true;
+        }
+      }
+      return false;
+    };
     function getRandomAttributes(
       excludedAttributes: string[],
       count: number,
@@ -185,6 +187,8 @@ export function GameThree({ settingsData }: GameProps) {
 
     const shuffledAttributeOptions = shuffleArray(allAttributeOptions);
     setAttributeOptions(shuffledAttributeOptions);
+    console.log(shouldExclude(randomAttribute, correctAttribute)); // Output: true
+    console.log(shouldExclude(anotherRandomAttribute, correctAttribute)); // Output: false
   }, [country, correctAttributes]);
 
   const [hideImageMode, setHideImageMode] = useMode(
