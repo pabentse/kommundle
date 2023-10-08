@@ -114,7 +114,6 @@ export function Game({ settingsData }: GameProps) {
   }, [country.code]); // Now `country.code` is in dependency array
 
   const [isModalOpen, setIsModalOpen] = useState(true);
-  //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRound}.png`;
 
   // assuming currentRound is of type number
   const roundToImageIndexMapping: { [key in number]: number } = {

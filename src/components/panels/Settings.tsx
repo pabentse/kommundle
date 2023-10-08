@@ -65,7 +65,7 @@ export function Settings({
           </div>
         </header>
         <div className="flex p-1">
-          <input
+<input
             type="checkbox"
             id="setting-noImage"
             checked={settingsData.noImageMode}

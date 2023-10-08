@@ -105,7 +105,6 @@ export function GameThree({ settingsData }: GameProps) {
   console.log("gameLocked in beginning", gameLocked);
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
-  const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
   useEffect(() => {
     resetGuesses();
@@ -249,8 +248,6 @@ export function GameThree({ settingsData }: GameProps) {
   >([]);
 
   const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
-  //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
-
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
   useEffect(() => {
