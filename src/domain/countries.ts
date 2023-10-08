@@ -65,7 +65,7 @@ export const countries = [
     location: "Paris",
     country: "France",
     museum: "Musée du Louvre",
-    attributes: ["Renaissance", "Oil Painting"],
+    attributes: ["Renaissance", "High Renaissance"],
   },
   {
     code: "municip5045",
@@ -449,7 +449,7 @@ export const countries = [
     year: 1434,
     latitude: 51.507351,
     longitude: -0.127758,
-    attributes: ["Northern Renaissance", "Early Netherlandish"],
+    attributes: ["Flemish Painting", "Early Netherlandish"],
   },
   {
     code: "municip5073",

@@ -100,9 +100,9 @@ export function GameThree({ settingsData }: GameProps) {
     setGameLocked(false);
   }, [currentMetaRound, setcurrentRoundInThree]);
 
-  console.log("currentRoundInThree in beginning", currentRoundInThree);
+  /* console.log("currentRoundInThree in beginning", currentRoundInThree);
   console.log("currentMetaRound in beginning", currentMetaRound);
-  console.log("gameLocked in beginning", gameLocked);
+  console.log("gameLocked in beginning", gameLocked); */
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
   const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
@@ -111,12 +111,6 @@ export function GameThree({ settingsData }: GameProps) {
   }, [resetGuesses]);
 
   const correctAttributes = getAttributes(country);
-
-  // Example usage:
-  const correctAttribute = "Italian Renaissance";
-  const randomAttribute = "High Renaissance"; // This should be excluded
-  const anotherRandomAttribute = "Post-Modernism"; // This should not be excluded
-
   const [attributeOptions, setAttributeOptions] = useState<string[]>([]);
   useEffect(() => {
     const exceptionalTerms = ["Art", "Feminist", "Pop", "Abstract"]; // Add terms that should be exceptions
@@ -179,15 +173,16 @@ export function GameThree({ settingsData }: GameProps) {
       countries
     );
 
+    const shuffled = shuffleArray([...correctAttributes]);
+    const chosenCorrectAttributes = shuffled.slice(0, 2);
+
     const allAttributeOptions = [
-      ...correctAttributes,
+      ...chosenCorrectAttributes,
       ...randomAttributeOptions,
     ];
 
     const shuffledAttributeOptions = shuffleArray(allAttributeOptions);
     setAttributeOptions(shuffledAttributeOptions);
-    console.log(shouldExclude(randomAttribute, correctAttribute)); // Output: true
-    console.log(shouldExclude(anotherRandomAttribute, correctAttribute)); // Output: false
   }, [country, correctAttributes]);
 
   const [hideImageMode, setHideImageMode] = useMode(
