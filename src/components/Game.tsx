@@ -30,6 +30,7 @@ import Modal from "./Modal";
 import { GuessRow } from "./GuessRow";
 import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
+import { ScoreProvider, useScore } from "./ScoreContext";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -83,7 +84,6 @@ export function Game({ settingsData }: GameProps) {
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
-  //const [currentRound, setCurrentRound] = useState(MAX_TRY_COUNT - 1);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const [currentRound, setCurrentRound] = usePersistedState<number>(
     `currentRound-${today}`,
@@ -128,6 +128,8 @@ export function Game({ settingsData }: GameProps) {
   const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png`;
   //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
 
+  const { score, setScore } = useScore(); // Get the score from the context (global score)
+
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
   useEffect(() => {
@@ -153,7 +155,6 @@ export function Game({ settingsData }: GameProps) {
           sanitizeCountryName(getArtistName(i18n.resolvedLanguage, country)) ===
           sanitizeCountryName(currentGuess)
       );
-
       if (guessedCountry == null) {
         //If the guess is wrong
         toast.error("Unknown artist");
@@ -189,12 +190,16 @@ export function Game({ settingsData }: GameProps) {
         setCurrentRound(0); //Jump to the last round (last image)
         toast.success("Well done!", { delay: 50 });
         setIsExploding(true);
+        //we should now set the score, and it should give 3 points if the guess is correct on the first try, 2 on second, 1 on third
+        setScore(
+          (prevScore) => prevScore + (MAX_TRY_COUNT - guesses.length + 1)
+        );
       } else {
         setIsGuessCorrect(false);
         console.log("Wrong guess");
 
         if (isCorrectCenturyValue) {
-          setCenturyFeedback("Correct century!");
+          setCenturyFeedback("Correct century!"); //this is currently not used
         } else {
           setCenturyFeedback(null);
         }
@@ -202,12 +207,20 @@ export function Game({ settingsData }: GameProps) {
         setCurrentRound((round) => Math.max(0, round - 1)); //Jump to the next round (next image)
       }
     },
-    [addGuess, country, currentGuess, i18n.resolvedLanguage, setCurrentRound]
+    [
+      addGuess,
+      country,
+      currentGuess,
+      i18n.resolvedLanguage,
+      setCurrentRound,
+      setScore,
+      guesses.length,
+    ]
   );
 
   useEffect(() => {
     if (
-      guesses.length === MAX_TRY_COUNT && //If length of guesses is 6
+      guesses.length === MAX_TRY_COUNT && //If length of guesses is 3
       guesses[guesses.length - 1].distance > 0 //If the last guess is wrong?
     ) {
       toast.info(getArtistName(i18n.resolvedLanguage, country).toUpperCase(), {
