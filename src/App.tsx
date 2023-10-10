@@ -10,7 +10,12 @@ import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Stats } from "./components/panels/Stats";
 import { Worldle } from "./components/Worldle";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import { GameThree } from "./components/GameThree";
 import { ScoreProvider } from "./components/ScoreContext";
 

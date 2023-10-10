@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Parse the URL's path, and redirect to the same path but on the main domain
+      // Parse the URL's path and hash (if any)
       const path = window.location.pathname;
-      window.location.replace(`https://artle.eu/${path}`);
+      const hash = window.location.hash;
+
+      // Redirect to the root path, preserving the original path as a hash
+      window.location.replace(`https://artle.eu/#${path}${hash}`);
     </script>
   </head>
   <body>
