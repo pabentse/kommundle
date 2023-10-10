@@ -30,6 +30,7 @@ import Modal from "./Modal";
 import { GuessRow } from "./GuessRow";
 import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
+import { ScoreProvider, useScore } from "./ScoreContext";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -172,6 +173,8 @@ export function GameTwo({ settingsData }: GameProps) {
   const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
   //const image = `images/countries/${country.code.toLowerCase()}/vector${imageIndex}.png?${new Date().getTime()}`;
 
+  const { score, setScore } = useScore(); // Get the score from the context (global score)
+
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
   useEffect(() => {
@@ -239,7 +242,7 @@ export function GameTwo({ settingsData }: GameProps) {
     } else if (selectedYear === year && !isAnswerCorrect) {
       return "bg-red-500"; // Red for incorrect answer
     } else if (year === correctYear) {
-      return "bg-green-500"; // Green for the actual correct answer
+      return "bg-green-200"; // Green for the actual correct answer
     } else {
       return "bg-opacity-0"; // Lighter gray for other answers
     }
@@ -292,6 +295,7 @@ export function GameTwo({ settingsData }: GameProps) {
         toast.success("Correct year!", { delay: 100 });
         setIsExploding(true);
         setIsAnswerCorrect(true);
+        setScore(score + 1); // Increment the score by 1
         console.log("Updated guesses array:", guesses);
         console.log("Guess is correct");
       } else {
@@ -303,7 +307,15 @@ export function GameTwo({ settingsData }: GameProps) {
         console.log("Guess is wrong");
       }
     },
-    [correctYear, setCurrentRoundInTwo, guesses, addGuess, currentGuess]
+    [
+      correctYear,
+      setCurrentRoundInTwo,
+      guesses,
+      addGuess,
+      currentGuess,
+      setScore,
+      score,
+    ]
   );
 
   useEffect(() => {
@@ -328,6 +340,9 @@ export function GameTwo({ settingsData }: GameProps) {
       setGameLocked(true);
     }
   }, [currentRoundInTwo]);
+
+  console.log("score is:", score);
+
   return (
     <div className="flex-grow flex flex-col mx-2">
       <div className="flex flex-row justify-between">

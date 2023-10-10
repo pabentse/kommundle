@@ -76,7 +76,7 @@ export function NextRound({
   return (
     <Link to={nextRoundLink}>
       <button
-        className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full"
+        className="border-2 px-4 uppercase bg-blue-600 hover:bg-blue-400 active:bg-blue-700 text-white w-full"
         onClick={() => {
           // Reset state
           resetGuesses();

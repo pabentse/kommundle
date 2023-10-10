@@ -34,6 +34,7 @@ import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
 import seedrandom from "seedrandom";
 import { get } from "http";
+import { ScoreProvider, useScore } from "./ScoreContext";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -220,15 +221,15 @@ export function GameThree({ settingsData }: GameProps) {
 
     if (guess) {
       if (guess.isCorrect) {
-        return "bg-green-500 hover:bg-green-600";
+        return "bg-green-500 hover:bg-green-500";
       } else {
-        return "bg-red-500 hover:bg-red-600";
+        return "bg-red-500 hover:bg-red-500";
       }
     } else if (
       currentRoundInThree === 0 &&
       correctAttributes.includes(attribute)
     ) {
-      return "bg-green-300 hover:bg-green-500";
+      return "bg-green-200 hover:bg-green-200";
     } else {
       return "bg-opacity-0 hover:bg-gray-500";
     }
@@ -243,6 +244,9 @@ export function GameThree({ settingsData }: GameProps) {
   >([]);
 
   const image = `images/countries/${country.code.toLowerCase()}/vector0.png`;
+
+  const { score, setScore } = useScore(); // Get the score from the context (global score)
+
   const [isExploding, setIsExploding] = React.useState(false); //For confetti
 
   useEffect(() => {
@@ -255,7 +259,7 @@ export function GameThree({ settingsData }: GameProps) {
   }, [isExploding]);
 
   const roundOneEnded =
-    guesses.length === MAX_TRY_COUNT ||
+    guessedAttributes.length === 2 || //or
     guesses[guesses.length - 1]?.isCorrect === true;
 
   function shuffleArray(array: any[]): any[] {
@@ -268,6 +272,10 @@ export function GameThree({ settingsData }: GameProps) {
 
   const handleAttributeGuess = (guessedAttribute: string) => {
     const isCorrect = correctAttributes.includes(guessedAttribute);
+
+    if (isCorrect) {
+      setScore(score + 1); // Increase the score by 1
+    }
 
     setGuessedAttributes([
       ...guessedAttributes,
@@ -289,6 +297,10 @@ export function GameThree({ settingsData }: GameProps) {
       });
     }
   }, [country, guesses, i18n.resolvedLanguage]);
+
+  console.log("score is", score);
+  console.log("roundoneended is", roundOneEnded);
+
   return (
     <div className="flex-grow flex flex-col mx-2">
       <div className="flex flex-row justify-between">
@@ -329,32 +341,30 @@ export function GameThree({ settingsData }: GameProps) {
           </button>
         ))}
       </div>
-
-      {roundOneEnded && (
-        <>
-          {isExploding && (
-            <div className="confetti-container">
-              <ConfettiExplosion
-                force={1}
-                duration={3500}
-                particleCount={120}
-                width={2000}
-                height={800}
-              />
-            </div>
-          )}
-          <NextRound
-            guesses={guesses}
-            dayString={dayString}
-            settingsData={settingsData}
-            hideImageMode={hideImageMode}
-            rotationMode={rotationMode}
-            currentRound={currentRoundInThree} // Assuming GameTwo.tsx represents round 2
-            currentMetaRound={currentMetaRound}
-            setCurrentMetaRound={setCurrentMetaRound}
-          />
-        </>
-      )}
+      <div className="my-2">
+        {roundOneEnded ? (
+          <>
+            <Share
+              guesses={guesses}
+              dayString={dayString}
+              settingsData={settingsData}
+              hideImageMode={hideImageMode}
+              rotationMode={rotationMode}
+            />
+            {isExploding && (
+              <div className="confetti-container">
+                <ConfettiExplosion
+                  force={1}
+                  duration={3500}
+                  particleCount={120}
+                  width={2000}
+                  height={800}
+                />
+              </div>
+            )}
+          </>
+        ) : null}
+      </div>
     </div>
   );
 }

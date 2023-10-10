@@ -113,7 +113,7 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [country.code]); // Now `country.code` is in dependency array
 
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(true); //true if image should be big
 
   // assuming currentRound is of type number
   const roundToImageIndexMapping: { [key in number]: number } = {
@@ -191,9 +191,7 @@ export function Game({ settingsData }: GameProps) {
         toast.success("Well done!", { delay: 50 });
         setIsExploding(true);
         //we should now set the score, and it should give 3 points if the guess is correct on the first try, 2 on second, 1 on third
-        setScore(
-          (prevScore) => prevScore + (MAX_TRY_COUNT - guesses.length + 1)
-        );
+        setScore((prevScore) => prevScore + (MAX_TRY_COUNT - guesses.length));
       } else {
         setIsGuessCorrect(false);
         console.log("Wrong guess");
@@ -230,6 +228,9 @@ export function Game({ settingsData }: GameProps) {
       });
     }
   }, [country, guesses, i18n.resolvedLanguage]);
+
+  console.log("currentRound", currentRound);
+  console.log("score is", score);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
@@ -315,13 +316,6 @@ export function Game({ settingsData }: GameProps) {
                 setCurrentMetaRound={setCurrentMetaRound}
               />
             }
-            <Share
-              guesses={guesses}
-              dayString={dayString}
-              settingsData={settingsData}
-              hideImageMode={hideImageMode}
-              rotationMode={rotationMode}
-            />
             <a
               className="underline w-full text-center block mt-4"
               href={`https://www.google.com/maps?q=${getMusemName(
@@ -330,6 +324,7 @@ export function Game({ settingsData }: GameProps) {
               )},%20${getCityName(i18n.resolvedLanguage, country)}`}
               target="_blank"
               rel="noopener noreferrer"
+              style={{ fontSize: "11px" }}
             >
               {"Show on Google Maps"}
             </a>

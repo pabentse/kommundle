@@ -9,6 +9,7 @@ import {
 import { Guess } from "../domain/guess";
 import React from "react";
 import { SettingsData } from "../hooks/useSettings";
+import { ScoreProvider, useScore } from "./ScoreContext";
 
 const START_DATE = DateTime.fromISO("2023-02-24");
 
@@ -29,6 +30,8 @@ export function Share({
 }: ShareProps) {
   const { theme } = settingsData;
 
+  const { score, setScore } = useScore(); // Get the score from the context (global score)
+
   const shareText = useMemo(() => {
     const guessCount =
       guesses[guesses.length - 1]?.distance === 0 ? guesses.length : "X";
@@ -42,7 +45,8 @@ export function Share({
       : rotationMode
       ? " "
       : "";
-    const title = `#Artle #${dayCount} ${guessCount}/3${difficultyModifierEmoji}`;
+    const stars = "⭐️".repeat(score); // Create a string of stars based on the score
+    const title = `#Artle #${dayCount} ${stars} ${score}/6`;
 
     const guessString = guesses
       .map((guess) => {
@@ -52,7 +56,7 @@ export function Share({
       .join("\n");
 
     return [title, guessString, "https://artle.eu"].join("\n");
-  }, [dayString, guesses, hideImageMode, rotationMode, theme]);
+  }, [dayString, guesses, hideImageMode, rotationMode, theme, score]);
 
   return (
     <CopyToClipboard
