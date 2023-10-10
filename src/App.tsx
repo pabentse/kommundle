@@ -11,7 +11,7 @@ import { useSettings } from "./hooks/useSettings";
 import { Stats } from "./components/panels/Stats";
 import { Worldle } from "./components/Worldle";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Routes,
   useNavigate,
