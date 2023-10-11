@@ -87,6 +87,9 @@ export function GameThree({ settingsData }: GameProps) {
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
   const MAX_TRY_COUNT = 2; //Max number of guesses
 
+  //create a local score state, which is set to 0
+  const [localScore, setLocalScore] = useState(0);
+
   const countryInputRef = useRef<HTMLInputElement>(null);
   //const [currentRoundInThree, setcurrentRoundInThree] = useState(MAX_TRY_COUNT - 1);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
@@ -273,7 +276,11 @@ export function GameThree({ settingsData }: GameProps) {
   const handleAttributeGuess = (guessedAttribute: string) => {
     const isCorrect = correctAttributes.includes(guessedAttribute);
 
+    console.log("localScore is", localScore);
     if (isCorrect) {
+      // Increase the local score by 1
+      setLocalScore((prevLocalScore) => prevLocalScore + 1);
+      // Increase the global score by 1
       setScore(score + 1); // Increase the score by 1
     }
 
@@ -300,6 +307,14 @@ export function GameThree({ settingsData }: GameProps) {
 
   console.log("score is", score);
   console.log("roundoneended is", roundOneEnded);
+  console.log("isExploding is", isExploding);
+
+  if (localScore === 2) {
+    //set is exploding to true useState
+    setIsExploding(true); //For confetti
+    console.log("isExploding should now be true", isExploding);
+    setLocalScore(0); //Reset local score to 0
+  }
 
   return (
     <div className="flex-grow flex flex-col mx-2">
@@ -344,6 +359,19 @@ export function GameThree({ settingsData }: GameProps) {
       <div className="my-2">
         {roundOneEnded ? (
           <>
+            {isExploding && (
+              <div className="confetti-container">
+                {
+                  <ConfettiExplosion
+                    force={1}
+                    duration={3500}
+                    particleCount={120}
+                    width={2000}
+                    height={800}
+                  />
+                }
+              </div>
+            )}
             <Share
               guesses={guesses}
               dayString={dayString}
@@ -351,17 +379,6 @@ export function GameThree({ settingsData }: GameProps) {
               hideImageMode={hideImageMode}
               rotationMode={rotationMode}
             />
-            {isExploding && (
-              <div className="confetti-container">
-                <ConfettiExplosion
-                  force={1}
-                  duration={3500}
-                  particleCount={120}
-                  width={2000}
-                  height={800}
-                />
-              </div>
-            )}
           </>
         ) : null}
       </div>
