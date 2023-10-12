@@ -499,6 +499,18 @@ export const countries = [
     longitude: 2.338629,
     attributes: ["Romanticism", "French Revolution"],
   },
+  {
+    code: "municip5077",
+    name: "Girl With a Mandolin",
+    artist: "Pablo Picasso",
+    location: "New York City",
+    country: "Spain",
+    museum: "Museum of Modern Art",
+    year: 1910,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Cubism", "Modernism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
