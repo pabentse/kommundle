@@ -40,6 +40,7 @@ export const countryCodesWithImage = [
   "municip5075",
   "municip5076",
   "municip5077",
+  "municip5078",
 ];
 
 export interface Country {
@@ -511,6 +512,18 @@ export const countries = [
     latitude: 40.761509,
     longitude: -73.978271,
     attributes: ["Cubism", "Modernism"],
+  },
+  {
+    code: "municip5078",
+    name: "La maja vestida",
+    artist: "Francisco Goya",
+    location: "Madrid",
+    country: "Spain",
+    museum: "Museo del Prado",
+    year: 1800,
+    latitude: 40.416775,
+    longitude: -3.7037,
+    attributes: ["Romanticism", "Spanish Golden Age"],
   },
 ];
 

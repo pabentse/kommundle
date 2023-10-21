@@ -5,6 +5,7 @@ import { countriesWithImage, Country } from "../domain/countries";
 //hardcoded countries for each day
 const forcedCountries: Record<string, string> = {
   "14-10-2023": "municip5077",
+  "21-10-2023": "municip5078",
 };
 
 export function useCountry(dayString: string): [Country, number, number] {
