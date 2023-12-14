@@ -85,7 +85,7 @@ export function GameThree({ settingsData }: GameProps) {
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
-  const MAX_TRY_COUNT = 2; //Max number of guesses
+  const MAX_TRY_COUNT = 1; //Max number of guesses
 
   //create a local score state, which is set to 0
   const [localScore, setLocalScore] = useState(0);
@@ -173,16 +173,18 @@ export function GameThree({ settingsData }: GameProps) {
 
     const randomAttributeOptions = getRandomAttributes(
       correctAttributes,
-      4,
+      5,
       countries
     );
 
-    const shuffled = shuffleArray([...correctAttributes]);
-    const chosenCorrectAttributes = shuffled.slice(0, 2);
+    //const shuffled = shuffleArray([...correctAttributes]); //dette er kode fra da vi brukte 2 riktige attributter
+    //const chosenCorrectAttributes = shuffled.slice(0, 2);  //dette er kode fra da vi brukte 2 riktige attributter
+
+    const chosenCorrectAttributes = correctAttributes[0];
 
     const allAttributeOptions = [
-      ...chosenCorrectAttributes,
       ...randomAttributeOptions,
+      chosenCorrectAttributes,
     ];
 
     const shuffledAttributeOptions = shuffleArray(allAttributeOptions);
@@ -262,7 +264,7 @@ export function GameThree({ settingsData }: GameProps) {
   }, [isExploding]);
 
   const roundOneEnded =
-    guessedAttributes.length === 2 || //or
+    guessedAttributes.length === 1 || //or
     guesses[guesses.length - 1]?.isCorrect === true;
 
   function shuffleArray(array: any[]): any[] {
@@ -309,7 +311,7 @@ export function GameThree({ settingsData }: GameProps) {
   console.log("roundoneended is", roundOneEnded);
   console.log("isExploding is", isExploding);
 
-  if (localScore === 2) {
+  if (localScore === 1) {
     //set is exploding to true useState
     setIsExploding(true); //For confetti
     console.log("isExploding should now be true", isExploding);

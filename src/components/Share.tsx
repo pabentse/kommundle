@@ -46,7 +46,7 @@ export function Share({
       ? " "
       : "";
     const stars = "⭐️".repeat(score); // Create a string of stars based on the score
-    const title = `#Artle #${dayCount} ${stars} ${score}/6`;
+    const title = `#Artle #${dayCount} ${stars} ${score}/5`;
 
     const guessString = guesses
       .map((guess) => {
