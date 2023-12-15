@@ -41,6 +41,7 @@ export const countryCodesWithImage = [
   "municip5076",
   "municip5077",
   "municip5078",
+  "municip5079",
 ];
 
 export interface Country {
@@ -524,6 +525,18 @@ export const countries = [
     latitude: 40.416775,
     longitude: -3.7037,
     attributes: ["Romanticism", "Spanish Golden Age"],
+  },
+  {
+    code: "municip5079",
+    name: "Nighthawks",
+    artist: "Edward Hopper",
+    location: "Chicago",
+    country: "United States",
+    museum: "Art Institute of Chicago",
+    year: 1942,
+    latitude: 41.8781,
+    longitude: -87.6298,
+    attributes: ["American Realism", "Modernism"],
   },
 ];
 
