@@ -42,6 +42,7 @@ export const countryCodesWithImage = [
   "municip5077",
   "municip5078",
   "municip5079",
+  "municip5080",
 ];
 
 export interface Country {
@@ -537,6 +538,18 @@ export const countries = [
     latitude: 41.8781,
     longitude: -87.6298,
     attributes: ["American Realism", "Modernism"],
+  },
+  {
+    code: "municip5080",
+    name: "A bigger splash",
+    artist: "David Hockney",
+    location: "London",
+    country: "United Kingdom",
+    museum: "Tate Britain",
+    year: 1967,
+    latitude: 51.507351,
+    longitude: -0.127758,
+    attributes: ["Pop Art", "Modernism"],
   },
 ];
 
