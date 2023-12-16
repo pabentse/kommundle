@@ -135,11 +135,7 @@ function App() {
                 />
               </Routes>
               <footer className="flex justify-center text-sm mt-8 mb-1">
-                <a>
-                  {
-                    ""
-                  }
-                </a>
+                <a>{""}</a>
               </footer>
               <footer className="flex justify-center text-sm mt-8 mb-1">
                 <a>{"Image copyrights: Wiki Commons"}</a>
