@@ -16,7 +16,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the right artist in 6 tries or less. You can guess by typing in
+          Guess the right artist in 3 tries or less. You can guess by typing in
           the input field.
         </div>
         <div>Click on the picture to enlarge it.</div>
