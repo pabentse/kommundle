@@ -43,6 +43,7 @@ export const countryCodesWithImage = [
   "municip5078",
   "municip5079",
   "municip5080",
+  "municip5081",
 ];
 
 export interface Country {
@@ -550,6 +551,18 @@ export const countries = [
     latitude: 51.507351,
     longitude: -0.127758,
     attributes: ["Pop Art", "Modernism"],
+  },
+  {
+    code: "municip5081",
+    name: "460 Hommage au Tauchisme",
+    artist: "Friedensreich Hundertwasser",
+    location: "Vienna",
+    country: "Austria",
+    museum: "KunstHausWien",
+    year: 1961,
+    latitude: 48.210033,
+    longitude: 16.363449,
+    attributes: ["Abstract Art", "Modernism", "Expressionism"],
   },
 ];
 
