@@ -44,6 +44,7 @@ export const countryCodesWithImage = [
   "municip5079",
   "municip5080",
   "municip5081",
+  "municip5082",
 ];
 
 export interface Country {
@@ -564,6 +565,18 @@ export const countries = [
     longitude: 16.363449,
     attributes: ["Abstract Art", "Modernism", "Expressionism"],
   },
+  {
+    code: "municip5082",
+    name: "Number 1",
+    artist: "Jackson Pollock",
+    location: "New York City",
+    country: "United States",
+    museum: "Museum of Modern Art",
+    year: 1950,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Abstract Art", "Modernism", "Expressionism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
