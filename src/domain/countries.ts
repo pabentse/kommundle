@@ -45,6 +45,7 @@ export const countryCodesWithImage = [
   "municip5080",
   "municip5081",
   "municip5082",
+  "municip5083",
 ];
 
 export interface Country {
@@ -576,6 +577,18 @@ export const countries = [
     latitude: 40.761509,
     longitude: -73.978271,
     attributes: ["Abstract Art", "Modernism", "Expressionism"],
+  },
+  {
+    code: "municip5083",
+    name: "Three Studies for Figures at the Base of a Crucifixion",
+    artist: "Francis Bacon",
+    location: "London",
+    country: "United Kingdom",
+    museum: "Tate Britain",
+    year: 1944,
+    latitude: 51.507351,
+    longitude: -0.127758,
+    attributes: ["Expressionism", "Surrealism", "Modernism"],
   },
 ];
 
