@@ -46,6 +46,7 @@ export const countryCodesWithImage = [
   "municip5081",
   "municip5082",
   "municip5083",
+  "municip5084",
 ];
 
 export interface Country {
@@ -589,6 +590,18 @@ export const countries = [
     latitude: 51.507351,
     longitude: -0.127758,
     attributes: ["Expressionism", "Surrealism", "Modernism"],
+  },
+  {
+    code: "municip5084",
+    name: "A Rake's Progress",
+    artist: "William Hogarth",
+    location: "London",
+    country: "United Kingdom",
+    museum: "Sir John Soane's Museum",
+    year: 1735,
+    latitude: 51.507351,
+    longitude: -0.127758,
+    attributes: ["Rocooco", "British Art"],
   },
 ];
 
