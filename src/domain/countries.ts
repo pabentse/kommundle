@@ -627,7 +627,14 @@ export const countries = [
     year: 1598,
     latitude: 42.3314,
     longitude: -83.0458,
-    attributes: ["Baroque", "Italian Renaissance", "Renassiance", "Tenebrism", "Early Renaissance", "High Renaissance"],
+    attributes: [
+      "Baroque",
+      "Italian Renaissance",
+      "Renassiance",
+      "Tenebrism",
+      "Early Renaissance",
+      "High Renaissance",
+    ],
   },
 ];
 
