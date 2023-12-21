@@ -48,6 +48,7 @@ export const countryCodesWithImage = [
   "municip5083",
   "municip5084",
   "municip5085",
+  "municip5086",
 ];
 
 export interface Country {
@@ -615,6 +616,18 @@ export const countries = [
     latitude: 40.761509,
     longitude: -73.978271,
     attributes: ["Precisionism", "American Modernism", "Modernism"],
+  },
+  {
+    code: "municip5086",
+    name: "Martha and Mary Magdalene",
+    artist: "Caravaggio",
+    location: "Detroit",
+    country: "Italy",
+    museum: "Detroit Institute of Arts",
+    year: 1598,
+    latitude: 42.3314,
+    longitude: -83.0458,
+    attributes: ["Baroque", "Italian Renaissance", "Renassiance", "Tenebrism", "Early Renaissance", "High Renaissance"],
   },
 ];
 
