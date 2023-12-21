@@ -47,6 +47,7 @@ export const countryCodesWithImage = [
   "municip5082",
   "municip5083",
   "municip5084",
+  "municip5085",
 ];
 
 export interface Country {
@@ -602,6 +603,18 @@ export const countries = [
     latitude: 51.507351,
     longitude: -0.127758,
     attributes: ["Rocooco", "British Art"],
+  },
+  {
+    code: "municip5085",
+    name: "Canyon with Crows",
+    artist: "Georgia O'Keeffe",
+    location: "New York City",
+    country: "United States",
+    museum: "Metropolitan Museum of Art",
+    year: 1917,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Precisionism", "American Modernism", "Modernism"],
   },
 ];
 
