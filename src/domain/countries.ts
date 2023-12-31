@@ -49,6 +49,7 @@ export const countryCodesWithImage = [
   "municip5084",
   "municip5085",
   "municip5086",
+  "municip5087",
 ];
 
 export interface Country {
@@ -635,6 +636,18 @@ export const countries = [
       "Early Renaissance",
       "High Renaissance",
     ],
+  },
+  {
+    code: "municip5087",
+    name: "The Maids",
+    artist: "Paula Rego",
+    location: "London",
+    country: "United Kingdom",
+    museum: "Tate Britain",
+    year: 1987,
+    latitude: 51.507351,
+    longitude: -0.127758,
+    attributes: ["Expressionism", "Surrealism", "Modernism"],
   },
 ];
 
