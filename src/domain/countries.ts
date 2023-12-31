@@ -685,7 +685,19 @@ export const countries = [
     latitude: 45.4064,
     longitude: 11.8768,
     attributes: ["Proto-Renaissance", "Italian Renaissance"],
-  }
+  },
+  {
+    code: "municip5091",
+    name: "Sunset on the Seine in Winter",
+    artist: "Claude Monet",
+    location: "Paris",
+    country: "France",
+    museum: "Musée Marmottan Monet",
+    year: 1880,
+    latitude: 48.860294,
+    longitude: 2.338629,
+    attributes: ["Impressionism", "Pastoral"],
+  },
 ];
 
 export const countriesWithImage = countries.filter((c) =>
