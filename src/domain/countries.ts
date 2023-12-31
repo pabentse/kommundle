@@ -698,6 +698,30 @@ export const countries = [
     longitude: 2.338629,
     attributes: ["Impressionism", "Pastoral"],
   },
+  {
+    code: "municip5092",
+    name: "Pointe de la Hève at Low Tide",
+    artist: "Claude Monet",
+    location: "Paris",
+    country: "France",
+    museum: "Musée Marmottan Monet",
+    year: 1865,
+    latitude: 48.860294,
+    longitude: 2.338629,
+    attributes: ["Impressionism", "Pastoral"],
+  },
+  {
+    code: "municip5093",
+    name: "Adam and Eve",
+    artist: "Albrecht Dürer",
+    location: "Madrid",
+    country: "Spain",
+    museum: "Museo del Prado",
+    year: 1507,
+    latitude: 40.416775,
+    longitude: -3.7037,
+    attributes: ["Northern Renaissance", "Mannerism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
