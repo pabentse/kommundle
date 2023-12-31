@@ -50,6 +50,7 @@ export const countryCodesWithImage = [
   "municip5085",
   "municip5086",
   "municip5087",
+  "municip5088",
 ];
 
 export interface Country {
@@ -648,6 +649,18 @@ export const countries = [
     latitude: 51.507351,
     longitude: -0.127758,
     attributes: ["Expressionism", "Surrealism", "Modernism"],
+  },
+  {
+    code: "municip5088",
+    name: "Athens is Burning! The School of Athens and the Fire in the Borgo",
+    artist: "Salvador Dalí",
+    location: "Figueres",
+    country: "Spain",
+    museum: "Dalí Theatre and Museum",
+    year: 1979,
+    latitude: 42.2664,
+    longitude: 2.9636,
+    attributes: ["Surrealism", "Modernism"],
   },
 ];
 
