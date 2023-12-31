@@ -673,6 +673,18 @@ export const countries = [
     latitude: 53.4084,
     longitude: -2.9916,
     attributes: ["Northern Renaissance", "Mannerism"],
+  },
+  {
+    code: "municip5090",
+    name: "Kiss of Judas",
+    artist: "Giotto",
+    location: "Padua",
+    country: "Italy",
+    museum: "Scrovegni Chapel",
+    year: 1304,
+    latitude: 45.4064,
+    longitude: 11.8768,
+    attributes: ["Proto-Renaissance", "Italian Renaissance"],
   }
 ];
 
