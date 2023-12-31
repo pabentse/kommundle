@@ -662,6 +662,18 @@ export const countries = [
     longitude: 2.9636,
     attributes: ["Surrealism", "Modernism"],
   },
+  {
+    code: "municip5089",
+    name: "Portrait of Henry VIII",
+    artist: "Hans Holbein the Younger",
+    location: "Liverpool",
+    country: "United Kingdom",
+    museum: "Walker Art Gallery",
+    year: 1537,
+    latitude: 53.4084,
+    longitude: -2.9916,
+    attributes: ["Northern Renaissance", "Mannerism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
