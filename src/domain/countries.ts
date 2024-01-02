@@ -70,6 +70,8 @@ export const countryCodesWithImage = [
   "municip5105",
   "municip5106",
   "municip5107",
+  "municip5108",
+  "municip5109",
 ];
 
 export interface Country {
@@ -920,6 +922,32 @@ export const countries = [
     latitude: 40.416775,
     longitude: -3.7037,
     attributes: ["Baroque", "Tenebrism", "Renaissance", "Italian Renaissance"],
+  },
+  //next is office in a small city by hopper
+  {
+    code: "municip5108",
+    name: "Office in a Small City",
+    artist: "Edward Hopper",
+    location: "New York City",
+    country: "United States",
+    museum: "Metropolitan Museum of Art",
+    year: 1953,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["New Realism", "American Realism", "Modernism"],
+  },
+  // next is Mary Magdalen in Ecstasy by Caravaggio
+  {
+    code: "municip5109",
+    name: "Mary Magdalen in Ecstasy",
+    artist: "Caravaggio",
+    location: "Rome",
+    country: "Italy",
+    museum: "Galleria Doria Pamphilj",
+    year: 1606,
+    latitude: 41.9029,
+    longitude: 12.4534,
+    attributes: ["Baroque", "Tenebrism", "Italian Renaissance"],
   },
 ];
 
