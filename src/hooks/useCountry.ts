@@ -4,17 +4,6 @@ import { countriesWithImage, Country } from "../domain/countries";
 
 //hardcoded countries for each day
 const forcedCountries: Record<string, string> = {
-  "14-10-2023": "municip5077",
-  "22-10-2023": "municip5078",
-  "15-12-2023": "municip5079",
-  "16-12-2023": "municip5080",
-  "17-12-2023": "municip5081",
-  "18-12-2023": "municip5082",
-  "19-12-2023": "municip5083",
-  "20-12-2023": "municip5084",
-  "21-12-2023": "municip5085",
-  "22-12-2023": "municip5086",
-  "31-12-2023": "municip5087",
   "01-01-2024": "municip5088",
   "02-01-2024": "municip5089",
   "03-01-2024": "municip5090",
@@ -23,6 +12,18 @@ const forcedCountries: Record<string, string> = {
   "06-01-2024": "municip5093",
   "07-01-2024": "municip5094",
   "08-01-2024": "municip5095",
+  "09-01-2024": "municip5096",
+  "10-01-2024": "municip5097",
+  "11-01-2024": "municip5098",
+  "12-01-2024": "municip5099",
+  "13-01-2024": "municip5100",
+  "14-01-2024": "municip5101",
+  "15-01-2024": "municip5102",
+  "16-01-2024": "municip5103",
+  "17-01-2024": "municip5104",
+  "18-01-2024": "municip5105",
+  "19-01-2024": "municip5106",
+  "20-01-2024": "municip5107",
 };
 
 export function useCountry(dayString: string): [Country, number, number] {
