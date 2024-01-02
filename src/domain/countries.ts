@@ -72,6 +72,7 @@ export const countryCodesWithImage = [
   "municip5107",
   "municip5108",
   "municip5109",
+  "municip5110",
 ];
 
 export interface Country {
@@ -948,6 +949,19 @@ export const countries = [
     latitude: 41.9029,
     longitude: 12.4534,
     attributes: ["Baroque", "Tenebrism", "Italian Renaissance"],
+  },
+  //next is Untitled by Mark Rothko
+  {
+    code: "municip5110",
+    name: "Untitled",
+    artist: "Mark Rothko",
+    location: "New York City",
+    country: "United States",
+    museum: "Metropolitan Museum of Art",
+    year: 1947,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Abstract Art", "Expressionism", "Modernism"],
   },
 ];
 
