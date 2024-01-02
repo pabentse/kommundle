@@ -79,6 +79,9 @@ export const countryCodesWithImage = [
   "municip5114",
   "municip5115",
   "municip5116",
+  "municip5117",
+  "municip5118",
+  "municip5119",
 ];
 
 export interface Country {
@@ -1047,6 +1050,45 @@ export const countries = [
     longitude: 7.5886,
     attributes: ["Post-Impressionism", "Modernism"],
   },
+  //next is The Apotheosis of War by Vasily Vereshchagin
+  {
+    code: "municip5117",
+    name: "The Apotheosis of War",
+    artist: "Vasily Vereshchagin",
+    location: "Moscow",
+    country: "Russia",
+    museum: "State Tretyakov Gallery",
+    year: 1871,
+    latitude: 55.750446,
+    longitude: 37.599571,
+    attributes: ["Realism"],
+  },
+  //next is The Smile of the Flamboyant Wings by joan miro
+  {
+    code: "municip5118",
+    name: "The Smile of the Flamboyant Wings",
+    artist: "Joan Miró",
+    location: "New York City",
+    country: "Spain",
+    museum: "Museum of Modern Art",
+    year: 1953,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Surrealism", "Modernism"],
+  },
+  //next is Landscape with Girl Skipping Rope by salvador dali
+  {
+    code: "municip5119",
+    name: "Landscape with Girl Skipping Rope",
+    artist: "Salvador Dalí",
+    location: "New York City",
+    country: "Spain",
+    museum: "Museum of Modern Art",
+    year: 1936,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Surrealism", "Modernism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
