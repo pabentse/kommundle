@@ -57,6 +57,7 @@ export const countryCodesWithImage = [
   "municip5092",
   "municip5093",
   "municip5094",
+  "municip5095",
 ];
 
 export interface Country {
@@ -740,6 +741,18 @@ export const countries = [
     longitude: -91.5302,
     attributes: ["Abstract Art", "Modernism", "Expressionism"],
   },
+  {
+    code: "municip5095",
+    name: "Golgotha",
+    artist: "Marc Chagall",
+    location: "New York City",
+    country: "Belarus",
+    museum: "Museum of Modern Art",
+    year: 1912,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Cubism", "Modernism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
