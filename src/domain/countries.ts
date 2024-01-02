@@ -51,6 +51,12 @@ export const countryCodesWithImage = [
   "municip5086",
   "municip5087",
   "municip5088",
+  "municip5089",
+  "municip5090",
+  "municip5091",
+  "municip5092",
+  "municip5093",
+  "municip5094",
 ];
 
 export interface Country {
@@ -721,7 +727,19 @@ export const countries = [
     latitude: 40.416775,
     longitude: -3.7037,
     attributes: ["Northern Renaissance", "Mannerism"],
-  }
+  },
+  {
+    code: "municip5094",
+    name: "Mural",
+    artist: "Jackson Pollock",
+    location: "Iowa City",
+    country: "United States",
+    museum: "University of Iowa Museum of Art",
+    year: 1943,
+    latitude: 41.6611,
+    longitude: -91.5302,
+    attributes: ["Abstract Art", "Modernism", "Expressionism"],
+  },
 ];
 
 export const countriesWithImage = countries.filter((c) =>
