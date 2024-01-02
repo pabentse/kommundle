@@ -73,6 +73,11 @@ export const countryCodesWithImage = [
   "municip5108",
   "municip5109",
   "municip5110",
+  "municip5111",
+  "municip5112",
+  "municip5113",
+  "municip5114",
+  "municip5115",
 ];
 
 export interface Country {
@@ -961,6 +966,71 @@ export const countries = [
     year: 1947,
     latitude: 40.761509,
     longitude: -73.978271,
+    attributes: ["Abstract Art", "Expressionism", "Modernism"],
+  },
+  //next is young woman with a water pitcher by vermeer
+  {
+    code: "municip5111",
+    name: "Young Woman with a Water Pitcher",
+    artist: "Johannes Vermeer",
+    location: "New York City",
+    country: "Netherlands",
+    museum: "Metropolitan Museum of Art",
+    year: 1662,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Baroque", "Dutch Golden Age"],
+  },
+  //next is the ninth wave by Aivazovsky
+  {
+    code: "municip5112",
+    name: "The Ninth Wave",
+    artist: "Ivan Aivazovsky",
+    location: "Moscow",
+    country: "Russia",
+    museum: "State Tretyakov Gallery",
+    year: 1850,
+    latitude: 55.750446,
+    longitude: 37.599571,
+    attributes: ["Romanticism", "Realism"],
+  },
+  //next is barge haulers on the volga by Repin
+  {
+    code: "municip5113",
+    name: "Barge Haulers on the Volga",
+    artist: "Ilya Repin",
+    location: "Moscow",
+    country: "Russia",
+    museum: "State Tretyakov Gallery",
+    year: 1870,
+    latitude: 55.750446,
+    longitude: 37.599571,
+    attributes: ["Realism"],
+  },
+  //next is girl with peaches by serov
+  {
+    code: "municip5114",
+    name: "Girl With Peaches",
+    artist: "Valentin Serov",
+    location: "Moscow",
+    country: "Russia",
+    museum: "State Tretyakov Gallery",
+    year: 1887,
+    latitude: 55.750446,
+    longitude: 37.599571,
+    attributes: ["Impressionism", "Realism"],
+  },
+  //next is flora on sand by paul klee
+  {
+    code: "municip5115",
+    name: "Flora on Sand",
+    artist: "Paul Klee",
+    location: "Basel",
+    country: "Switzerland",
+    museum: "Kunstmuseum Basel",
+    year: 1927,
+    latitude: 47.5596,
+    longitude: 7.5886,
     attributes: ["Abstract Art", "Expressionism", "Modernism"],
   },
 ];
