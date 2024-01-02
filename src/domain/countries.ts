@@ -78,6 +78,7 @@ export const countryCodesWithImage = [
   "municip5113",
   "municip5114",
   "municip5115",
+  "municip5116",
 ];
 
 export interface Country {
@@ -1032,6 +1033,19 @@ export const countries = [
     latitude: 47.5596,
     longitude: 7.5886,
     attributes: ["Abstract Art", "Expressionism", "Modernism"],
+  },
+  //next is Self Portrait with Bandaged Ear by Van Gogh
+  {
+    code: "municip5116",
+    name: "Self Portrait with Bandaged Ear",
+    artist: "Vincent van Gogh",
+    location: "London",
+    country: "Netherlands",
+    museum: "Courtauld Gallery",
+    year: 1889,
+    latitude: 47.5596,
+    longitude: 7.5886,
+    attributes: ["Post-Impressionism", "Modernism"],
   },
 ];
 
