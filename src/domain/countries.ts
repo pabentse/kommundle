@@ -82,6 +82,7 @@ export const countryCodesWithImage = [
   "municip5117",
   "municip5118",
   "municip5119",
+  "municip5120",
 ];
 
 export interface Country {
@@ -1088,6 +1089,18 @@ export const countries = [
     latitude: 40.761509,
     longitude: -73.978271,
     attributes: ["Surrealism", "Modernism"],
+  },
+  {
+    code: "municip5120",
+    name: "Pumpkin installation",
+    artist: "Yayoi Kusama",
+    location: "Tokyo",
+    country: "Japan",
+    museum: "Mori Art Museum",
+    year: 1990,
+    latitude: 35.6762,
+    longitude: 139.6503,
+    attributes: ["Conceptual Art", "Feminist Art", "Contemporary Art", "Modernism"],
   },
 ];
 
