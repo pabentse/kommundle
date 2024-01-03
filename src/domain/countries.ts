@@ -89,6 +89,7 @@ export const countryCodesWithImage = [
   "municip5124",
   "municip5125",
   "municip5126",
+  "municip5127",
 ];
 
 export interface Country {
@@ -1190,6 +1191,19 @@ export const countries = [
     latitude: 59.3293,
     longitude: 18.0686,
     attributes: ["Abstract Art", "Modernism"],
+  },
+  //next is Pacific Coast Highway and Santa Monica by David Hockney
+  {
+    code: "municip5127",
+    name: "Pacific Coast Highway and Santa Monica",
+    artist: "David Hockney",
+    location: "Los Angeles",
+    country: "United Kingdom",
+    museum: "Los Angeles County Museum of Art",
+    year: 1990,
+    latitude: 34.0522,
+    longitude: -118.2437,
+    attributes: ["Pop Art", "Modernism"],
   },
 ];
 
