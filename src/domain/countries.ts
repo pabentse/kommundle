@@ -83,6 +83,8 @@ export const countryCodesWithImage = [
   "municip5118",
   "municip5119",
   "municip5120",
+  "municip5121",
+  "municip5122",
 ];
 
 export interface Country {
@@ -1100,7 +1102,38 @@ export const countries = [
     year: 1990,
     latitude: 35.6762,
     longitude: 139.6503,
-    attributes: ["Conceptual Art", "Feminist Art", "Contemporary Art", "Modernism"],
+    attributes: [
+      "Conceptual Art",
+      "Feminist Art",
+      "Contemporary Art",
+      "Modernism",
+    ],
+  },
+  //next is mao by andy warhol
+  {
+    code: "municip5121",
+    name: "Mao",
+    artist: "Andy Warhol",
+    location: "New York City",
+    country: "United States",
+    museum: "Museum of Modern Art",
+    year: 1972,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Pop Art", "Modernism"],
+  },
+  //next is The Wheat Sifters by Gustave Courbet
+  {
+    code: "municip5122",
+    name: "The Wheat Sifters",
+    artist: "Gustave Courbet",
+    location: "Paris",
+    country: "France",
+    museum: "Musée d'Orsay",
+    year: 1854,
+    latitude: 48.860294,
+    longitude: 2.338629,
+    attributes: ["Realism"],
   },
 ];
 
