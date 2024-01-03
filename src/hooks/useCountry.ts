@@ -39,6 +39,10 @@ const forcedCountries: Record<string, string> = {
   "02-02-2024": "municip5120",
   "03-02-2024": "municip5121",
   "04-02-2024": "municip5122",
+  "05-02-2024": "municip5123",
+  "06-02-2024": "municip5124",
+  "07-02-2024": "municip5125",
+  "08-02-2024": "municip5126",
 };
 
 export function useCountry(dayString: string): [Country, number, number] {

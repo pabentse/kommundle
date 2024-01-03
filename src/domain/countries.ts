@@ -85,6 +85,10 @@ export const countryCodesWithImage = [
   "municip5120",
   "municip5121",
   "municip5122",
+  "municip5123",
+  "municip5124",
+  "municip5125",
+  "municip5126",
 ];
 
 export interface Country {
@@ -1134,6 +1138,58 @@ export const countries = [
     latitude: 48.860294,
     longitude: 2.338629,
     attributes: ["Realism"],
+  },
+  //next is madonna litta by leonardo da vinci
+  {
+    code: "municip5123",
+    name: "Madonna Litta",
+    artist: "Leonardo da Vinci",
+    location: "Saint Petersburg",
+    country: "Italy",
+    museum: "Hermitage Museum",
+    year: 1490,
+    latitude: 59.9343,
+    longitude: 30.3351,
+    attributes: ["High Renaissance"],
+  },
+  //next is The Farm by Joan Miro
+  {
+    code: "municip5124",
+    name: "The Farm",
+    artist: "Joan Miró",
+    location: "Washington, D.C.",
+    country: "Spain",
+    museum: "National Gallery of Art",
+    year: 1921,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Cubism", "Primitivism", "Surrealism", "Modernism"],
+  },
+  //next is paris through the window by marc chagall
+  {
+    code: "municip5125",
+    name: "Paris Through the Window",
+    artist: "Marc Chagall",
+    location: "New York City",
+    country: "Belarus",
+    museum: "Solomon R. Guggenheim Museum",
+    year: 1913,
+    latitude: 40.761509,
+    longitude: -73.978271,
+    attributes: ["Cubism", "Modernism"],
+  },
+  //next is The Swan (No. 17) by Hilma af Klint
+  {
+    code: "municip5126",
+    name: "The Swan (No. 17)",
+    artist: "Hilma af Klint",
+    location: "Stockholm",
+    country: "Sweden",
+    museum: "Moderna Museet",
+    year: 1915,
+    latitude: 59.3293,
+    longitude: 18.0686,
+    attributes: ["Abstract Art", "Modernism"],
   },
 ];
 
