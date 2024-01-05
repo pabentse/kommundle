@@ -156,7 +156,7 @@ export function Game({ settingsData }: GameProps) {
           sanitizeCountryName(currentGuess)
       );
       if (guessedCountry == null) {
-        //If the guess is wrong
+        //If the guess is wrong?
         toast.error("Unknown artist");
         console.log("Unknown artist");
         return;
@@ -219,7 +219,8 @@ export function Game({ settingsData }: GameProps) {
   useEffect(() => {
     if (
       guesses.length === MAX_TRY_COUNT && //If length of guesses is 3
-      guesses[guesses.length - 1].distance > 0 //If the last guess is wrong?
+      //guesses[guesses.length - 1].distance > 0 //If the last guess is wrong?
+      guesses[guesses.length - 1].isCorrect === false
     ) {
       toast.info(getArtistName(i18n.resolvedLanguage, country).toUpperCase(), {
         //If the last guess is wrong, show the correct answer
