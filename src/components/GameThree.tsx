@@ -151,11 +151,11 @@ export function GameThree({ settingsData }: GameProps) {
           allCountries[Math.floor(rng() * allCountries.length)];
         const attributesForRandomCountry = getAttributes(randomCountry);
 
-        // Filter out excluded attributes
+        // Filter out excluded attributes and already chosen attributes
         const possibleAttributes = attributesForRandomCountry.filter((attr) => {
-          // Check exclusion against all correct attributes
-          return !excludedAttributes.some((correctAttr) =>
-            shouldExclude(attr, correctAttr)
+          return (
+            !excludedAttributes.includes(attr) && // Check if it's not an excluded attribute
+            !chosenAttributes.has(attr) // Check if it hasn't been chosen already
           );
         });
 

@@ -1,5 +1,10 @@
 {
   "i18n-ally.localesPaths": [
     "src"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#0B351D",
+    "titleBar.activeBackground": "#0F4A28",
+    "titleBar.activeForeground": "#F4FDF8"
+  }
 }
