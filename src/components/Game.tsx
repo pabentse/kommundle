@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import {
   countries,
   getCountryName,
@@ -76,7 +77,9 @@ const usePersistedState = <T,>(
 };
 
 export function Game({ settingsData }: GameProps) {
-  const [currentMetaRound, setCurrentMetaRound] = useState(1); // Or whatever initial value you want
+  const navigate = useNavigate(); // Hook to navigate programmatically
+  //const [currentMetaRound, setCurrentMetaRound] = useState(1); // Or whatever initial value you want
+
   const [currentGuessGlobal, setCurrentGuessGlobal] = useState("");
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
@@ -85,10 +88,24 @@ export function Game({ settingsData }: GameProps) {
 
   const countryInputRef = useRef<HTMLInputElement>(null);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
   const [currentRound, setCurrentRound] = usePersistedState<number>(
     `currentRound-${today}`,
     MAX_TRY_COUNT - 1
   );
+
+  const [currentMetaRound, setCurrentMetaRound] = usePersistedState<number>(
+    `currentMetaRound-${today}`, // Make sure this is unique and includes the date
+    1 // Default value if no persisted state is found
+  );
+
+  useEffect(() => {
+    // If the currentMetaRound is greater than 1, redirect to the corresponding round
+    if (currentMetaRound > 1) {
+      console.log("Redirecting to round", currentMetaRound);
+      navigate(`/round${currentMetaRound}`);
+    }
+  }, [currentMetaRound, navigate]);
 
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
@@ -230,7 +247,8 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [country, guesses, i18n.resolvedLanguage]);
 
-  console.log("currentRound", currentRound);
+  console.log("currentRound is ", currentRound);
+  console.log("currentMetaRound is ", currentMetaRound);
   console.log("score is", score);
 
   return (

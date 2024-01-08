@@ -109,7 +109,12 @@ function getWeightedRandomYear(
 }
 
 export function GameTwo({ settingsData }: GameProps) {
-  const [currentMetaRound, setCurrentMetaRound] = useState(2); // Or whatever initial value you want
+  //update the currentMetaRound to 2 using persistant state and setCurrentMetaRound function
+  const [currentMetaRound, setCurrentMetaRound] = usePersistedState<number>(
+    "currentMetaRound",
+    2
+  );
+
   const { i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
@@ -341,6 +346,8 @@ export function GameTwo({ settingsData }: GameProps) {
     }
   }, [currentRoundInTwo]);
 
+  console.log("currentRoundInTwo is:", currentRoundInTwo);
+  console.log("currentMetaRound is:", currentMetaRound);
   console.log("score is:", score);
 
   return (
