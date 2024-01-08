@@ -213,11 +213,11 @@ export function Game({ settingsData }: GameProps) {
         setIsGuessCorrect(false);
         console.log("Wrong guess");
 
-        if (isCorrectCenturyValue) {
+        /* if (isCorrectCenturyValue) {
           setCenturyFeedback("Correct century!"); //this is currently not used
         } else {
           setCenturyFeedback(null);
-        }
+        } */
 
         setCurrentRound((round) => Math.max(0, round - 1)); //Jump to the next round (next image)
       }

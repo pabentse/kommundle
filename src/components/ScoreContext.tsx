@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 interface ScoreContextProps {
   score: number;
@@ -15,8 +15,36 @@ export const useScore = () => {
   return context;
 };
 
+const usePersistedState = <T,>(
+  key: string,
+  defaultValue: T
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
+  const [state, setState] = useState<T>(() => {
+    try {
+      const savedState = window.localStorage.getItem(key);
+      if (savedState) {
+        return JSON.parse(savedState);
+      }
+    } catch (err) {
+      // If the JSON is malformed or it's an empty document it will fall in this block
+      console.error(
+        `Error parsing state for key "${key}" from localstorage`,
+        err
+      );
+    }
+    return defaultValue; // If no valid data was found, return the default value
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+};
+
 export const ScoreProvider: React.FC = ({ children }) => {
-  const [score, setScore] = useState<number>(0);
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  const [score, setScore] = usePersistedState<number>(`score-${today}`, 0);
 
   return (
     <ScoreContext.Provider value={{ score, setScore }}>
