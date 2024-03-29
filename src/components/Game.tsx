@@ -32,10 +32,8 @@ import { GuessRow } from "./GuessRow";
 import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
 import { ScoreProvider, useScore } from "./ScoreContext";
-
-function getDayString() {
-  return DateTime.now().toFormat("yyyy-MM-dd");
-}
+import { MetaRoundProvider, useMetaRound } from "./MetaRoundContext";
+import { Guess, saveGuesses } from "../domain/guess";
 
 function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
@@ -82,7 +80,6 @@ export function Game({ settingsData }: GameProps) {
 
   const [currentGuessGlobal, setCurrentGuessGlobal] = useState("");
   const { i18n } = useTranslation();
-  const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
 
@@ -102,7 +99,7 @@ export function Game({ settingsData }: GameProps) {
   useEffect(() => {
     // If the currentMetaRound is greater than 1, redirect to the corresponding round
     if (currentMetaRound > 1) {
-      console.log("Redirecting to round", currentMetaRound);
+      //console.log("Redirecting to round", currentMetaRound);
       navigate(`/round${currentMetaRound}`);
     }
   }, [currentMetaRound, navigate]);
@@ -110,7 +107,34 @@ export function Game({ settingsData }: GameProps) {
   const [country, randomAngle, imageScale] = useCountry(dayStringNew);
 
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, addGuess, resetGuesses] = useGuesses(dayStringNew);
+
+  const [guesses, setGuesses] = useState<Guess[]>([]);
+
+  useEffect(() => {
+    const storedGuesses = localStorage.getItem("guesses");
+    console.log("Loaded guesses from storage:", storedGuesses); // Debugging line 1
+    const allGuesses = storedGuesses ? JSON.parse(storedGuesses) : {};
+    console.log("Parsed guesses for all days:", allGuesses); // Debugging line 2
+    const todayGuesses = allGuesses[dayStringNew] || [];
+    console.log(`Parsed guesses for ${dayStringNew}:`, todayGuesses); // Debugging line 3
+    setGuesses(todayGuesses);
+  }, [dayStringNew]); // This useEffect depends on dayStringNew, so it runs when dayStringNew changes
+
+  const addGuess = useCallback(
+    (newGuess: Guess) => {
+      setGuesses((prevGuesses) => {
+        const updatedGuesses = [...prevGuesses, newGuess];
+        // After updating the local state, save the new list of guesses to localStorage
+        const storedGuesses = localStorage.getItem("guesses");
+        const allGuesses = storedGuesses ? JSON.parse(storedGuesses) : {};
+        allGuesses[dayStringNew] = updatedGuesses; // Make sure dayStringNew has the correct format
+        localStorage.setItem("guesses", JSON.stringify(allGuesses));
+        return updatedGuesses;
+      });
+    },
+    [dayStringNew]
+  ); // Ensuring dayStringNew is used correctly here
+
   const [hideImageMode, setHideImageMode] = useMode(
     "hideImageMode",
     dayStringNew,
@@ -118,7 +142,7 @@ export function Game({ settingsData }: GameProps) {
   );
   const [rotationMode, setRotationMode] = useMode(
     "rotationMode",
-    dayString,
+    dayStringNew,
     settingsData.rotationMode
   );
 
@@ -130,7 +154,15 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [country.code]); // Now `country.code` is in dependency array
 
-  const [isModalOpen, setIsModalOpen] = useState(true); //true if image should be big
+  // Using usePersistedState for isModalOpen to persist its state across sessions for the same day
+  const [isModalOpen, setIsModalOpen] = usePersistedState<boolean>(
+    `isModalOpen-${today}`,
+    true // Default to true, can be set to false based on your game's logic
+  );
+
+  useEffect(() => {
+    saveGuesses(dayStringNew, guesses);
+  }, [guesses, dayStringNew]);
 
   // assuming currentRound is of type number
   const roundToImageIndexMapping: { [key in number]: number } = {
@@ -175,7 +207,7 @@ export function Game({ settingsData }: GameProps) {
       if (guessedCountry == null) {
         //If the guess is wrong?
         toast.error("Unknown artist");
-        console.log("Unknown artist");
+        //console.log("Unknown artist");
         return;
       }
       const isCorrect =
@@ -199,7 +231,8 @@ export function Game({ settingsData }: GameProps) {
         countryNew: guessedCountry.country,
       };
 
-      addGuess(newGuess);
+      addGuess(newGuess); // Use the addGuess function here
+
       setCurrentGuess("");
 
       if (isCorrect) {
@@ -211,7 +244,7 @@ export function Game({ settingsData }: GameProps) {
         setScore((prevScore) => prevScore + (MAX_TRY_COUNT - guesses.length));
       } else {
         setIsGuessCorrect(false);
-        console.log("Wrong guess");
+        //console.log("Wrong guess");
 
         /* if (isCorrectCenturyValue) {
           setCenturyFeedback("Correct century!"); //this is currently not used
@@ -247,9 +280,9 @@ export function Game({ settingsData }: GameProps) {
     }
   }, [country, guesses, i18n.resolvedLanguage]);
 
-  console.log("currentRound is ", currentRound);
-  console.log("currentMetaRound is ", currentMetaRound);
-  console.log("score is", score);
+  //console.log("currentRound is ", currentRound);
+  //console.log("currentMetaRound is ", currentMetaRound);
+  //console.log("score is", score);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
@@ -284,7 +317,7 @@ export function Game({ settingsData }: GameProps) {
               } cursor-pointer`}
               alt="country to guess"
               src={image}
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => setIsModalOpen(true)} //zoom
               style={{
                 transition: "filter 0.5s ease-in-out",
               }}
@@ -326,7 +359,7 @@ export function Game({ settingsData }: GameProps) {
             {
               <NextRound
                 guesses={guesses}
-                dayString={dayString}
+                dayString={dayStringNew}
                 settingsData={settingsData}
                 hideImageMode={hideImageMode}
                 rotationMode={rotationMode}

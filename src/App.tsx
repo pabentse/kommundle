@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import { GameThree } from "./components/GameThree";
 import { ScoreProvider } from "./components/ScoreContext";
+import { MetaRoundProvider } from "./components/MetaRoundContext";
 
 function App() {
   const { i18n } = useTranslation();
@@ -39,6 +40,7 @@ function App() {
   }, [settingsData.theme]);
 
   return (
+    <MetaRoundProvider>
     <ScoreProvider>
       <>
         <Router>
@@ -156,6 +158,7 @@ function App() {
         </Router>
       </>
     </ScoreProvider>
+    </MetaRoundProvider>
   );
 }
 

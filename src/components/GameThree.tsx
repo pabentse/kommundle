@@ -220,7 +220,12 @@ export function GameThree({ settingsData }: GameProps) {
     }
   }, [currentRoundInThree]);
 
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  // Using usePersistedState for isModalOpen to persist its state across sessions for the same day
+  const [isModalOpen, setIsModalOpen] = usePersistedState<boolean>(
+    `isModalOpen-${today}`,
+    true // Default to true, can be set to false based on your game's logic
+  );
+
   const getButtonStyle = (attribute: string) => {
     const guess = guessedAttributes.find((g) => g.attribute === attribute);
 

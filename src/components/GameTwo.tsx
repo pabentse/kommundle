@@ -32,10 +32,6 @@ import ConfettiExplosion from "confetti-explosion-react";
 import { NextRound } from "./NextRound";
 import { ScoreProvider, useScore } from "./ScoreContext";
 
-function getDayString() {
-  return DateTime.now().toFormat("yyyy-MM-dd");
-}
-
 function getDayStringNew() {
   return DateTime.now().toFormat("dd-MM-yyyy");
 }
@@ -116,7 +112,6 @@ export function GameTwo({ settingsData }: GameProps) {
   );
 
   const { i18n } = useTranslation();
-  const dayString = useMemo(getDayString, []);
   const dayStringNew = useMemo(getDayStringNew, []);
   const [isGuessCorrect, setIsGuessCorrect] = useState(false);
   const [gameLocked, setGameLocked] = useState(false);
@@ -150,7 +145,7 @@ export function GameTwo({ settingsData }: GameProps) {
   );
   const [rotationMode, setRotationMode] = useMode(
     "rotationMode",
-    dayString,
+    dayStringNew,
     settingsData.rotationMode
   );
 
@@ -162,7 +157,11 @@ export function GameTwo({ settingsData }: GameProps) {
     }
   }, [country.code]); // Now `country.code` is in dependency array
 
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  // Using usePersistedState for isModalOpen to persist its state across sessions for the same day
+  const [isModalOpen, setIsModalOpen] = usePersistedState<boolean>(
+    `isModalOpen-${today}`,
+    true // Default to true, can be set to false based on your game's logic
+  );
   //const image = `images/countries/${country.code.toLowerCase()}/vector${currentRoundInTwo}.png`;
 
   // assuming currentRoundInTwo is of type number
@@ -410,7 +409,7 @@ export function GameTwo({ settingsData }: GameProps) {
           )}
           <NextRound
             guesses={guesses}
-            dayString={dayString}
+            dayString={dayStringNew}
             settingsData={settingsData}
             hideImageMode={hideImageMode}
             rotationMode={rotationMode}
