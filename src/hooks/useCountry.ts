@@ -4,6 +4,7 @@ import { countriesWithImage, Country } from "../domain/countries";
 
 //hardcoded countries for each day
 const forcedCountries: Record<string, string> = {
+  "11-05-2024": "municip5100",
   "12-05-2024": "municip5128",
   "13-05-2024": "municip5127",
   "14-05-2024": "municip5126",
