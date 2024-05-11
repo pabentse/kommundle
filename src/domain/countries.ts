@@ -90,6 +90,7 @@ export const countryCodesWithImage = [
   "municip5125",
   "municip5126",
   "municip5127",
+  "municip5128",
 ];
 
 export interface Country {
@@ -1205,6 +1206,18 @@ export const countries = [
     longitude: -118.2437,
     attributes: ["Pop Art", "Modernism"],
   },
+  {
+    code: "municip5128",
+    name: "Composition A",
+    artist: "Piet Mondrian",
+    location: "Rome",
+    country: "Italy",
+    museum: "Galleria Nazionale d'Arte Moderna",
+    year: 1923,
+    latitude: 41.9029,
+    longitude: 12.4534,
+    attributes: ["Abstract Art", "Modernism"],
+  }
 ];
 
 export const countriesWithImage = countries.filter((c) =>
