@@ -1217,7 +1217,7 @@ export const countries = [
     latitude: 41.9029,
     longitude: 12.4534,
     attributes: ["Abstract Art", "Modernism"],
-  }
+  },
 ];
 
 export const countriesWithImage = countries.filter((c) =>
