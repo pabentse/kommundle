@@ -41,123 +41,123 @@ function App() {
 
   return (
     <MetaRoundProvider>
-    <ScoreProvider>
-      <>
-        <Router>
-          <ToastContainer
-            hideProgressBar
-            position="top-center"
-            transition={Flip}
-            theme={settingsData.theme}
-            autoClose={2000}
-            bodyClassName="font-bold text-center"
-          />
-          {i18n.resolvedLanguage === "no" ? (
-            <InfosFr
-              isOpen={infoOpen}
-              close={() => setInfoOpen(false)}
-              settingsData={settingsData}
+      <ScoreProvider>
+        <>
+          <Router>
+            <ToastContainer
+              hideProgressBar
+              position="top-center"
+              transition={Flip}
+              theme={settingsData.theme}
+              autoClose={2000}
+              bodyClassName="font-bold text-center"
             />
-          ) : (
-            <Infos
-              isOpen={infoOpen}
-              close={() => setInfoOpen(false)}
+            {i18n.resolvedLanguage === "no" ? (
+              <InfosFr
+                isOpen={infoOpen}
+                close={() => setInfoOpen(false)}
+                settingsData={settingsData}
+              />
+            ) : (
+              <Infos
+                isOpen={infoOpen}
+                close={() => setInfoOpen(false)}
+                settingsData={settingsData}
+              />
+            )}
+            <Settings
+              isOpen={settingsOpen}
+              close={() => setSettingsOpen(false)}
               settingsData={settingsData}
+              updateSettings={updateSettings}
             />
-          )}
-          <Settings
-            isOpen={settingsOpen}
-            close={() => setSettingsOpen(false)}
-            settingsData={settingsData}
-            updateSettings={updateSettings}
-          />
-          <Stats
-            isOpen={statsOpen}
-            close={() => setStatsOpen(false)}
-            distanceUnit={settingsData.distanceUnit}
-          />
-          <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
-            <div className="w-full max-w-lg flex flex-col">
-              <header className="border-b-2 px-3 border-gray-200 flex">
-                <button
-                  className="mr-3 text-xl"
-                  type="button"
-                  onClick={() => setInfoOpen(true)}
-                >
-                  ❓
-                </button>
-                <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-                  ART<span className="text-green-600">L</span>E
-                </h1>
-                <button
-                  className="ml-3 text-xl"
-                  type="button"
-                  onClick={() => setStatsOpen(true)}
-                >
-                  📈
-                </button>
-                <button
-                  className="ml-3 text-xl"
-                  type="button"
-                  onClick={() => setSettingsOpen(true)}
-                >
-                  ⚙️
-                </button>
-              </header>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Game
-                      settingsData={settingsData}
-                      currentMetaRound={currentMetaRound}
-                      setCurrentMetaRound={setCurrentMetaRound}
-                    />
-                  }
-                />
-                <Route
-                  path="/round2"
-                  element={
-                    <GameTwo
-                      settingsData={settingsData}
-                      currentMetaRound={currentMetaRound}
-                      setCurrentMetaRound={setCurrentMetaRound}
-                    />
-                  }
-                />
-                <Route
-                  path="/round3"
-                  element={
-                    <GameThree
-                      settingsData={settingsData}
-                      currentMetaRound={currentMetaRound}
-                      setCurrentMetaRound={setCurrentMetaRound}
-                    />
-                  }
-                />
-              </Routes>
-              <footer className="flex justify-center text-sm mt-8 mb-1">
-                <a>{""}</a>
-              </footer>
-              <footer className="flex justify-center text-sm mt-8 mb-1">
-                <a>{"Image copyrights: Wiki Commons"}</a>
-              </footer>
-              <footer className="flex justify-center text-sm mt-8 mb-1">
-                ❤️ <Worldle />? -
-                <a
-                  className="underline pl-1"
-                  href="https://ko-fi.com/artle"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {"Buy me a coffee!"}
-                </a>
-              </footer>
+            <Stats
+              isOpen={statsOpen}
+              close={() => setStatsOpen(false)}
+              distanceUnit={settingsData.distanceUnit}
+            />
+            <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
+              <div className="w-full max-w-lg flex flex-col">
+                <header className="border-b-2 px-3 border-gray-200 flex">
+                  <button
+                    className="mr-3 text-xl"
+                    type="button"
+                    onClick={() => setInfoOpen(true)}
+                  >
+                    ❓
+                  </button>
+                  <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
+                    ART<span className="text-green-600">L</span>E
+                  </h1>
+                  <button
+                    className="ml-3 text-xl"
+                    type="button"
+                    onClick={() => setStatsOpen(true)}
+                  >
+                    📈
+                  </button>
+                  <button
+                    className="ml-3 text-xl"
+                    type="button"
+                    onClick={() => setSettingsOpen(true)}
+                  >
+                    ⚙️
+                  </button>
+                </header>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <Game
+                        settingsData={settingsData}
+                        currentMetaRound={currentMetaRound}
+                        setCurrentMetaRound={setCurrentMetaRound}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/round2"
+                    element={
+                      <GameTwo
+                        settingsData={settingsData}
+                        currentMetaRound={currentMetaRound}
+                        setCurrentMetaRound={setCurrentMetaRound}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/round3"
+                    element={
+                      <GameThree
+                        settingsData={settingsData}
+                        currentMetaRound={currentMetaRound}
+                        setCurrentMetaRound={setCurrentMetaRound}
+                      />
+                    }
+                  />
+                </Routes>
+                <footer className="flex justify-center text-sm mt-8 mb-1">
+                  <a>{""}</a>
+                </footer>
+                <footer className="flex justify-center text-sm mt-8 mb-1">
+                  <a>{"Image copyrights: Wiki Commons"}</a>
+                </footer>
+                <footer className="flex justify-center text-sm mt-8 mb-1">
+                  ❤️ <Worldle />? -
+                  <a
+                    className="underline pl-1"
+                    href="https://ko-fi.com/artle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {"Buy me a coffee!"}
+                  </a>
+                </footer>
+              </div>
             </div>
-          </div>
-        </Router>
-      </>
-    </ScoreProvider>
+          </Router>
+        </>
+      </ScoreProvider>
     </MetaRoundProvider>
   );
 }
