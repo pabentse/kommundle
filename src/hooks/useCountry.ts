@@ -51,12 +51,13 @@ const forcedCountries: Record<string, string> = {
   "05-06-2024": "municip5104",
 };
 
-
 export function useCountry(dayString: string): [Country, number, number] {
   const country = useMemo(() => {
     const forcedCountryCode = forcedCountries[dayString];
     if (forcedCountryCode) {
-      const forcedCountry = countriesWithImage.find((c) => c.code === forcedCountryCode);
+      const forcedCountry = countriesWithImage.find(
+        (c) => c.code === forcedCountryCode
+      );
       if (forcedCountry) return forcedCountry;
     }
 
@@ -76,7 +77,10 @@ export function useCountry(dayString: string): [Country, number, number] {
     return chosen;
   }, [dayString]);
 
-  const randomAngle = useMemo(() => seedrandom.alea(dayString)() * 360, [dayString]);
+  const randomAngle = useMemo(
+    () => seedrandom.alea(dayString)() * 360,
+    [dayString]
+  );
 
   const imageScale = useMemo(() => {
     const normalizedAngle = 45 - (randomAngle % 90);
