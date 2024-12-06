@@ -2,6 +2,25 @@ import { useMemo } from "react";
 import seedrandom from "seedrandom";
 import { countriesWithImage, Country } from "../domain/countries";
 
+function getMonthKey(dayString: string): string {
+  // dayString format dd-MM-yyyy
+  const parts = dayString.split("-");
+  const day = parseInt(parts[0], 10);
+  const month = parts[1];
+  const year = parts[2];
+  return `${year}-${month}`;
+}
+
+// Fisher-Yates shuffle
+function shuffleArray<T>(array: T[], rng: () => number): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 //hardcoded countries for each day
 const forcedCountries: Record<string, string> = {
   "11-05-2024": "municip5100",
@@ -32,32 +51,32 @@ const forcedCountries: Record<string, string> = {
   "05-06-2024": "municip5104",
 };
 
+
 export function useCountry(dayString: string): [Country, number, number] {
   const country = useMemo(() => {
     const forcedCountryCode = forcedCountries[dayString];
-    const forcedCountry =
-      forcedCountryCode != null
-        ? countriesWithImage.find(
-            (country) => country.code === forcedCountryCode
-          )
-        : undefined;
-    if (forcedCountry) {
-      console.log(`Forced country for ${dayString}:`, forcedCountry);
-    } else {
-      console.log(`No forced country for ${dayString}.`);
+    if (forcedCountryCode) {
+      const forcedCountry = countriesWithImage.find((c) => c.code === forcedCountryCode);
+      if (forcedCountry) return forcedCountry;
     }
-    return (
-      forcedCountry ??
-      countriesWithImage[
-        Math.floor(seedrandom.alea(dayString)() * countriesWithImage.length)
-      ]
-    );
+
+    // Determine the month key and day index
+    const monthKey = getMonthKey(dayString);
+    const day = parseInt(dayString.split("-")[0], 10); // dd
+
+    // Seedrandom with the month key
+    const rng = seedrandom.alea(monthKey);
+
+    // Shuffle countries once per month based on monthKey
+    const shuffledCountries = shuffleArray(countriesWithImage, rng);
+
+    // Pick the (day-1)-th element, ensuring no repeats in the same month
+    // If you have fewer days than images, no problem. If more, you may wrap around or handle differently.
+    const chosen = shuffledCountries[day - 1];
+    return chosen;
   }, [dayString]);
 
-  const randomAngle = useMemo(
-    () => seedrandom.alea(dayString)() * 360,
-    [dayString]
-  );
+  const randomAngle = useMemo(() => seedrandom.alea(dayString)() * 360, [dayString]);
 
   const imageScale = useMemo(() => {
     const normalizedAngle = 45 - (randomAngle % 90);
