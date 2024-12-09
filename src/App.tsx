@@ -140,7 +140,7 @@ function App() {
                   <a>{""}</a>
                 </footer>
                 <footer className="flex justify-center text-sm mt-8 mb-1">
-                  <a>{"Image copyrights: Wiki Commons :)"}</a>
+                  <a>{"Image copyrights: Wiki Commons"}</a>
                 </footer>
                 <footer className="flex justify-center text-sm mt-8 mb-1">
                   ❤️ <Worldle />? -
